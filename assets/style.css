@@ -22,3 +22,8 @@ form.picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem
 form.picker label{font-weight:700;display:block}select,input{font:inherit;padding:.45rem .5rem;border:2px solid #6b7a83;border-radius:6px;background:#fff;color:var(--ink);width:100%}
 footer.site{background:var(--navy);color:#eef3f6;padding:1.5rem 0;margin-top:2rem}footer.site a{color:#ffd59a}.flinks{line-height:2}.legal-line{font-size:.9rem;color:var(--muted)}footer .legal-line{color:#cfd9de}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.consent{position:fixed;left:1rem;right:1rem;bottom:1rem;z-index:40;max-width:52rem;margin:0 auto;background:#fff;color:var(--ink);border:2px solid var(--navy);border-radius:10px;box-shadow:0 8px 24px rgba(11,57,84,.18);padding:.8rem 1rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.consent[hidden]{display:none}
+.consent p{margin:0;flex:1 1 16rem}
+.consent .btn{margin:0}
+@media print{.consent{display:none!important}}

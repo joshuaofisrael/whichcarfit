@@ -1,6 +1,6 @@
 #!/bin/bash
-# Build, QA, and the legal gate. Does not push. Launch (indexable pages) is
-# python3 _build/build.py after setting NOINDEX = False in _build/config.py.
+# Build, QA, and the legal gate for the committed flags. Does not push.
+# Launch (NOINDEX = False and a real GA4_ID) is documented in LAUNCH-NOTES.md.
 set -e
 cd "$(dirname "$0")"
 python3 _build/nhtsa_fetch.py
