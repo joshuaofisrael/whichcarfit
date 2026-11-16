@@ -3,11 +3,11 @@
 NOINDEX is the one flag that keeps every page out of search until the domain
 is the live host. Set it to False only for the launch build.
 """
-NOINDEX = True
+NOINDEX = False
 # Measurement ID from GA4 (looks like G-XXXXXXXXXX). Empty until the owner
 # pastes it. The launch check fails while this is empty. Not a secret, but
 # do not invent one here.
-GA4_ID = ""
+GA4_ID = "G-D1K0454SBE"
 BASE_URL = "https://whichcarfit.com/"
 BRAND = "Which Car Fit"
 DOMAIN = "whichcarfit.com"
