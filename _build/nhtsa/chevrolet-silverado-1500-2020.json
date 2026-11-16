@@ -1,0 +1,113 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "SILVERADO 1500",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=SILVERADO+1500&modelYear=2020",
+    "count": 12,
+    "items": [
+     {
+      "id": "19V814000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "14/11/2019",
+      "park": false
+     },
+     {
+      "id": "19V837000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "21/11/2019",
+      "park": false
+     },
+     {
+      "id": "19V888000",
+      "component": "ELECTRICAL SYSTEM:12V/24V/48V BATTERY:CABLES",
+      "date": "12/12/2019",
+      "park": false
+     },
+     {
+      "id": "20V116000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:CALIPER",
+      "date": "27/02/2020",
+      "park": false
+     },
+     {
+      "id": "20V446000",
+      "component": "AIR BAGS:SIDE/WINDOW:CURTAIN:INFLATOR",
+      "date": "30/07/2020",
+      "park": false
+     },
+     {
+      "id": "20V650000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "22/10/2020",
+      "park": false
+     },
+     {
+      "id": "20V684000",
+      "component": "TIRES",
+      "date": "05/11/2020",
+      "park": false
+     },
+     {
+      "id": "20V792000",
+      "component": "SEAT BELTS",
+      "date": "17/12/2020",
+      "park": false
+     },
+     {
+      "id": "21V115000",
+      "component": "TIRES",
+      "date": "25/02/2021",
+      "park": false
+     },
+     {
+      "id": "21V985000",
+      "component": "TIRES:TEMPORARY/EMERGENCY SPARE TIRE",
+      "date": "16/12/2021",
+      "park": false
+     },
+     {
+      "id": "24V797000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "24/10/2024",
+      "park": false
+     },
+     {
+      "id": "26V083000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "13/02/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=SILVERADO+1500&modelYear=2020",
+    "count": 755,
+    "top": [
+     [
+      "ENGINE",
+      252
+     ],
+     [
+      "POWER TRAIN",
+      240
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      118
+     ],
+     [
+      "SERVICE BRAKES",
+      116
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      78
+     ]
+    ]
+   }
+  }
+ ]
+}

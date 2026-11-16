@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2020",
+    "count": 1,
+    "items": [
+     {
+      "id": "23V093000",
+      "component": "ELECTRICAL SYSTEM:IGNITION:ANTI-THEFT:IMMOBILIZER/PROXIMITY:KEY/SENDER",
+      "date": "16/02/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2020",
+    "count": 154,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      56
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      36
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      33
+     ],
+     [
+      "SERVICE BRAKES",
+      32
+     ],
+     [
+      "SEATS",
+      10
+     ]
+    ]
+   }
+  }
+ ]
+}

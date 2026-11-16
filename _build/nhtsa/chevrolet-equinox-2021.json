@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "EQUINOX",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=EQUINOX&modelYear=2021",
+    "count": 4,
+    "items": [
+     {
+      "id": "20V811000",
+      "component": "SEAT BELTS",
+      "date": "23/12/2020",
+      "park": false
+     },
+     {
+      "id": "21V612000",
+      "component": "TIRES",
+      "date": "05/08/2021",
+      "park": false
+     },
+     {
+      "id": "23V013000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP:CONTROL/DRIVE MODULE",
+      "date": "19/01/2023",
+      "park": false
+     },
+     {
+      "id": "23V339000",
+      "component": "CHILD SEAT:VEHICLE LATCH ANCHOR",
+      "date": "11/05/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=EQUINOX&modelYear=2021",
+    "count": 101,
+    "top": [
+     [
+      "FUEL/PROPULSION SYSTEM",
+      20
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      18
+     ],
+     [
+      "POWER TRAIN",
+      17
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      17
+     ],
+     [
+      "ENGINE",
+      16
+     ]
+    ]
+   }
+  }
+ ]
+}

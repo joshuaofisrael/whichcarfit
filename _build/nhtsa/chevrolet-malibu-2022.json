@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "MALIBU",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=MALIBU&modelYear=2022",
+    "count": 1,
+    "items": [
+     {
+      "id": "22V923000",
+      "component": "STRUCTURE:FRAME AND MEMBERS",
+      "date": "14/12/2022",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=MALIBU&modelYear=2022",
+    "count": 100,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      34
+     ],
+     [
+      "ENGINE",
+      30
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      29
+     ],
+     [
+      "POWER TRAIN",
+      25
+     ],
+     [
+      "ENGINE AND ENGINE COOLING",
+      10
+     ]
+    ]
+   }
+  }
+ ]
+}

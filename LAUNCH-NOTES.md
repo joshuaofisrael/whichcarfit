@@ -4,13 +4,13 @@ Status 16 Nov 2026: v1 built with noindex on every page. Domain file is `CNAME` 
 
 The single switch is `NOINDEX` in `_build/config.py`. Leave it true until the domain answers on HTTPS. Then set it false, rebuild, push, and run `./indexnow.sh`.
 
-## What v1 publishes
+## What is published
 
-28 model year pages, not 80. Each one is a year whose owner's manual was opened on 16 Nov 2026. The lead table is transcribed from that book. NHTSA recalls and complaint counts are from the public API, retrieved the same day. Where the manual does not print an inch length or a bulb number, the page says so.
+74 model year pages. Each one is a year whose owner's manual was opened. The lead table is transcribed from that book. NHTSA recalls and complaint counts are from the public API. Where the manual does not print an inch length or a bulb number, the page says so.
 
-The sitemap has 72 URLs: those 28 year pages, make hubs, model hubs, the part hubs, and the legal pages. 404 is noindex and is not in the sitemap.
+The sitemap lists those year pages, make hubs, model hubs (with a year comparison table), part hubs, and the legal pages. 404 is noindex and is not in the sitemap. NOINDEX stays on until the domain is live.
 
-Year pages: 2018, 2020, and 2022 Ford F-150; 2020 and 2022 Ford Escape; 2023 Ford Ranger; 2020 Ford Fusion; 2020 Ford Mustang; 2020 Ford Expedition; 2019 and 2020 Ford Edge; 2021 Ford E-Series; 2021 Ford Police Interceptor Utility; 2020 Lincoln Nautilus; 2020, 2024, and 2026 Jeep Wrangler; 2023 Jeep Cherokee; 2025 Jeep Grand Cherokee; 2020, 2023, and 2026 Ram 1500; 2023 Dodge Durango; 2018 Honda Civic sedan; 2025 Honda CR-V; 2024 Toyota Grand Highlander; 2025 Toyota Corolla Hybrid; 2024 Toyota Corolla Cross Hybrid.
+Added after the first 28: Chevrolet Silverado 1500 2020 and 2021, Equinox 2020 to 2022, Malibu 2020 to 2022, Tahoe 2020 to 2022; GMC Sierra 1500 2020 and 2021; Nissan Rogue 2019 to 2025, Altima 2018 to 2025, Sentra 2020 to 2025; Hyundai Tucson 2020 and 2021, Elantra 2020, 2022, and 2023, Santa Fe 2020, 2022, and 2023; Mazda CX-5 2019 to 2022 (the model year is the edition code printed in the book when Mazda's folder year differs).
 
 ## Gaps
 

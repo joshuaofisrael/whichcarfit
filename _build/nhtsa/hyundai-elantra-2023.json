@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "hyundai",
+   "model": "ELANTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=ELANTRA&modelYear=2023",
+    "count": 2,
+    "items": [
+     {
+      "id": "22V632000",
+      "component": "AIR BAGS:FRONTAL",
+      "date": "18/08/2022",
+      "park": false
+     },
+     {
+      "id": "23V526000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:FLUID/LUBRICANT:PUMP",
+      "date": "27/07/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=hyundai&model=ELANTRA&modelYear=2023",
+    "count": 104,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      27
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      23
+     ],
+     [
+      "ENGINE",
+      20
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      20
+     ],
+     [
+      "LANE DEPARTURE",
+      10
+     ]
+    ]
+   }
+  }
+ ]
+}

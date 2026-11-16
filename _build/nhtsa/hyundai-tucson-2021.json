@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "hyundai",
+   "model": "TUCSON",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=TUCSON&modelYear=2021",
+    "count": 1,
+    "items": [
+     {
+      "id": "20V543000",
+      "component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP:CONTROL UNIT/MODULE",
+      "date": "04/09/2020",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=hyundai&model=TUCSON&modelYear=2021",
+    "count": 84,
+    "top": [
+     [
+      "ENGINE",
+      42
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      12
+     ],
+     [
+      "SERVICE BRAKES",
+      12
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      11
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      8
+     ]
+    ]
+   }
+  }
+ ]
+}

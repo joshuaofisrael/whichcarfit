@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "hyundai",
+   "model": "ELANTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=ELANTRA&modelYear=2020",
+    "count": 3,
+    "items": [
+     {
+      "id": "19V720000",
+      "component": "WHEELS:LUGS/NUTS/BOLTS/STUDS",
+      "date": "09/10/2019",
+      "park": false
+     },
+     {
+      "id": "19V721000",
+      "component": "SUSPENSION:FRONT:CONTROL ARM:LOWER BALL JOINT",
+      "date": "09/10/2019",
+      "park": false
+     },
+     {
+      "id": "21V301000",
+      "component": "ENGINE",
+      "date": "28/04/2021",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=hyundai&model=ELANTRA&modelYear=2020",
+    "count": 255,
+    "top": [
+     [
+      "ENGINE",
+      109
+     ],
+     [
+      "POWER TRAIN",
+      48
+     ],
+     [
+      "EXTERIOR LIGHTING",
+      28
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      27
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      26
+     ]
+    ]
+   }
+  }
+ ]
+}

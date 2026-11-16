@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "SENTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=SENTRA&modelYear=2023",
+    "count": 1,
+    "items": [
+     {
+      "id": "24V154000",
+      "component": "AIR BAGS:FRONTAL:DRIVER SIDE:INFLATOR MODULE",
+      "date": "27/02/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=SENTRA&modelYear=2023",
+    "count": 20,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      8
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      5
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      5
+     ],
+     [
+      "STEERING",
+      4
+     ],
+     [
+      "BACK OVER PREVENTION",
+      3
+     ]
+    ]
+   }
+  }
+ ]
+}

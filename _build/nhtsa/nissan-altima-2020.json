@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ALTIMA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ALTIMA&modelYear=2020",
+    "count": 6,
+    "items": [
+     {
+      "id": "20V570000",
+      "component": "VISIBILITY:GLASS, SIDE/REAR",
+      "date": "22/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V685000",
+      "component": "TIRES",
+      "date": "05/11/2020",
+      "park": false
+     },
+     {
+      "id": "21V138000",
+      "component": "STEERING:LINKAGES:TIE ROD ASSEMBLY",
+      "date": "04/03/2021",
+      "park": false
+     },
+     {
+      "id": "21V169000",
+      "component": "TIRES",
+      "date": "11/03/2021",
+      "park": false
+     },
+     {
+      "id": "23V628000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "08/09/2023",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ALTIMA&modelYear=2020",
+    "count": 183,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      46
+     ],
+     [
+      "ENGINE",
+      38
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      36
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      30
+     ],
+     [
+      "STEERING",
+      20
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "TAHOE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=TAHOE&modelYear=2020",
+    "count": 3,
+    "items": [
+     {
+      "id": "19V761000",
+      "component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP:WHEEL SPEED SENSOR/TONE RING",
+      "date": "24/10/2019",
+      "park": false
+     },
+     {
+      "id": "19V837000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "21/11/2019",
+      "park": false
+     },
+     {
+      "id": "21V115000",
+      "component": "TIRES",
+      "date": "25/02/2021",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=TAHOE&modelYear=2020",
+    "count": 58,
+    "top": [
+     [
+      "ENGINE",
+      15
+     ],
+     [
+      "POWER TRAIN",
+      14
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      12
+     ],
+     [
+      "SERVICE BRAKES",
+      6
+     ],
+     [
+      "STEERING",
+      6
+     ]
+    ]
+   }
+  }
+ ]
+}

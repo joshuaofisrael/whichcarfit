@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ALTIMA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ALTIMA&modelYear=2025",
+    "count": 2,
+    "items": [
+     {
+      "id": "26V023000",
+      "component": "LATCHES/LOCKS/LINKAGES:DOORS:LATCH",
+      "date": "21/01/2026",
+      "park": false
+     },
+     {
+      "id": "26V526000",
+      "component": "AIR BAGS:CRITICAL FASTENERS",
+      "date": "13/08/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ALTIMA&modelYear=2025",
+    "count": 7,
+    "top": [
+     [
+      "SERVICE BRAKES",
+      2
+     ],
+     [
+      "AIR",
+      1
+     ],
+     [
+      "AIR BAGS",
+      1
+     ],
+     [
+      "BACK OVER PREVENTION",
+      1
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      1
+     ]
+    ]
+   }
+  }
+ ]
+}

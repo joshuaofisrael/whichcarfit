@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "SENTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=SENTRA&modelYear=2025",
+    "count": 4,
+    "items": [
+     {
+      "id": "25V153000",
+      "component": "SEATS",
+      "date": "11/03/2025",
+      "park": false
+     },
+     {
+      "id": "25V807000",
+      "component": "VISIBILITY:WINDSHIELD",
+      "date": "21/11/2025",
+      "park": false
+     },
+     {
+      "id": "26V023000",
+      "component": "LATCHES/LOCKS/LINKAGES:DOORS:LATCH",
+      "date": "21/01/2026",
+      "park": false
+     },
+     {
+      "id": "26V410000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "27/06/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=SENTRA&modelYear=2025",
+    "count": 34,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      6
+     ],
+     [
+      "POWER TRAIN",
+      6
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      6
+     ],
+     [
+      "TIRES",
+      5
+     ],
+     [
+      "ENGINE",
+      4
+     ]
+    ]
+   }
+  }
+ ]
+}

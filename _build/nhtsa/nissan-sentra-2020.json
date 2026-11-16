@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "SENTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=SENTRA&modelYear=2020",
+    "count": 4,
+    "items": [
+     {
+      "id": "21V461000",
+      "component": "STEERING:LINKAGES:TIE ROD ASSEMBLY",
+      "date": "17/06/2021",
+      "park": false
+     },
+     {
+      "id": "22V244000",
+      "component": "EXTERIOR LIGHTING:HEADLIGHTS",
+      "date": "13/04/2022",
+      "park": false
+     },
+     {
+      "id": "23V581000",
+      "component": "STEERING:LINKAGES:TIE ROD ASSEMBLY",
+      "date": "15/08/2023",
+      "park": false
+     },
+     {
+      "id": "23V628000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "08/09/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=SENTRA&modelYear=2020",
+    "count": 208,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      60
+     ],
+     [
+      "STEERING",
+      55
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      49
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      45
+     ],
+     [
+      "SERVICE BRAKES",
+      25
+     ]
+    ]
+   }
+  }
+ ]
+}

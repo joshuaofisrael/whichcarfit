@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2023",
+    "count": 6,
+    "items": [
+     {
+      "id": "23V268000",
+      "component": "SEATS:CRITICAL FASTENERS",
+      "date": "13/04/2023",
+      "park": false
+     },
+     {
+      "id": "23V374000",
+      "component": "SEAT BELTS:CRITICAL FASTENERS",
+      "date": "25/05/2023",
+      "park": false
+     },
+     {
+      "id": "24V154000",
+      "component": "AIR BAGS:FRONTAL:DRIVER SIDE:INFLATOR MODULE",
+      "date": "27/02/2024",
+      "park": false
+     },
+     {
+      "id": "24V156000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "28/02/2024",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "26V080000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "12/02/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2023",
+    "count": 780,
+    "top": [
+     [
+      "ENGINE",
+      316
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      155
+     ],
+     [
+      "ENGINE AND ENGINE COOLING",
+      126
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      100
+     ],
+     [
+      "POWER TRAIN",
+      91
+     ]
+    ]
+   }
+  }
+ ]
+}
