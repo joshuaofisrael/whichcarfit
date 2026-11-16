@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "honda",
+   "model": "CIVIC",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=honda&model=CIVIC&modelYear=2018",
+    "count": 6,
+    "items": [
+     {
+      "id": "18V421000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "20/06/2018",
+      "park": false
+     },
+     {
+      "id": "18V663000",
+      "component": "STEERING:ELECTRIC POWER ASSIST SYSTEM",
+      "date": "27/09/2018",
+      "park": false
+     },
+     {
+      "id": "18V817000",
+      "component": "EQUIPMENT:OTHER:OWNERS/SERVICE/OTHER MANUAL",
+      "date": "16/11/2018",
+      "park": false
+     },
+     {
+      "id": "20V314000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "28/05/2020",
+      "park": false
+     },
+     {
+      "id": "23V858000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "19/12/2023",
+      "park": false
+     },
+     {
+      "id": "26V332000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION:FRONT PASSENGER",
+      "date": "22/05/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=CIVIC&modelYear=2018",
+    "count": 596,
+    "top": [
+     [
+      "STEERING",
+      224
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      105
+     ],
+     [
+      "FUEL SYSTEM",
+      89
+     ],
+     [
+      "GASOLINE",
+      89
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      70
+     ]
+    ]
+   }
+  }
+ ]
+}

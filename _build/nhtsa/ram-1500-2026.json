@@ -1,0 +1,75 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ram",
+   "model": "1500",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ram&model=1500&modelYear=2026",
+    "count": 9,
+    "items": [
+     {
+      "id": "25V826000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "01/12/2025",
+      "park": false
+     },
+     {
+      "id": "26V059000",
+      "component": "EXTERIOR LIGHTING:BRAKE LIGHTS",
+      "date": "02/02/2026",
+      "park": false
+     },
+     {
+      "id": "26V225000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "09/04/2026",
+      "park": false
+     },
+     {
+      "id": "26V421000",
+      "component": "EXTERIOR LIGHTING:HEADLIGHTS",
+      "date": "01/07/2026",
+      "park": false
+     },
+     {
+      "id": "26V495000",
+      "component": "SEAT BELTS:REAR/OTHER:ANCHORAGE",
+      "date": "30/07/2026",
+      "park": false
+     },
+     {
+      "id": "26V531000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "13/08/2026",
+      "park": false
+     },
+     {
+      "id": "26V560000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "01/09/2026",
+      "park": false
+     },
+     {
+      "id": "26V622000",
+      "component": "AIR BAGS:SIDE/WINDOW",
+      "date": "29/09/2026",
+      "park": false
+     },
+     {
+      "id": "26V623000",
+      "component": "TIRES:PRESSURE MONITORING AND REGULATING SYSTEMS",
+      "date": "29/09/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ram&model=1500&modelYear=2026",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

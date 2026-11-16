@@ -1,0 +1,44 @@
+# Which Car Fit
+
+> Which Car Fit (whichcarfit.com) lists the key fob battery, wiper parts, and bulb types printed in the owner's manual for specific model years, plus NHTSA recall campaigns for that model year. Checked 16 Nov 2026.
+
+Independent. Not affiliated with any car maker. Confirm parts on the vehicle and in the manual.
+
+## Guides
+- [How to read a fitment chart](https://whichcarfit.com/fitment/)
+- [Key fob battery](https://whichcarfit.com/fitment/key-fob-battery/)
+- [Wiper blades](https://whichcarfit.com/fitment/wiper-blades/)
+- [Headlight bulbs](https://whichcarfit.com/fitment/headlight-bulbs/)
+- [Brake lights](https://whichcarfit.com/fitment/brake-lights/)
+- [Turn signals](https://whichcarfit.com/fitment/turn-signals/)
+- [Sources and methods](https://whichcarfit.com/methodology/)
+
+## Vehicles
+- [2018 Ford F-150](https://whichcarfit.com/cars/ford/f-150/2018/)
+- [2020 Ford F-150](https://whichcarfit.com/cars/ford/f-150/2020/)
+- [2022 Ford F-150](https://whichcarfit.com/cars/ford/f-150/2022/)
+- [2020 Ford Escape](https://whichcarfit.com/cars/ford/escape/2020/)
+- [2022 Ford Escape](https://whichcarfit.com/cars/ford/escape/2022/)
+- [2023 Ford Ranger](https://whichcarfit.com/cars/ford/ranger/2023/)
+- [2020 Ford Fusion](https://whichcarfit.com/cars/ford/fusion/2020/)
+- [2020 Ford Mustang](https://whichcarfit.com/cars/ford/mustang/2020/)
+- [2020 Ford Expedition](https://whichcarfit.com/cars/ford/expedition/2020/)
+- [2019 Ford Edge](https://whichcarfit.com/cars/ford/edge/2019/)
+- [2020 Ford Edge](https://whichcarfit.com/cars/ford/edge/2020/)
+- [2020 Lincoln Nautilus](https://whichcarfit.com/cars/lincoln/nautilus/2020/)
+- [2021 Ford E-Series](https://whichcarfit.com/cars/ford/e-series/2021/)
+- [2021 Ford Police Interceptor Utility](https://whichcarfit.com/cars/ford/police-interceptor-utility/2021/)
+- [2020 Jeep Wrangler](https://whichcarfit.com/cars/jeep/wrangler/2020/)
+- [2024 Jeep Wrangler](https://whichcarfit.com/cars/jeep/wrangler/2024/)
+- [2026 Jeep Wrangler](https://whichcarfit.com/cars/jeep/wrangler/2026/)
+- [2023 Jeep Cherokee](https://whichcarfit.com/cars/jeep/cherokee/2023/)
+- [2025 Jeep Grand Cherokee](https://whichcarfit.com/cars/jeep/grand-cherokee/2025/)
+- [2020 Ram 1500](https://whichcarfit.com/cars/ram/1500/2020/)
+- [2023 Ram 1500](https://whichcarfit.com/cars/ram/1500/2023/)
+- [2026 Ram 1500](https://whichcarfit.com/cars/ram/1500/2026/)
+- [2023 Dodge Durango](https://whichcarfit.com/cars/dodge/durango/2023/)
+- [2018 Honda Civic](https://whichcarfit.com/cars/honda/civic/2018/)
+- [2025 Honda CR-V](https://whichcarfit.com/cars/honda/cr-v/2025/)
+- [2024 Toyota Grand Highlander](https://whichcarfit.com/cars/toyota/grand-highlander/2024/)
+- [2025 Toyota Corolla Hybrid](https://whichcarfit.com/cars/toyota/corolla-hybrid/2025/)
+- [2024 Toyota Corolla Cross Hybrid](https://whichcarfit.com/cars/toyota/corolla-cross-hybrid/2024/)

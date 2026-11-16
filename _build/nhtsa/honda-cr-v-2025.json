@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "honda",
+   "model": "CR-V",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=honda&model=CR-V&modelYear=2025",
+    "count": 1,
+    "items": [
+     {
+      "id": "24V744000",
+      "component": "STEERING",
+      "date": "04/10/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=CR-V&modelYear=2025",
+    "count": 271,
+    "top": [
+     [
+      "STEERING",
+      60
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      52
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      42
+     ],
+     [
+      "VISIBILITY/WIPER",
+      36
+     ],
+     [
+      "SERVICE BRAKES",
+      31
+     ]
+    ]
+   }
+  }
+ ]
+}

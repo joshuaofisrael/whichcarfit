@@ -1,0 +1,125 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ram",
+   "model": "1500",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ram&model=1500&modelYear=2020",
+    "count": 14,
+    "items": [
+     {
+      "id": "19V407000",
+      "component": "AIR BAGS",
+      "date": "31/05/2019",
+      "park": false
+     },
+     {
+      "id": "20V191000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "10/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V208000",
+      "component": "VISIBILITY:WINDSHIELD WIPER/WASHER:LINKAGES",
+      "date": "09/04/2020",
+      "park": false
+     },
+     {
+      "id": "20V374000",
+      "component": "AIR BAGS",
+      "date": "25/06/2020",
+      "park": false
+     },
+     {
+      "id": "20V513000",
+      "component": "VEHICLE SPEED CONTROL:ACCELERATOR PEDAL",
+      "date": "27/08/2020",
+      "park": false
+     },
+     {
+      "id": "20V580000",
+      "component": "SEAT BELTS",
+      "date": "24/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V622000",
+      "component": "VISIBILITY:REARVIEW MIRRORS/DEVICES:EXTERIOR",
+      "date": "08/10/2020",
+      "park": false
+     },
+     {
+      "id": "21V632000",
+      "component": "AIR BAGS:SIDE/WINDOW:CURTAIN:INFLATOR",
+      "date": "12/08/2021",
+      "park": false
+     },
+     {
+      "id": "22V638000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "25/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V767000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "13/10/2022",
+      "park": false
+     },
+     {
+      "id": "22V904000",
+      "component": "STRUCTURE:BODY:TAILGATE:HINGE AND ATTACHMENTS",
+      "date": "08/12/2022",
+      "park": false
+     },
+     {
+      "id": "24V754000",
+      "component": "VISIBILITY:REARVIEW MIRRORS/DEVICES",
+      "date": "10/10/2024",
+      "park": false
+     },
+     {
+      "id": "25V298000",
+      "component": "AIR BAGS",
+      "date": "08/05/2025",
+      "park": false
+     },
+     {
+      "id": "26V495000",
+      "component": "SEAT BELTS:REAR/OTHER:ANCHORAGE",
+      "date": "30/07/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ram&model=1500&modelYear=2020",
+    "count": 647,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      167
+     ],
+     [
+      "ENGINE",
+      157
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      114
+     ],
+     [
+      "STEERING",
+      65
+     ],
+     [
+      "POWER TRAIN",
+      63
+     ]
+    ]
+   }
+  }
+ ]
+}

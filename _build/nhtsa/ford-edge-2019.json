@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "EDGE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=EDGE&modelYear=2019",
+    "count": 3,
+    "items": [
+     {
+      "id": "19V766000",
+      "component": "SEAT BELTS:FRONT:WEBBING",
+      "date": "25/10/2019",
+      "park": false
+     },
+     {
+      "id": "20V550000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "10/09/2020",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=EDGE&modelYear=2019",
+    "count": 779,
+    "top": [
+     [
+      "POWER TRAIN",
+      468
+     ],
+     [
+      "ENGINE",
+      159
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      77
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      34
+     ],
+     [
+      "ENGINE AND ENGINE COOLING",
+      34
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "COROLLA HYBRID",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=COROLLA+HYBRID&modelYear=2025",
+    "count": 1,
+    "items": [
+     {
+      "id": "24V708000",
+      "component": "SERVICE BRAKES, ELECTRIC:SOFTWARE/PROGRAMMING",
+      "date": "20/09/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=COROLLA+HYBRID&modelYear=2025",
+    "count": 1,
+    "top": [
+     [
+      "VEHICLE SPEED CONTROL",
+      1
+     ]
+    ]
+   }
+  }
+ ]
+}

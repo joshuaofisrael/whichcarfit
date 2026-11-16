@@ -1,0 +1,71 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "lincoln",
+   "model": "NAUTILUS",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=lincoln&model=NAUTILUS&modelYear=2020",
+    "count": 5,
+    "items": [
+     {
+      "id": "20V414000",
+      "component": "SEATS:FRONT ASSEMBLY:POWER ADJUST",
+      "date": "17/07/2020",
+      "park": false
+     },
+     {
+      "id": "20V550000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "10/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V575000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "23/09/2020",
+      "park": false
+     },
+     {
+      "id": "21V011000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "15/01/2021",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=lincoln&model=NAUTILUS&modelYear=2020",
+    "count": 34,
+    "top": [
+     [
+      "POWER TRAIN",
+      17
+     ],
+     [
+      "ENGINE",
+      5
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      3
+     ],
+     [
+      "EXTERIOR LIGHTING",
+      3
+     ],
+     [
+      "SERVICE BRAKES",
+      3
+     ]
+    ]
+   }
+  }
+ ]
+}
