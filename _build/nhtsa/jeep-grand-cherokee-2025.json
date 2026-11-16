@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "jeep",
+   "model": "GRAND CHEROKEE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=jeep&model=GRAND+CHEROKEE&modelYear=2025",
+    "count": 4,
+    "items": [
+     {
+      "id": "25V576000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM",
+      "date": "04/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V741000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY",
+      "date": "30/10/2025",
+      "park": false
+     },
+     {
+      "id": "26V328000",
+      "component": "AIR BAGS: AIR BAG/RESTRAINT CONTROL MODULE:SOFTWARE",
+      "date": "21/05/2026",
+      "park": false
+     },
+     {
+      "id": "26V559000",
+      "component": "TIRES:PRESSURE MONITORING AND REGULATING SYSTEMS",
+      "date": "01/09/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=jeep&model=GRAND+CHEROKEE&modelYear=2025",
+    "count": 81,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      32
+     ],
+     [
+      "ENGINE",
+      24
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      16
+     ],
+     [
+      "POWER TRAIN",
+      14
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      12
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "jeep",
+   "model": "CHEROKEE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=jeep&model=CHEROKEE&modelYear=2023",
+    "count": 1,
+    "items": [
+     {
+      "id": "26V290000",
+      "component": "POWER TRAIN",
+      "date": "07/05/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=jeep&model=CHEROKEE&modelYear=2023",
+    "count": 3,
+    "top": [
+     [
+      "POWER TRAIN",
+      2
+     ],
+     [
+      "AIR BAGS",
+      1
+     ],
+     [
+      "PARKING BRAKE",
+      1
+     ]
+    ]
+   }
+  }
+ ]
+}

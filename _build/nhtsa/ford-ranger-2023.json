@@ -1,0 +1,45 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "RANGER",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=RANGER&modelYear=2023",
+    "count": 4,
+    "items": [
+     {
+      "id": "23V283000",
+      "component": "WHEELS:LUGS/NUTS/BOLTS/STUDS",
+      "date": "21/04/2023",
+      "park": true
+     },
+     {
+      "id": "23V379000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "26/05/2023",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "25V685000",
+      "component": "EQUIPMENT:ELECTRICAL:ENGINE BLOCK HEATER",
+      "date": "10/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=RANGER&modelYear=2023",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

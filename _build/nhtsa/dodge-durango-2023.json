@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "dodge",
+   "model": "DURANGO",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=dodge&model=DURANGO&modelYear=2023",
+    "count": 2,
+    "items": [
+     {
+      "id": "23V640000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:LEVER AND LINKAGE:COLUMN SHIFT",
+      "date": "18/09/2023",
+      "park": false
+     },
+     {
+      "id": "26V528000",
+      "component": "STRUCTURE:BODY:HATCHBACK/LIFTGATE",
+      "date": "13/08/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=dodge&model=DURANGO&modelYear=2023",
+    "count": 39,
+    "top": [
+     [
+      "EXTERIOR LIGHTING",
+      15
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      9
+     ],
+     [
+      "POWER TRAIN",
+      9
+     ],
+     [
+      "ENGINE",
+      6
+     ],
+     [
+      "AIR BAGS",
+      3
+     ]
+    ]
+   }
+  }
+ ]
+}

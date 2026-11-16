@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "FUSION",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=FUSION&modelYear=2020",
+    "count": 3,
+    "items": [
+     {
+      "id": "23V440000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY:MANAGEMENT SYSTEM/ENERGY CONTROL MODULE (BMS/BECM)",
+      "date": "23/06/2023",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "25V685000",
+      "component": "EQUIPMENT:ELECTRICAL:ENGINE BLOCK HEATER",
+      "date": "10/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=FUSION&modelYear=2020",
+    "count": 186,
+    "top": [
+     [
+      "POWER TRAIN",
+      67
+     ],
+     [
+      "ENGINE",
+      53
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      38
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      28
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      12
+     ]
+    ]
+   }
+  }
+ ]
+}

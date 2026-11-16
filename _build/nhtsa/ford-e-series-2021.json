@@ -1,0 +1,149 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "E-350",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=E-350&modelYear=2021",
+    "count": 6,
+    "items": [
+     {
+      "id": "20V099000",
+      "component": "POWER TRAIN:DRIVELINE:DIFFERENTIAL UNIT",
+      "date": "21/02/2020",
+      "park": false
+     },
+     {
+      "id": "20V175000",
+      "component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP",
+      "date": "23/03/2020",
+      "park": false
+     },
+     {
+      "id": "20V795000",
+      "component": "ENGINE",
+      "date": "17/12/2020",
+      "park": false
+     },
+     {
+      "id": "22V089000",
+      "component": "STEERING:HYDRAULIC POWER ASSIST:HOSE, PIPING, AND CONNECTIONS",
+      "date": "16/02/2022",
+      "park": false
+     },
+     {
+      "id": "24V097000",
+      "component": "STEERING:HYDRAULIC POWER ASSIST:HOSE, PIPING, AND CONNECTIONS",
+      "date": "09/02/2024",
+      "park": false
+     },
+     {
+      "id": "25V793000",
+      "component": "ENGINE",
+      "date": "17/11/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=E-350&modelYear=2021",
+    "count": 25,
+    "top": [
+     [
+      "ENGINE",
+      14
+     ],
+     [
+      "SERVICE BRAKES",
+      7
+     ],
+     [
+      "STEERING",
+      7
+     ],
+     [
+      "HYDRAULIC",
+      5
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      2
+     ]
+    ]
+   }
+  },
+  {
+   "make": "ford",
+   "model": "E-450",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=E-450&modelYear=2021",
+    "count": 6,
+    "items": [
+     {
+      "id": "20V099000",
+      "component": "POWER TRAIN:DRIVELINE:DIFFERENTIAL UNIT",
+      "date": "21/02/2020",
+      "park": false
+     },
+     {
+      "id": "20V175000",
+      "component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP",
+      "date": "23/03/2020",
+      "park": false
+     },
+     {
+      "id": "20V795000",
+      "component": "ENGINE",
+      "date": "17/12/2020",
+      "park": false
+     },
+     {
+      "id": "22V089000",
+      "component": "STEERING:HYDRAULIC POWER ASSIST:HOSE, PIPING, AND CONNECTIONS",
+      "date": "16/02/2022",
+      "park": false
+     },
+     {
+      "id": "24V097000",
+      "component": "STEERING:HYDRAULIC POWER ASSIST:HOSE, PIPING, AND CONNECTIONS",
+      "date": "09/02/2024",
+      "park": false
+     },
+     {
+      "id": "25V793000",
+      "component": "ENGINE",
+      "date": "17/11/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=E-450&modelYear=2021",
+    "count": 28,
+    "top": [
+     [
+      "SERVICE BRAKES",
+      11
+     ],
+     [
+      "STEERING",
+      11
+     ],
+     [
+      "ENGINE",
+      7
+     ],
+     [
+      "HYDRAULIC",
+      7
+     ],
+     [
+      "VEHICLE SPEED CONTROL",
+      6
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,149 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "EXPEDITION",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=EXPEDITION&modelYear=2020",
+    "count": 18,
+    "items": [
+     {
+      "id": "19V633000",
+      "component": "SEATS:FRONT ASSEMBLY:RECLINER",
+      "date": "28/08/2019",
+      "park": false
+     },
+     {
+      "id": "20V197000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:GEAR POSITION INDICATION (PRNDL)",
+      "date": "03/04/2020",
+      "park": false
+     },
+     {
+      "id": "20V217000",
+      "component": "SEAT BELTS",
+      "date": "16/04/2020",
+      "park": false
+     },
+     {
+      "id": "20V262000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "08/05/2020",
+      "park": false
+     },
+     {
+      "id": "20V366000",
+      "component": "SEATS:MID/REAR ASSEMBLY",
+      "date": "23/06/2020",
+      "park": false
+     },
+     {
+      "id": "20V574000",
+      "component": "SEAT BELTS",
+      "date": "23/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V575000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "23/09/2020",
+      "park": false
+     },
+     {
+      "id": "22V250000",
+      "component": "VISIBILITY:WINDSHIELD WIPER/WASHER:LINKAGES",
+      "date": "14/04/2022",
+      "park": false
+     },
+     {
+      "id": "23V420000",
+      "component": "EQUIPMENT:OTHER:OWNERS/SERVICE/OTHER MANUAL",
+      "date": "09/06/2023",
+      "park": false
+     },
+     {
+      "id": "24V099000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "10/02/2024",
+      "park": false
+     },
+     {
+      "id": "24V852000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "08/11/2024",
+      "park": false
+     },
+     {
+      "id": "25V197000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "23/05/2025",
+      "park": false
+     },
+     {
+      "id": "25V346000",
+      "component": "ELECTRICAL SYSTEM:BODY CONTROL MODULE:SOFTWARE",
+      "date": "23/05/2025",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "25V628000",
+      "component": "ENGINE",
+      "date": "19/09/2025",
+      "park": false
+     },
+     {
+      "id": "26V344000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "28/05/2026",
+      "park": false
+     },
+     {
+      "id": "26V368000",
+      "component": "STRUCTURE:INTERIOR PANELS:CENTER CONSOLE",
+      "date": "09/06/2026",
+      "park": false
+     },
+     {
+      "id": "26V402000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "24/06/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=EXPEDITION&modelYear=2020",
+    "count": 433,
+    "top": [
+     [
+      "POWER TRAIN",
+      271
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      60
+     ],
+     [
+      "ENGINE",
+      53
+     ],
+     [
+      "SEAT BELTS",
+      41
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      35
+     ]
+    ]
+   }
+  }
+ ]
+}

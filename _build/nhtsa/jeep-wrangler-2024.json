@@ -1,0 +1,87 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "jeep",
+   "model": "WRANGLER",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=jeep&model=WRANGLER&modelYear=2024",
+    "count": 11,
+    "items": [
+     {
+      "id": "24V111000",
+      "component": "VISIBILITY:DEFROSTER/DEFOGGER/HVAC SYSTEM",
+      "date": "15/02/2024",
+      "park": false
+     },
+     {
+      "id": "24V199000",
+      "component": "AIR BAGS:FRONTAL:DRIVER CLOCKSPRING/SPIRAL CASSETTE",
+      "date": "14/03/2024",
+      "park": false
+     },
+     {
+      "id": "24V414000",
+      "component": "EXTERIOR LIGHTING:TAIL LIGHTS",
+      "date": "06/06/2024",
+      "park": false
+     },
+     {
+      "id": "24V585000",
+      "component": "EXTERIOR LIGHTING:TAIL LIGHTS",
+      "date": "08/08/2024",
+      "park": false
+     },
+     {
+      "id": "24V652000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "05/09/2024",
+      "park": false
+     },
+     {
+      "id": "24V676000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "12/09/2024",
+      "park": false
+     },
+     {
+      "id": "24V871000",
+      "component": "ELECTRICAL SYSTEM:WIRING",
+      "date": "19/11/2024",
+      "park": false
+     },
+     {
+      "id": "25V527000",
+      "component": "TIRES:PRESSURE MONITORING AND REGULATING SYSTEMS",
+      "date": "14/08/2025",
+      "park": false
+     },
+     {
+      "id": "25V741000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY",
+      "date": "30/10/2025",
+      "park": false
+     },
+     {
+      "id": "26V327000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "21/05/2026",
+      "park": false
+     },
+     {
+      "id": "26V363000",
+      "component": "STEERING:HYDRAULIC POWER ASSIST:PUMP",
+      "date": "04/06/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=jeep&model=WRANGLER&modelYear=2024",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

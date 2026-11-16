@@ -1,0 +1,159 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "F-150",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=F-150&modelYear=2022",
+    "count": 23,
+    "items": [
+     {
+      "id": "21V986000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "16/12/2021",
+      "park": false
+     },
+     {
+      "id": "22V193000",
+      "component": "ELECTRICAL SYSTEM: INTEGRATED TRAILER BRAKE CONTROL",
+      "date": "25/03/2022",
+      "park": false
+     },
+     {
+      "id": "22V253000",
+      "component": "STEERING:COLUMN",
+      "date": "14/04/2022",
+      "park": false
+     },
+     {
+      "id": "22V623000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "12/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V675000",
+      "component": "WHEELS:LUGS/NUTS/BOLTS/STUDS",
+      "date": "08/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V684000",
+      "component": "AIR BAGS",
+      "date": "14/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V686000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE",
+      "date": "14/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V842000",
+      "component": "VISIBILITY:WINDSHIELD WIPER/WASHER:MOTOR",
+      "date": "15/11/2022",
+      "park": false
+     },
+     {
+      "id": "23V070000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "10/02/2023",
+      "park": false
+     },
+     {
+      "id": "23V509000",
+      "component": "PARKING BRAKE:ELECTRICAL",
+      "date": "21/07/2023",
+      "park": false
+     },
+     {
+      "id": "23V802000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE",
+      "date": "29/11/2023",
+      "park": false
+     },
+     {
+      "id": "23V896000",
+      "component": "POWER TRAIN:AXLE HUBS",
+      "date": "22/12/2023",
+      "park": false
+     },
+     {
+      "id": "24V635000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "24/08/2024",
+      "park": false
+     },
+     {
+      "id": "24V682000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE",
+      "date": "13/09/2024",
+      "park": false
+     },
+     {
+      "id": "24V852000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "08/11/2024",
+      "park": false
+     },
+     {
+      "id": "25V132000",
+      "component": "ELECTRICAL SYSTEM: INTEGRATED TRAILER BRAKE CONTROL",
+      "date": "01/03/2025",
+      "park": false
+     },
+     {
+      "id": "25V315000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "09/05/2025",
+      "park": false
+     },
+     {
+      "id": "25V455000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "07/07/2025",
+      "park": false
+     },
+     {
+      "id": "25V515000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE",
+      "date": "08/08/2025",
+      "park": false
+     },
+     {
+      "id": "25V517000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE",
+      "date": "08/08/2025",
+      "park": false
+     },
+     {
+      "id": "25V729000",
+      "component": "VISIBILITY:SUN/MOON ROOF ASSEMBLY",
+      "date": "24/10/2025",
+      "park": false
+     },
+     {
+      "id": "26V104000",
+      "component": "ELECTRICAL SYSTEM: INTEGRATED TRAILER BRAKE CONTROL",
+      "date": "21/02/2026",
+      "park": false
+     },
+     {
+      "id": "26V489000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "29/07/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=F-150&modelYear=2022",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

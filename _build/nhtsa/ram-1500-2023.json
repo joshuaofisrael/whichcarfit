@@ -1,0 +1,87 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ram",
+   "model": "1500",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ram&model=1500&modelYear=2023",
+    "count": 11,
+    "items": [
+     {
+      "id": "23V059000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "09/02/2023",
+      "park": false
+     },
+     {
+      "id": "23V263000",
+      "component": "FUEL SYSTEM, DIESEL:DELIVERY:FUEL PUMP",
+      "date": "13/04/2023",
+      "park": false
+     },
+     {
+      "id": "23V654000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "28/09/2023",
+      "park": false
+     },
+     {
+      "id": "23V799000",
+      "component": "STEERING:STEERING CONTROL MODULE",
+      "date": "28/11/2023",
+      "park": false
+     },
+     {
+      "id": "24V199000",
+      "component": "AIR BAGS:FRONTAL:DRIVER CLOCKSPRING/SPIRAL CASSETTE",
+      "date": "14/03/2024",
+      "park": false
+     },
+     {
+      "id": "24V413000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "06/06/2024",
+      "park": false
+     },
+     {
+      "id": "24V653000",
+      "component": "SERVICE BRAKES, HYDRAULIC:ANTILOCK/TRACTION CONTROL/ELECTRONIC LIMITED SLIP:CONTROL UNIT/MODULE",
+      "date": "05/09/2024",
+      "park": false
+     },
+     {
+      "id": "24V729000",
+      "component": "STEERING:STEERING CONTROL MODULE",
+      "date": "01/10/2024",
+      "park": false
+     },
+     {
+      "id": "24V754000",
+      "component": "VISIBILITY:REARVIEW MIRRORS/DEVICES",
+      "date": "10/10/2024",
+      "park": false
+     },
+     {
+      "id": "25V298000",
+      "component": "AIR BAGS",
+      "date": "08/05/2025",
+      "park": false
+     },
+     {
+      "id": "26V495000",
+      "component": "SEAT BELTS:REAR/OTHER:ANCHORAGE",
+      "date": "30/07/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ram&model=1500&modelYear=2023",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

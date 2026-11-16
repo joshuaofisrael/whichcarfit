@@ -1,0 +1,179 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "ESCAPE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=ESCAPE&modelYear=2020",
+    "count": 23,
+    "items": [
+     {
+      "id": "19V633000",
+      "component": "SEATS:FRONT ASSEMBLY:RECLINER",
+      "date": "28/08/2019",
+      "park": false
+     },
+     {
+      "id": "20V415000",
+      "component": "AIR BAGS:SIDE/WINDOW",
+      "date": "17/07/2020",
+      "park": false
+     },
+     {
+      "id": "20V550000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "10/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V575000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "23/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V635000",
+      "component": "ELECTRICAL SYSTEM:BODY CONTROL MODULE/BCM",
+      "date": "15/10/2020",
+      "park": false
+     },
+     {
+      "id": "21V011000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "15/01/2021",
+      "park": false
+     },
+     {
+      "id": "22V191000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:OIL/LUBRICATION",
+      "date": "25/03/2022",
+      "park": false
+     },
+     {
+      "id": "22V331000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY",
+      "date": "13/05/2022",
+      "park": false
+     },
+     {
+      "id": "22V484000",
+      "component": "ENGINE AND ENGINE COOLING",
+      "date": "07/07/2022",
+      "park": false
+     },
+     {
+      "id": "22V859000",
+      "component": "FUEL SYSTEM, GASOLINE:FUEL INJECTION SYSTEM",
+      "date": "19/11/2022",
+      "park": false
+     },
+     {
+      "id": "23V380000",
+      "component": "ENGINE",
+      "date": "27/05/2023",
+      "park": false
+     },
+     {
+      "id": "24V330000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE (TCM/PCM/TECM)",
+      "date": "11/05/2024",
+      "park": false
+     },
+     {
+      "id": "24V852000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "08/11/2024",
+      "park": false
+     },
+     {
+      "id": "24V954000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY:MANAGEMENT SYSTEM/ENERGY CONTROL MODULE (BMS/BECM)",
+      "date": "20/12/2024",
+      "park": false
+     },
+     {
+      "id": "25V165000",
+      "component": "FUEL SYSTEM, GASOLINE:FUEL INJECTION SYSTEM",
+      "date": "14/03/2025",
+      "park": false
+     },
+     {
+      "id": "25V345000",
+      "component": "ENGINE",
+      "date": "23/05/2025",
+      "park": false
+     },
+     {
+      "id": "25V442000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "25V467000",
+      "component": "FUEL SYSTEM, GASOLINE:FUEL INJECTION SYSTEM",
+      "date": "11/07/2025",
+      "park": false
+     },
+     {
+      "id": "25V685000",
+      "component": "EQUIPMENT:ELECTRICAL:ENGINE BLOCK HEATER",
+      "date": "10/10/2025",
+      "park": false
+     },
+     {
+      "id": "25V693000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:PADS",
+      "date": "11/10/2025",
+      "park": false
+     },
+     {
+      "id": "25V829000",
+      "component": "STRUCTURE:BODY:HATCHBACK/LIFTGATE:HINGE AND ATTACHMENTS",
+      "date": "02/12/2025",
+      "park": false
+     },
+     {
+      "id": "26V117000",
+      "component": "VISIBILITY:WINDSHIELD WIPER/WASHER:MOTOR",
+      "date": "03/03/2026",
+      "park": false
+     },
+     {
+      "id": "26V123000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "04/03/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=ESCAPE&modelYear=2020",
+    "count": 1554,
+    "top": [
+     [
+      "STRUCTURE",
+      606
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      309
+     ],
+     [
+      "POWER TRAIN",
+      243
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      160
+     ],
+     [
+      "FUEL SYSTEM",
+      124
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,39 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "jeep",
+   "model": "WRANGLER",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=jeep&model=WRANGLER&modelYear=2026",
+    "count": 3,
+    "items": [
+     {
+      "id": "26V224000",
+      "component": "CHILD SEAT:VEHICLE TETHER ANCHOR",
+      "date": "09/04/2026",
+      "park": false
+     },
+     {
+      "id": "26V456000",
+      "component": "WHEELS",
+      "date": "16/07/2026",
+      "park": false
+     },
+     {
+      "id": "26V531000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "13/08/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=jeep&model=WRANGLER&modelYear=2026",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

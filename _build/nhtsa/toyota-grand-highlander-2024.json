@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "GRAND HIGHLANDER",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=GRAND+HIGHLANDER&modelYear=2024",
+    "count": 4,
+    "items": [
+     {
+      "id": "24V461000",
+      "component": "AIR BAGS:SIDE/WINDOW:CURTAIN",
+      "date": "20/06/2024",
+      "park": false
+     },
+     {
+      "id": "24V548000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "23/07/2024",
+      "park": false
+     },
+     {
+      "id": "25V595000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "11/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V744000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "30/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=GRAND+HIGHLANDER&modelYear=2024",
+    "count": 243,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      61
+     ],
+     [
+      "POWER TRAIN",
+      53
+     ],
+     [
+      "ENGINE",
+      38
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      35
+     ],
+     [
+      "AIR BAGS",
+      30
+     ]
+    ]
+   }
+  }
+ ]
+}

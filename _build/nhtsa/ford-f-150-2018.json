@@ -1,0 +1,155 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "ford",
+   "model": "F-150",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=ford&model=F-150&modelYear=2018",
+    "count": 19,
+    "items": [
+     {
+      "id": "17V598000",
+      "component": "STRUCTURE:BODY:ROOF AND PILLARS",
+      "date": "25/09/2017",
+      "park": false
+     },
+     {
+      "id": "17V669000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:LEVER AND LINKAGE:COLUMN SHIFT",
+      "date": "23/10/2017",
+      "park": false
+     },
+     {
+      "id": "17V672000",
+      "component": "ENGINE",
+      "date": "23/10/2017",
+      "park": false
+     },
+     {
+      "id": "18V213000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION",
+      "date": "04/04/2018",
+      "park": false
+     },
+     {
+      "id": "18V214000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:GEAR POSITION INDICATION (PRNDL)",
+      "date": "04/04/2018",
+      "park": false
+     },
+     {
+      "id": "18V392000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "12/06/2018",
+      "park": false
+     },
+     {
+      "id": "18V568000",
+      "component": "SEAT BELTS:PRETENSIONER",
+      "date": "31/08/2018",
+      "park": false
+     },
+     {
+      "id": "18V894000",
+      "component": "ENGINE",
+      "date": "18/12/2018",
+      "park": false
+     },
+     {
+      "id": "19V278000",
+      "component": "ENGINE",
+      "date": "08/04/2019",
+      "park": false
+     },
+     {
+      "id": "19V633000",
+      "component": "SEATS:FRONT ASSEMBLY:RECLINER",
+      "date": "28/08/2019",
+      "park": false
+     },
+     {
+      "id": "20V097000",
+      "component": "EXTERIOR LIGHTING:HEADLIGHTS",
+      "date": "21/02/2020",
+      "park": false
+     },
+     {
+      "id": "21E027000",
+      "component": "SUSPENSION:FRONT:CONTROL ARM:UPPER BALL JOINT",
+      "date": "12/04/2021",
+      "park": false
+     },
+     {
+      "id": "21V155000",
+      "component": "TIRES",
+      "date": "10/03/2021",
+      "park": false
+     },
+     {
+      "id": "21V983000",
+      "component": "LATCHES/LOCKS/LINKAGES:TAILGATE:LATCH",
+      "date": "16/12/2021",
+      "park": false
+     },
+     {
+      "id": "22V150000",
+      "component": "SERVICE BRAKES, HYDRAULIC:POWER ASSIST",
+      "date": "11/03/2022",
+      "park": false
+     },
+     {
+      "id": "24V852000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "08/11/2024",
+      "park": false
+     },
+     {
+      "id": "25V236000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:MASTER CYLINDER",
+      "date": "11/04/2025",
+      "park": false
+     },
+     {
+      "id": "26V373000",
+      "component": "EXTERIOR LIGHTING:HEADLIGHTS",
+      "date": "09/06/2026",
+      "park": false
+     },
+     {
+      "id": "26V375000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE (TCM/PCM/TECM)",
+      "date": "09/06/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=ford&model=F-150&modelYear=2018",
+    "count": 105,
+    "top": [
+     [
+      "POWER TRAIN",
+      74
+     ],
+     [
+      "ENGINE",
+      20
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      8
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      6
+     ],
+     [
+      "SERVICE BRAKES",
+      6
+     ]
+    ]
+   }
+  }
+ ]
+}

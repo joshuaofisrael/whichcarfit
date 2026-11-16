@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "COROLLA CROSS HYBRID",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=COROLLA+CROSS+HYBRID&modelYear=2024",
+    "count": 3,
+    "items": [
+     {
+      "id": "24V548000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "23/07/2024",
+      "park": false
+     },
+     {
+      "id": "24V708000",
+      "component": "SERVICE BRAKES, ELECTRIC:SOFTWARE/PROGRAMMING",
+      "date": "20/09/2024",
+      "park": false
+     },
+     {
+      "id": "26V203000",
+      "component": "BACK OVER PREVENTION:WARNINGS:EXTERNAL/PEDESTRIAN ALERT",
+      "date": "31/03/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=COROLLA+CROSS+HYBRID&modelYear=2024",
+    "count": 6,
+    "top": [
+     [
+      "EXTERIOR LIGHTING",
+      2
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      2
+     ],
+     [
+      "SERVICE BRAKES",
+      1
+     ],
+     [
+      "STEERING",
+      1
+     ],
+     [
+      "VISIBILITY",
+      1
+     ]
+    ]
+   }
+  }
+ ]
+}

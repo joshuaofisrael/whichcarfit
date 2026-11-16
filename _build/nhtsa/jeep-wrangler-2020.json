@@ -1,0 +1,113 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "jeep",
+   "model": "WRANGLER",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=jeep&model=WRANGLER&modelYear=2020",
+    "count": 12,
+    "items": [
+     {
+      "id": "20V042000",
+      "component": "SUSPENSION:FRONT:CONTROL ARM:LOWER ARM",
+      "date": "24/01/2020",
+      "park": false
+     },
+     {
+      "id": "20V124000",
+      "component": "POWER TRAIN:CLUTCH ASSEMBLY",
+      "date": "03/03/2020",
+      "park": false
+     },
+     {
+      "id": "20V191000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "10/09/2020",
+      "park": false
+     },
+     {
+      "id": "21V028000",
+      "component": "POWER TRAIN:CLUTCH ASSEMBLY",
+      "date": "28/01/2021",
+      "park": false
+     },
+     {
+      "id": "21V665000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:HOSES, LINES/PIPING, AND FITTINGS",
+      "date": "26/08/2021",
+      "park": false
+     },
+     {
+      "id": "22V638000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "25/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V767000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "13/10/2022",
+      "park": false
+     },
+     {
+      "id": "23V116000",
+      "component": "POWER TRAIN:CLUTCH ASSEMBLY",
+      "date": "23/02/2023",
+      "park": false
+     },
+     {
+      "id": "23V191000",
+      "component": "STRUCTURE:FRAME AND MEMBERS",
+      "date": "23/03/2023",
+      "park": false
+     },
+     {
+      "id": "24V652000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "05/09/2024",
+      "park": false
+     },
+     {
+      "id": "24V676000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "12/09/2024",
+      "park": false
+     },
+     {
+      "id": "25V741000",
+      "component": "ELECTRICAL SYSTEM:PROPULSION SYSTEM:TRACTION BATTERY",
+      "date": "30/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=jeep&model=WRANGLER&modelYear=2020",
+    "count": 620,
+    "top": [
+     [
+      "STEERING",
+      240
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      183
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      58
+     ],
+     [
+      "ENGINE",
+      57
+     ],
+     [
+      "SUSPENSION",
+      52
+     ]
+    ]
+   }
+  }
+ ]
+}
