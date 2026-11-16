@@ -2,7 +2,35 @@
 
 Status 16 Nov 2026: v1 built with noindex on every page. Domain file is `CNAME` (`whichcarfit.com`). GitHub Pages should serve the site from branch `main`, folder `/`.
 
-The single switch is `NOINDEX` in `_build/config.py`. Leave it true until the domain answers on HTTPS. Then set it false, rebuild, push, and run `./indexnow.sh`.
+The committed default stays `NOINDEX = True` and `GA4_ID = ""` in `_build/config.py`. Changing `NOINDEX = True` to `NOINDEX = False` is the one-line launch switch. Paths stay root-relative. Canonicals stay `https://whichcarfit.com/`. The build rewrites `CNAME` (`whichcarfit.com`), `sitemap.xml` (every URL has `lastmod`), `robots.txt` (Googlebot, Bingbot, and the AI crawlers are allowed), `llms.txt`, and `15cffb11329a506a716afdc6f6099cae.txt` (IndexNow key). Do not put a secret in any of those files.
+
+## Launch command
+
+Do this only after whichcarfit.com answers on HTTPS. From the repo root:
+
+1. Edit `_build/config.py`.
+   - Set `NOINDEX = False` (the one-line switch).
+   - Set `GA4_ID = "G-XXXXXXXXXX"` to the GA4 Measurement ID. Leave it empty and `python3 _build/check.py` exits 1 with `ga4-id-empty`. The same check exits 1 if any page is missing the Cloudflare Web Analytics beacon or the GA4 loader (`https://www.googletagmanager.com/gtag/js?id=`).
+2. Rebuild, then require 0 issues and 0 holds:
+
+```bash
+python3 _build/build.py
+python3 _build/check.py
+python3 _build/legal_gate.py check --no-queue
+./indexnow.sh
+```
+
+`check.py` prints `issues 0`. `legal_gate.py` prints `0 HOLD_REVIEW`. `./indexnow.sh` does nothing while `NOINDEX = True`.
+
+The launch build removes the noindex meta (404 stays noindex), puts the Cloudflare beacon on every page, and loads Google Analytics 4 only after Accept on the consent banner. Consent Mode v2 defaults are denied. Cookie settings in the footer reopens the banner. The privacy page then names Google Analytics 4 and Cloudflare Web Analytics.
+
+Preview rebuild, with both flags left as committed:
+
+```bash
+python3 _build/build.py
+python3 _build/check.py
+python3 _build/legal_gate.py check --no-queue
+```
 
 ## What is published
 

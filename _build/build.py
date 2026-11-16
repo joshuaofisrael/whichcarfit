@@ -5,12 +5,12 @@
 
 NOINDEX in _build/config.py is the single flag for the noindex meta.
 Paths are always root relative. Canonicals always use https://whichcarfit.com/.
-The CNAME file is always written.
+The CNAME file is always written. GA4_ID is empty until launch. See LAUNCH-NOTES.md.
 """
 import html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import (NOINDEX, BASE_URL, BRAND, DOMAIN, PUBLISHED, PUBLISHED_H,
-                    INDEXNOW_KEY, CF_BEACON_TOKEN, CONTACT_EMAIL, LEGAL_LINE)
+                    INDEXNOW_KEY, CF_BEACON_TOKEN, CONTACT_EMAIL, LEGAL_LINE, GA4_ID)
 from vehicles import VEHICLES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,6 +44,25 @@ def clip(d, n=155):
     sp = c.rfind(" ")
     return (c[:sp] if sp > 40 else c).rstrip(",;:") + "."
 
+def seo_title(text):
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) >= 60:
+        raise SystemExit(f"title >= 60 ({len(text)}): {text}")
+    return text
+
+def article_ld(headline, path, published=None, modified=None):
+    published = published or PUBLISHED
+    modified = modified or published
+    return {
+        "@context": "https://schema.org", "@type": "Article",
+        "headline": headline, "datePublished": published, "dateModified": modified,
+        "image": url("/og.png"),
+        "author": {"@type": "Organization", "name": BRAND, "url": BASE_URL},
+        "publisher": {"@type": "Organization", "name": BRAND, "url": BASE_URL,
+                      "logo": {"@type": "ImageObject", "url": url("/logo.png")}},
+        "mainEntityOfPage": url(path),
+    }
+
 def write(path, content):
     fp = os.path.join(ROOT, path.lstrip("/"))
     if path.endswith("/"):
@@ -68,6 +87,11 @@ PARTS = [
     ("turn", "turn-signals", "Turn signals", "Front and rear turn signal types from the manual's bulb chart."),
 ]
 
+def part_anchors():
+    return " · ".join(
+        f'<a href="{u("/fitment/" + slug + "/")}">{E(label)}</a>'
+        for _, slug, label, _ in PARTS)
+
 def load_nhtsa(v):
     fp = os.path.join(NHTSA_DIR, vkey(v) + ".json")
     if not os.path.exists(fp):
@@ -76,6 +100,7 @@ def load_nhtsa(v):
         return json.load(f)
 
 def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, modified=PUBLISHED):
+    title = seo_title(title)
     desc = clip(desc)
     canon = url(path if path != "/404.html" else "/404.html")
     # 404 stays out of the sitemap. Other pages are listed even while the
@@ -103,25 +128,53 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
             (f'<li><a href="{u(p)}">{E(n)}</a></li>' if i < len(crumbs) - 1 else f'<li aria-current="page">{E(n)}</li>')
             for i, (p, n) in enumerate(crumbs)) + "</ol></nav>"
     robots = "noindex, follow" if robots_no else "index, follow, max-image-preview:large"
+    blocks = jsonld if isinstance(jsonld, list) else ([jsonld] if jsonld else [])
+    og_type = "article" if any(isinstance(x, dict) and x.get("@type") == "Article" for x in blocks) else "website"
     if NOINDEX:
         beacon = "<!-- cf-beacon: added when NOINDEX is turned off -->"
+        head_extra = ""
+        banner = ""
+        consent_js = ""
+        cookie_link = ""
     else:
         beacon = ("<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' "
                   f"data-cf-beacon='{{\"token\": \"{CF_BEACON_TOKEN}\"}}'></script><!-- End Cloudflare Web Analytics -->")
+        # Consent defaults run before any analytics tag. The gtag loader is
+        # type=text/plain so it does not fetch until consent.js copies it
+        # after Accept. GA4_ID may be empty; the launch check rejects that.
+        head_extra = (
+            "<script>window.dataLayer=window.dataLayer||[];"
+            "function gtag(){dataLayer.push(arguments);}"
+            "gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied',"
+            "'ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500});"
+            "</script>"
+            f'<script type="text/plain" data-ga4-loader="1" data-ga4-id="{E(GA4_ID)}" '
+            f'src="https://www.googletagmanager.com/gtag/js?id={E(GA4_ID)}"></script>'
+        )
+        banner = (
+            '<div id="consent-banner" class="consent" hidden>'
+            '<p>Google Analytics 4 stays off unless you accept. Cloudflare Web Analytics counts visits and does not use cookies. '
+            f'<a href="{u("/privacy/")}">Privacy</a></p>'
+            '<button type="button" class="btn" id="consent-accept">Accept</button>'
+            '<button type="button" class="btn alt" id="consent-reject">Reject</button>'
+            '</div>'
+        )
+        consent_js = f'<script src="{u("/assets/consent.js")}?v=1" defer></script>'
+        cookie_link = f' | <a href="#consent-banner" id="cookie-settings">Cookie settings</a>'
     legal_html = f'<p class="legal-line">{LEGAL_LINE}</p>' if legal else ""
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
-<meta property="og:type" content="website"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{url('/og.png')}"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=1">{ldh}
+<meta property="og:type" content="{og_type}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{url('/og.png')}"><meta property="og:image:alt" content="Which Car Fit key mark"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{url('/og.png')}">
+<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=2">{head_extra}{ldh}
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap"><a class="brand" href="{u('/')}">{LOGO}<span>{BRAND}</span></a><nav class="main" aria-label="Main">{nav}</nav></div></header>
 <main id="main" class="wrap">{bc}{body}<!-- ad-slot: below-content (reserved; no ad code) --></main>
 <footer class="site"><div class="wrap"><p class="fbrand"><strong>{BRAND}</strong>: key fob battery, wiper parts, bulb sizes, and NHTSA recalls by make, model, and year. Independent, and not affiliated with any car maker. Confirm every part on the vehicle and in the owner's manual.</p>
-<p class="flinks"><a href="{u('/about/')}">About</a> | <a href="{u('/methodology/')}">Sources and methods</a> | <a href="{u('/image-policy/')}">Image policy</a> | <a href="{u('/terms/')}">Terms of use</a> | <a href="{u('/privacy/')}">Privacy</a> | <a href="{u('/disclaimer/')}">Disclaimer</a> | <a href="{u('/ad-disclosure/')}">Advertising disclosure</a> | <a href="{u('/copyright/')}">Copyright and DMCA</a> | <a href="{u('/contact/')}">Contact</a></p>
+<p class="flinks"><a href="{u('/about/')}">About</a> | <a href="{u('/contact/')}">Contact</a> | <a href="{u('/privacy/')}">Privacy</a> | <a href="{u('/terms/')}">Terms of use</a> | <a href="{u('/disclaimer/')}">Disclaimer</a> | <a href="{u('/copyright/')}">Copyright and DMCA</a> | <a href="{u('/ad-disclosure/')}">Advertising disclosure</a> | <a href="{u('/image-policy/')}">Image policy</a> | <a href="{u('/methodology/')}">Sources and methods</a>{cookie_link}</p>
 {legal_html}</div></footer>
-<script src="{u('/assets/site.js')}?v=1" defer></script>{beacon}
+{banner}<script src="{u('/assets/site.js')}?v=1" defer></script>{consent_js}{beacon}
 </body></html>'''
 
 def ext_link(title, href):
@@ -133,8 +186,8 @@ def fit_map(v):
 def vehicle_page(v, by_model):
     path = vpath(v)
     name = f"{v['year']} {v['make']} {v['model']}"
-    title = f"{name} key fob battery, wiper size, bulb size, and common problems"
-    desc = f"{name}: key fob battery, wiper parts, and bulb chart from the owner's manual, plus NHTSA recalls."
+    title = f"Which parts fit a {name}?"
+    desc = f"Which key fob battery, wiper, and bulb fit a {name}? Figures are from that year's owner's manual, plus NHTSA recalls."
     rows = []
     for key, label, value in v["fitment"]:
         hub = next(p for p in PARTS if p[0] == key or (key == "rear" and p[0] == "wiper"))
@@ -186,7 +239,7 @@ def vehicle_page(v, by_model):
     note = f'<p class="note">{E(v["note"])}</p>' if v.get("note") else ""
     make_href = f"/cars/{slugify(v['make'])}/"
     model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
-    body = f'''<article class="prose wide"><p class="byline">By {BRAND}</p><h1>{E(name)} key fob battery, wiper size, bulb size, and common problems</h1>
+    body = f'''<article class="prose wide"><p class="byline">By {BRAND}</p><h1>{E(title)}</h1>
 <p class="sub">Owner's manual checked {PUBLISHED_H}</p>
 <div class="answer"><p><strong>Direct answer</strong></p><ul>{"".join(lead)}</ul></div>
 {note}
@@ -196,19 +249,11 @@ def vehicle_page(v, by_model):
 {problem_html}
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2>{"".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in faqs)}</section>
 {sib_html}
-<p><a href="{u(model_href)}">All {E(v["make"])} {E(v["model"])} years</a> · <a href="{u(make_href)}">All {E(v["make"])} models</a> · <a href="{u('/fitment/')}">How to read a fitment chart</a> · <a href="{u('/cars/')}">All cars</a></p>
+<p>Related: <a href="{u(model_href)}">All {E(v["make"])} {E(v["model"])} years</a> · <a href="{u(make_href)}">All {E(v["make"])} models</a> · <a href="{u('/fitment/')}">How to read a fitment chart</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p>
 <section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>{srcs}</ul>
 <p class="note">Retrieved {PUBLISHED_H}. {BRAND} is not affiliated with {E(v["make"])}. Names are used only to identify the vehicle.</p></section>
 </article>'''
-    article = {
-        "@context": "https://schema.org", "@type": "Article",
-        "headline": title, "datePublished": v["published"], "dateModified": v["modified"],
-        "image": url("/og.png"),
-        "author": {"@type": "Organization", "name": BRAND, "url": BASE_URL},
-        "publisher": {"@type": "Organization", "name": BRAND, "url": BASE_URL,
-                      "logo": {"@type": "ImageObject", "url": url("/logo.png")}},
-        "mainEntityOfPage": url(path),
-    }
+    article = article_ld(title, path, v["published"], v["modified"])
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
     crumbs = [("/", "Home"), ("/cars/", "Cars"), (make_href, v["make"]), (model_href, v["model"]), (path, v["year"])]
@@ -268,13 +313,25 @@ def hubs():
         vs = [v for v in VEHICLES if v["make"] == make]
         links = ", ".join(f'<a href="{u(vpath(v))}">{E(v["model"])} {E(v["year"])}</a>' for v in vs)
         cards.append(f'<li class="card"><h2><a href="{u("/cars/" + slugify(make) + "/")}">{E(make)}</a></h2><p>{links}</p></li>')
-    body = f'''<h1>Car make, model, and year lookup</h1>
+    car_faqs = [
+        ("Which car should I look up?",
+         "Pick the make, then the model, then the year whose owner's manual we opened. That year page lists the key fob battery, the wiper parts, and the bulb chart."),
+        ("Which year should I open?",
+         "Open the model year of your vehicle. Do not reuse a chart from a different year."),
+    ]
+    car_faq_html = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in car_faqs)
+    body = f'''<h1>Which car should I look up?</h1>
 <p class="answer">Pick a vehicle for the key fob battery, wiper parts, and bulb types printed in that year's owner's manual, plus the NHTSA recalls on file for that model year.</p>
 <ul class="cards">{"".join(cards)}</ul>
-<p><a href="{u('/fitment/')}">How we read a key fob battery, a wiper size, and a bulb chart</a></p>'''
-    write("/cars/", page("/cars/", f"Cars by make, model, and year | {BRAND}",
-                         "Look up key fob battery, wiper parts, bulb sizes, and NHTSA recalls by make, model, and year.",
-                         body, crumbs=[("/", "Home"), ("/cars/", "Cars")]))
+<p>Related: <a href="{u('/fitment/')}">How we read a key fob battery, a wiper size, and a bulb chart</a> · {part_anchors()}</p>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which part fits?</h2>{car_faq_html}</section>'''
+    car_title = "Which car should I look up?"
+    car_faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in car_faqs]}
+    write("/cars/", page("/cars/", car_title,
+                         "Which car should I look up? Open the make and model, then the year whose owner's manual we checked.",
+                         body, [article_ld(car_title, "/cars/"), car_faq_ld],
+                         [("/", "Home"), ("/cars/", "Cars")]))
     for make in makes:
         vs = [v for v in VEHICLES if v["make"] == make]
         models = []
@@ -287,12 +344,27 @@ def hubs():
             year_links = ", ".join(f'<a href="{u(vpath(v))}">{E(v["year"])}</a>' for v in years)
             blocks.append(f'<li class="card"><h2><a href="{u("/cars/" + slugify(make) + "/" + slugify(model) + "/")}">{E(model)}</a></h2><p>Years with a manual checked: {year_links}</p></li>')
         path = f"/cars/{slugify(make)}/"
-        body = f'''<h1>{E(make)} key fob, wiper, and bulb lookup</h1>
+        make_title = f"Which {make} model should I pick?"
+        make_faqs = [
+            (f"Which {make} model should I pick?",
+             f"Open the model, then the year. This page lists the {make} models whose owner's manual we have opened. A part from one model is not a part for another."),
+            (f"Which {make} year should I open?",
+             "Each model card lists the years we checked. The year page quotes that year's book. Do not copy a part from one year onto another."),
+            (f"Which key fob battery, wiper, or bulb fits a {make}?",
+             "It depends on the model and the year. The year page has the key fob cell, the wiper line, and the bulb chart from that owner's manual, plus NHTSA recalls when the API returns them."),
+        ]
+        make_faq_html = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in make_faqs)
+        make_faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in make_faqs]}
+        body = f'''<h1>{E(make_title)}</h1>
 <p class="answer">{E(make)} model years we have checked against an owner's manual. Each year has its own page. Do not copy a part from one year onto another.</p>
-<ul class="cards">{"".join(blocks)}</ul>'''
-        write(path, page(path, f"{make} key fob battery, wipers, and bulbs | {BRAND}",
-                         f"{make} model years: key fob battery, wiper parts, bulb chart, and NHTSA recalls.",
-                         body, crumbs=[("/", "Home"), ("/cars/", "Cars"), (path, make)]))
+<ul class="cards">{"".join(blocks)}</ul>
+<p>Related: {part_anchors()} · <a href="{u('/cars/')}">All cars</a> · <a href="{u('/fitment/')}">How to read a fitment chart</a></p>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which {E(make)} should I open?</h2>{make_faq_html}</section>'''
+        write(path, page(path, make_title,
+                         f"Which {make} model should I open? Each year page quotes that year's owner's manual for the key fob, wipers, bulbs, and NHTSA recalls.",
+                         body, [article_ld(make_title, path), make_faq_ld],
+                         [("/", "Home"), ("/cars/", "Cars"), (path, make)]))
         for model in models:
             years = [v for v in vs if v["model"] == model]
             items = "".join(
@@ -320,18 +392,20 @@ def hubs():
             faq_html = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in faqs)
             faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
-            body = f'''<h1>{E(make)} {E(model)} by year</h1>
+            model_title = f"Which {make} {model} year should I pick?"
+            body = f'''<h1>{E(model_title)}</h1>
 <p class="answer">Each row is one model year whose owner's manual we opened. The cells are shortened. The year page has the full chart and the manual link.</p>
 <div class="tablewrap"><table class="list"><thead><tr><th scope="col">Year</th><th scope="col">Key fob battery</th><th scope="col">Front wiper</th><th scope="col">Headlight</th></tr></thead><tbody>{comp}</tbody></table></div>
 <ul>{items}</ul>
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which part fits this {E(model)}?</h2>{faq_html}</section>
-<p>Also see <a href="{u('/fitment/key-fob-battery/')}">key fob batteries</a>, <a href="{u('/fitment/wiper-blades/')}">wiper blades</a>, and <a href="{u('/fitment/headlight-bulbs/')}">headlight bulbs</a> across every make.</p>'''
-            write(path, page(path, f"{make} {model} by year: key fob, wipers, bulbs | {BRAND}",
-                             f"{make} {model} year pages for key fob battery, wiper parts, bulbs, and NHTSA recalls.",
-                             body, faqld, [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)]))
+<p>Related: <a href="{u('/cars/' + slugify(make) + '/')}">All {E(make)} models</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p>'''
+            write(path, page(path, model_title,
+                             f"Which {make} {model} year should I open? The table quotes each checked year's owner's manual.",
+                             body, [article_ld(model_title, path), faqld],
+                             [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)]))
 
 def fitment_pages():
-    intro = f'''<h1>How to read a key fob battery, a wiper size, and a bulb chart</h1>
+    intro = f'''<h1>Which part fits my car?</h1>
 <p class="answer">Three fitment facts owners look up, and where each one is printed. This site copies the figure only when an owner's manual or a manufacturer parts table prints it.</p>
 <h2>Key fob battery</h2>
 <p>The owner's manual names the coin cell in the remote chapter. Some vehicles print two cells because the integrated key and the push button remote are different. Match the remote in your hand, not just the model year. See every page we have checked on the <a href="{u('/fitment/key-fob-battery/')}">key fob battery</a> hub.</p>
@@ -357,13 +431,10 @@ def fitment_pages():
     body = f'<article class="prose"><p class="byline">By {BRAND}</p>{intro}<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2>{faq_html}</section></article>'
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
-    article = {"@context": "https://schema.org", "@type": "Article", "headline": "How to read a key fob battery, a wiper size, and a bulb chart",
-               "datePublished": PUBLISHED, "dateModified": PUBLISHED, "image": url("/og.png"),
-               "author": {"@type": "Organization", "name": BRAND, "url": BASE_URL},
-               "publisher": {"@type": "Organization", "name": BRAND, "url": BASE_URL, "logo": {"@type": "ImageObject", "url": url("/logo.png")}},
-               "mainEntityOfPage": url("/fitment/")}
-    write("/fitment/", page("/fitment/", f"Key fob battery, wiper size, and bulb chart | {BRAND}",
-                            "How to read a key fob battery, a wiper size, and a bulb chart, and where recalls are looked up.",
+    fit_title = "Which part fits my car?"
+    article = article_ld(fit_title, "/fitment/")
+    write("/fitment/", page("/fitment/", fit_title,
+                            "Which key fob battery, wiper, or bulb fits? A year page copies the figure only when that owner's manual prints it.",
                             body, [article, faqld], [("/", "Home"), ("/fitment/", "Part fit")]))
     groups = {
         "key": ["key"],
@@ -387,6 +458,7 @@ def fitment_pages():
                 text = text[:217].rsplit(" ", 1)[0] + "..."
             lis.append(f'<li><a href="{u(vpath(v))}">{E(v["year"])} {E(v["make"])} {E(v["model"])}</a>: {E(text)}</li>')
         path = f"/fitment/{slug}/"
+        part_title = f"Which {label.lower()} should I pick?"
         q = f"Which {label.lower()} fits my car?"
         a = (f"Pick the make, model, and year. The list on this page is every {label.lower()} line we copied from an owner's manual. "
              "Open that year for the full wording and the manual link. A part from a different year is not a match.")
@@ -394,14 +466,18 @@ def fitment_pages():
         faq_html = "".join(f"<details><summary>{E(qq)}</summary><p>{E(aa)}</p></details>" for qq, aa in hub_faqs)
         faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": qq, "acceptedAnswer": {"@type": "Answer", "text": aa}} for qq, aa in hub_faqs]}
-        body = f'''<h1>{E(label)} by vehicle</h1>
+        others = " · ".join(
+            f'<a href="{u("/fitment/" + oslug + "/")}">{E(olabel)}</a>'
+            for _, oslug, olabel, _ in PARTS if oslug != slug)
+        body = f'''<h1>{E(part_title)}</h1>
 <p class="answer">{E(blurb)} Open the year page for the full chart and the manual link. A figure from one year is not a figure for the next year.</p>
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which {E(label.lower())} fits my car?</h2>{faq_html}</section>
 <ul>{"".join(lis)}</ul>
-<p><a href="{u('/fitment/')}">How to read these charts</a> · <a href="{u('/cars/')}">All cars</a> · <a href="{u('/')}">Use the year picker</a></p>'''
-        write(path, page(path, f"{label} by make, model, and year | {BRAND}",
-                         f"{label} for the model years whose owner's manual we have checked.",
-                         body, faqld, [("/", "Home"), ("/fitment/", "Part fit"), (path, label)]))
+<p>Related: {others} · <a href="{u('/fitment/')}">How to read these charts</a> · <a href="{u('/cars/')}">All cars</a> · <a href="{u('/')}">Use the year picker</a></p>'''
+        write(path, page(path, part_title,
+                         f"Which {label.lower()} fits your car? Every line here is copied from that model year's owner's manual.",
+                         body, [article_ld(part_title, path), faqld],
+                         [("/", "Home"), ("/fitment/", "Part fit"), (path, label)]))
 
 def home(catalog):
     makes = []
@@ -443,15 +519,42 @@ def home(catalog):
     ]
     home_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in home_faqs]}
-    write("/", page("/", f"{BRAND}: key fob battery, wiper size, and bulb size",
-                    "Key fob battery, wiper parts, bulb sizes, and NHTSA recalls by make, model, and year, from owner's manuals.",
+    write("/", page("/", "Which battery, wiper, or bulb fits?",
+                    "Which key fob battery, wiper, or bulb fits your car? Pick the year. Figures come from that owner's manual, plus NHTSA recalls.",
                     body, home_faq))
+
+def privacy_analytics():
+    if NOINDEX:
+        return (
+            "<p>This preview build does not load Cloudflare Web Analytics or Google Analytics 4. "
+            "The launch build loads Cloudflare Web Analytics on every page. That product does not use cookies and does not track you across sites. "
+            "Google Analytics 4 loads only after you accept the cookie banner. Consent Mode v2 starts with ad storage, ad user data, ad personalization, and analytics storage denied, and the Google Analytics script stays unloaded until you accept.</p>"
+        )
+    return (
+        "<p>We use Cloudflare Web Analytics on every page to count visits. It does not use cookies and does not track you across sites. "
+        "We use Google Analytics 4 only after you accept the cookie banner. Consent Mode v2 keeps ad storage, ad user data, ad personalization, and analytics storage denied until then, and the Google Analytics script does not load. "
+        "If you accept, analytics storage is granted and Google Analytics 4 may set a cookie to measure visits. Ad storage stays denied because the site shows no ads. "
+        "Use Cookie settings in the footer to change your choice. Choosing reject after an accept sets analytics storage back to denied. A hit may already have been sent.</p>"
+    )
+
+def privacy_cookies():
+    if NOINDEX:
+        return (
+            "<p>This preview build sets no cookies. After launch, Google Analytics 4 may set a cookie only if you accept. "
+            "That choice is stored in local storage on your device. Cloudflare Web Analytics does not use cookies. The site works if you reject Google Analytics 4.</p>"
+        )
+    return (
+        "<p>Cloudflare Web Analytics does not use cookies. Google Analytics 4 may set a cookie only after you accept. "
+        "The accept or reject choice is stored in local storage in your browser so the banner can stay dismissed. It stays on your device. "
+        f"{BRAND} does not sell personal information.</p>"
+    )
 
 def simple(path, title, desc, h1, inner, crumb=None, legal=False):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'
     if legal:
         body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}<p class="legal-line">{LEGAL_LINE}</p></article>'
-    write(path, page(path, title, desc, body, crumbs=[("/", "Home"), (path, crumb or h1)], legal=legal))
+    write(path, page(path, title, desc, body, article_ld(title, path),
+                     crumbs=[("/", "Home"), (path, crumb or h1)], legal=legal))
 
 def static_pages():
     simple("/about/", f"About {BRAND}", "What Which Car Fit is and how the vehicle pages are checked.",
@@ -472,7 +575,7 @@ def static_pages():
            "Image policy", f'''
 <p>Last updated {PUBLISHED_H}.</p>
 <h2>Graphics</h2><p>The mark in the header and the sharing image are original drawings of a key. They are not photos of a vehicle and they are not a car maker's logo.</p>
-<h2>Photos</h2><p>The site does not use photos of cars, owners, or parts.</p>
+<h2>Photos</h2><p>The site does not use photos of cars, owners, or parts. Any photograph that is shown links to this page.</p>
 <h2>Names</h2><p>Make and model names appear in plain text so you can tell which vehicle a page describes. We do not display car maker logos, and the names do not imply affiliation.</p>
 <h2>Questions</h2><p>If you believe an image uses your work, see the <a href="{u('/copyright/')}">copyright policy</a> or <a href="{u('/contact/')}">contact us</a>.</p>''', "Image policy")
     simple("/contact/", f"Contact {BRAND}", "Email Which Car Fit a correction or a question.",
@@ -493,10 +596,10 @@ def static_pages():
 <h2>Governing law</h2><p>These terms are governed by the laws of the State of Florida, United States, without regard to conflict of law rules.</p>
 <h2>Changes</h2><p>We may update these terms. The date above is the latest version. Questions: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>'''),
         "/privacy/": ("Privacy Policy", f'''<p>Last updated {D}. This policy explains how {BRAND} (whichcarfit.com), a trade name of Joshua Israel Ventures LLC, a Florida limited liability company, handles information.</p>
-<h2>Analytics</h2><p>When the site is on its live domain, we use Cloudflare Web Analytics to count page views. It does not use cookies and does not track you across sites. The preview build does not include that beacon.</p>
+<h2>Analytics</h2>{privacy_analytics()}
 <h2>Email</h2><p>If you email {CONTACT_EMAIL}, we receive your address and your message so we can reply. We keep them only as long as needed for that reply and for a correction log.</p>
 <h2>Advertising</h2><p>The site shows no ads today. If we add ads later, we will update this policy first. You would be able to opt out of personalized advertising at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>.</p>
-<h2>Cookies</h2><p>{BRAND} itself sets no cookies. The site works without them.</p>
+<h2>Cookies</h2>{privacy_cookies()}
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages, which may log IP addresses for security and operations.</p>
 <h2>Your rights</h2><p>You can ask us to access, correct, or delete personal information we hold. Email {CONTACT_EMAIL}. Residents of some states may have additional rights, which we will honor.</p>
 <h2>Children</h2><p>The site is not directed to children under 13. We do not knowingly collect personal information from children.</p>
