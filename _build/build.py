@@ -152,6 +152,8 @@ def vehicle_page(v, by_model):
     faqs = [
         (f"What battery does the {name} key fob take?",
          fm["key"][1] + " Match the remote you hold to the description, because some model years print two different cells."),
+        (f"Which wiper, bulb, and battery fit a {name}?",
+         "Battery: " + fm["key"][1] + " Front wiper: " + fm["wiper"][1] + " Headlight: " + fm["head"][1] + " Brake light: " + fm["brake"][1] + " Turn signal: " + fm["turn"][1]),
         (f"Where do I find the tire size and the bulb chart for a {name}?",
          "Tire size and cold pressure are on the driver's door jamb label. The bulb types in the table on this page are taken from the owner's manual cited below, not from that label. If the manual lists more than one lamp package, match the row to the lamps on your vehicle."),
         (f"Where do I look up recalls on a {name}?",
@@ -162,6 +164,16 @@ def vehicle_page(v, by_model):
     if sibs:
         sib_html = "<h2>Other years</h2><ul class=\"cols\">" + "".join(
             f'<li><a href="{u(vpath(o))}">{E(o["year"])} {E(o["make"])} {E(o["model"])}</a></li>' for o in sibs) + "</ul>"
+    other_models = []
+    seen_models = set()
+    for o in VEHICLES:
+        if o["make"] == v["make"] and o["model"] != v["model"] and o["model"] not in seen_models:
+            seen_models.add(o["model"])
+            other_models.append(o)
+    if other_models:
+        sib_html += "<h2>Other " + E(v["make"]) + " models</h2><ul class=\"cols\">" + "".join(
+            f'<li><a href="{u("/cars/" + slugify(o["make"]) + "/" + slugify(o["model"]) + "/")}">{E(o["model"])}</a></li>'
+            for o in other_models) + "</ul>"
     srcs = "".join(
         f"<li>{ext_link(t, href)} ({E(pub)}, {E(date)}). {E(note)}</li>"
         for t, href, pub, date, note in v["sources"])
@@ -216,7 +228,7 @@ def problems_block(v, nhtsa):
         rec = g["recalls"]
         chunks.append(f"<h3>Recalls filed for {E(label)}</h3>")
         if rec.get("error"):
-            chunks.append(f"<p>The recalls API returned an error ({E(rec['error'])}). Use the VIN lookup.</p>")
+            chunks.append("<p>The recalls API did not return a campaign list for this model name. Look up the VIN at <a href=\"https://www.nhtsa.gov/recalls\" rel=\"nofollow noopener\" target=\"_blank\">nhtsa.gov/recalls</a>.</p>")
         elif not rec.get("items"):
             chunks.append("<p>The recalls API returned no campaigns for this model year.</p>")
         else:
@@ -287,12 +299,36 @@ def hubs():
                 f'<li><a href="{u(vpath(v))}">{E(v["year"])} {E(make)} {E(model)}</a>: {E(fit_map(v)["key"][1][:180])}</li>'
                 for v in years)
             path = f"/cars/{slugify(make)}/{slugify(model)}/"
+            def short(text, n=110):
+                text = re.sub(r"\s+", " ", text).strip()
+                return text if len(text) <= n else text[:n].rsplit(" ", 1)[0] + "..."
+            comp = "".join(
+                "<tr><td><a href=\"%s\">%s</a></td><td>%s</td><td>%s</td><td>%s</td></tr>" % (
+                    u(vpath(v)), E(v["year"]),
+                    E(short(fit_map(v)["key"][1])),
+                    E(short(fit_map(v)["wiper"][1])),
+                    E(short(fit_map(v)["head"][1])),
+                ) for v in years)
+            faqs = [
+                (f"Which key fob battery fits a {make} {model}?",
+                 "It depends on the year, and sometimes on which remote is in the car. Open the year page. The short battery line for each year we have checked is in the table on this page."),
+                (f"Which wiper blade fits a {make} {model}?",
+                 "Use the year page. Some manuals print an inch length, and some print only a part number or say the length is not in the book. Do not reuse a length from a different year."),
+                (f"Which bulb fits a {make} {model}?",
+                 "The headlight, brake, and turn rows are on the year page, copied from that year's owner's manual. Trims in the same year can take different lamps."),
+            ]
+            faq_html = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in faqs)
+            faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+                {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
             body = f'''<h1>{E(make)} {E(model)} by year</h1>
-<p class="answer">Each link is one model year whose owner's manual we opened. The key fob line is the short version. The full bulb chart is on the year page.</p>
-<ul>{items}</ul>'''
+<p class="answer">Each row is one model year whose owner's manual we opened. The cells are shortened. The year page has the full chart and the manual link.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th scope="col">Year</th><th scope="col">Key fob battery</th><th scope="col">Front wiper</th><th scope="col">Headlight</th></tr></thead><tbody>{comp}</tbody></table></div>
+<ul>{items}</ul>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which part fits this {E(model)}?</h2>{faq_html}</section>
+<p>Also see <a href="{u('/fitment/key-fob-battery/')}">key fob batteries</a>, <a href="{u('/fitment/wiper-blades/')}">wiper blades</a>, and <a href="{u('/fitment/headlight-bulbs/')}">headlight bulbs</a> across every make.</p>'''
             write(path, page(path, f"{make} {model} by year: key fob, wipers, bulbs | {BRAND}",
                              f"{make} {model} year pages for key fob battery, wiper parts, bulbs, and NHTSA recalls.",
-                             body, crumbs=[("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)]))
+                             body, faqld, [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)]))
 
 def fitment_pages():
     intro = f'''<h1>How to read a key fob battery, a wiper size, and a bulb chart</h1>
@@ -306,10 +342,14 @@ def fitment_pages():
 <h2>Recalls</h2>
 <p>Open recalls are looked up with the VIN at <a href="https://www.nhtsa.gov/recalls" rel="nofollow noopener" target="_blank">nhtsa.gov/recalls</a>. The year pages also list the campaigns NHTSA's public API returned for that model year.</p>'''
     faqs = [
+        ("Which key fob battery fits my car?",
+         "Open the year page for your make, model, and year, or use the picker on the home page. The cell is whatever that year's owner's manual prints, often a CR2032, and sometimes a second cell for a different remote. Do not buy from the model name alone."),
+        ("Which wiper blade fits my car?",
+         "Use the year page. If the manual prints an inch length, that length is on the page. If it prints only a part number, or does not print a length, the page says so. A length from another year is not a substitute."),
+        ("Which bulb fits my car?",
+         "Use the year page for the headlight, brake light, and turn signal rows. The tire label on the driver's door jamb does not list bulb numbers. Match the row to your trim when the manual lists more than one lamp package."),
         ("Where is the key fob battery printed?",
          "In the owner's manual chapter on the remote or the key. The cell type is a CR number such as CR2032. If the book lists two remotes, they can take two different cells."),
-        ("Does the door placard list the bulb size?",
-         "No. The driver's door jamb label lists tire size and cold pressure. Bulb types are in the owner's manual bulb chart."),
         ("Where do I look up a recall?",
          "Enter the VIN at https://www.nhtsa.gov/recalls. A campaign number on our year pages links to NHTSA's record for that campaign."),
     ]
@@ -347,13 +387,21 @@ def fitment_pages():
                 text = text[:217].rsplit(" ", 1)[0] + "..."
             lis.append(f'<li><a href="{u(vpath(v))}">{E(v["year"])} {E(v["make"])} {E(v["model"])}</a>: {E(text)}</li>')
         path = f"/fitment/{slug}/"
+        q = f"Which {label.lower()} fits my car?"
+        a = (f"Pick the make, model, and year. The list on this page is every {label.lower()} line we copied from an owner's manual. "
+             "Open that year for the full wording and the manual link. A part from a different year is not a match.")
+        hub_faqs = [(q, a)]
+        faq_html = "".join(f"<details><summary>{E(qq)}</summary><p>{E(aa)}</p></details>" for qq, aa in hub_faqs)
+        faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": qq, "acceptedAnswer": {"@type": "Answer", "text": aa}} for qq, aa in hub_faqs]}
         body = f'''<h1>{E(label)} by vehicle</h1>
 <p class="answer">{E(blurb)} Open the year page for the full chart and the manual link. A figure from one year is not a figure for the next year.</p>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which {E(label.lower())} fits my car?</h2>{faq_html}</section>
 <ul>{"".join(lis)}</ul>
-<p><a href="{u('/fitment/')}">How to read these charts</a> · <a href="{u('/cars/')}">All cars</a></p>'''
+<p><a href="{u('/fitment/')}">How to read these charts</a> · <a href="{u('/cars/')}">All cars</a> · <a href="{u('/')}">Use the year picker</a></p>'''
         write(path, page(path, f"{label} by make, model, and year | {BRAND}",
                          f"{label} for the model years whose owner's manual we have checked.",
-                         body, crumbs=[("/", "Home"), ("/fitment/", "Part fit"), (path, label)]))
+                         body, faqld, [("/", "Home"), ("/fitment/", "Part fit"), (path, label)]))
 
 def home(catalog):
     makes = []
@@ -379,10 +427,25 @@ def home(catalog):
 </section>
 <h2>Cars by make</h2><ul class="cards">{"".join(cards)}</ul>
 <h2>Look up by part</h2><ul class="cols">{part_links}</ul>
-<h2>How a page is built</h2><p>We open that year's owner's manual and copy the key fob cell, the wiper part or length, and the bulb chart, with the manual linked on the page. Recalls and complaint counts come from NHTSA's public API for that model year. If the manual does not print a figure, the page says so. <a href="{u('/methodology/')}">Sources and methods</a>.</p>'''
+<h2>How a page is built</h2><p>We open that year's owner's manual and copy the key fob cell, the wiper part or length, and the bulb chart, with the manual linked on the page. Recalls and complaint counts come from NHTSA's public API for that model year. If the manual does not print a figure, the page says so. <a href="{u('/methodology/')}">Sources and methods</a>.</p>
+<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which part fits my car?</h2>
+<details><summary>Which key fob battery fits my car?</summary><p>Choose the make, model, and year in the picker above. The year page quotes the cell the owner's manual prints. Some cars have two remotes and two different cells.</p></details>
+<details><summary>Which wiper blade fits my car?</summary><p>The year page lists the front and rear wiper line from that year's manual. Use an inch length only when the manual prints one.</p></details>
+<details><summary>Which bulb fits my car?</summary><p>The year page lists the headlight, brake light, and turn signal lines from that year's bulb chart. The door jamb label is for tires, not bulbs.</p></details>
+</section>'''
+    home_faqs = [
+        ("Which key fob battery fits my car?",
+         "Choose the make, model, and year in the picker. The year page quotes the cell the owner's manual prints. Some cars have two remotes and two different cells."),
+        ("Which wiper blade fits my car?",
+         "The year page lists the front and rear wiper line from that year's manual. Use an inch length only when the manual prints one."),
+        ("Which bulb fits my car?",
+         "The year page lists the headlight, brake light, and turn signal lines from that year's bulb chart. The door jamb label is for tires, not bulbs."),
+    ]
+    home_faq = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in home_faqs]}
     write("/", page("/", f"{BRAND}: key fob battery, wiper size, and bulb size",
                     "Key fob battery, wiper parts, bulb sizes, and NHTSA recalls by make, model, and year, from owner's manuals.",
-                    body))
+                    body, home_faq))
 
 def simple(path, title, desc, h1, inner, crumb=None, legal=False):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'

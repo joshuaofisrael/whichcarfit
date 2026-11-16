@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "hyundai",
+   "model": "SANTA FE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=SANTA+FE&modelYear=2023",
+    "count": 1,
+    "items": [
+     {
+      "id": "23V181000",
+      "component": "TRAILER HITCHES",
+      "date": "17/03/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=hyundai&model=SANTA+FE&modelYear=2023",
+    "count": 217,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      62
+     ],
+     [
+      "POWER TRAIN",
+      46
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      37
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      37
+     ],
+     [
+      "ENGINE",
+      35
+     ]
+    ]
+   }
+  }
+ ]
+}

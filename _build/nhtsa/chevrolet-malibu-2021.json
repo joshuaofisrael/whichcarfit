@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "MALIBU",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=MALIBU&modelYear=2021",
+    "count": 2,
+    "items": [
+     {
+      "id": "21V649000",
+      "component": "SEAT BELTS:CRITICAL FASTENERS",
+      "date": "20/08/2021",
+      "park": false
+     },
+     {
+      "id": "22V359000",
+      "component": "SEATS",
+      "date": "19/05/2022",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=MALIBU&modelYear=2021",
+    "count": 90,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      31
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      30
+     ],
+     [
+      "POWER TRAIN",
+      28
+     ],
+     [
+      "ENGINE",
+      15
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      8
+     ]
+    ]
+   }
+  }
+ ]
+}

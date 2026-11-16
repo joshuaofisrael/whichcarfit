@@ -1,0 +1,83 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "gmc",
+   "model": "SIERRA 1500",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=gmc&model=SIERRA+1500&modelYear=2021",
+    "count": 7,
+    "items": [
+     {
+      "id": "20V684000",
+      "component": "TIRES",
+      "date": "05/11/2020",
+      "park": false
+     },
+     {
+      "id": "20V792000",
+      "component": "SEAT BELTS",
+      "date": "17/12/2020",
+      "park": false
+     },
+     {
+      "id": "20V811000",
+      "component": "SEAT BELTS",
+      "date": "23/12/2020",
+      "park": false
+     },
+     {
+      "id": "21V985000",
+      "component": "TIRES:TEMPORARY/EMERGENCY SPARE TIRE",
+      "date": "16/12/2021",
+      "park": false
+     },
+     {
+      "id": "24V797000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "24/10/2024",
+      "park": false
+     },
+     {
+      "id": "25V274000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "24/04/2025",
+      "park": false
+     },
+     {
+      "id": "26V083000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "13/02/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=gmc&model=SIERRA+1500&modelYear=2021",
+    "count": 608,
+    "top": [
+     [
+      "ENGINE",
+      329
+     ],
+     [
+      "POWER TRAIN",
+      147
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      76
+     ],
+     [
+      "ENGINE AND ENGINE COOLING",
+      51
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      47
+     ]
+    ]
+   }
+  }
+ ]
+}

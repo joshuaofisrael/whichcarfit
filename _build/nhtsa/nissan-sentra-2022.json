@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "SENTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=SENTRA&modelYear=2022",
+    "count": 2,
+    "items": [
+     {
+      "id": "23V421000",
+      "component": "STRUCTURE:BODY",
+      "date": "12/06/2023",
+      "park": false
+     },
+     {
+      "id": "23V581000",
+      "component": "STEERING:LINKAGES:TIE ROD ASSEMBLY",
+      "date": "15/08/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=SENTRA&modelYear=2022",
+    "count": 81,
+    "top": [
+     [
+      "STEERING",
+      31
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      24
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      16
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      13
+     ],
+     [
+      "WHEELS",
+      8
+     ]
+    ]
+   }
+  }
+ ]
+}

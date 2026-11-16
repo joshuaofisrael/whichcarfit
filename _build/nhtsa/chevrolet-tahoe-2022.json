@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "TAHOE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=TAHOE&modelYear=2022",
+    "count": 4,
+    "items": [
+     {
+      "id": "22V617000",
+      "component": "SEAT BELTS:CRITICAL FASTENERS",
+      "date": "11/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V903000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE:SOFTWARE",
+      "date": "08/12/2022",
+      "park": false
+     },
+     {
+      "id": "25V274000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "24/04/2025",
+      "park": false
+     },
+     {
+      "id": "26V085000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "13/02/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=TAHOE&modelYear=2022",
+    "count": 198,
+    "top": [
+     [
+      "ENGINE",
+      76
+     ],
+     [
+      "POWER TRAIN",
+      41
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      38
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      22
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      20
+     ]
+    ]
+   }
+  }
+ ]
+}

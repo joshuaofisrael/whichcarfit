@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "mazda",
+   "model": "CX-5",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=mazda&model=CX-5&modelYear=2019",
+    "count": 2,
+    "items": [
+     {
+      "id": "19V497000",
+      "component": "ENGINE",
+      "date": "27/06/2019",
+      "park": false
+     },
+     {
+      "id": "21V875000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "12/11/2021",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=mazda&model=CX-5&modelYear=2019",
+    "count": 274,
+    "top": [
+     [
+      "ENGINE",
+      133
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      50
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      47
+     ],
+     [
+      "POWER TRAIN",
+      32
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      16
+     ]
+    ]
+   }
+  }
+ ]
+}

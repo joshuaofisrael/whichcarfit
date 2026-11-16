@@ -1,0 +1,101 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2021",
+    "count": 10,
+    "items": [
+     {
+      "id": "21V068000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:HOSES, LINES/PIPING, AND FITTINGS",
+      "date": "11/02/2021",
+      "park": false
+     },
+     {
+      "id": "21V186000",
+      "component": "WHEELS:LUGS/NUTS/BOLTS/STUDS",
+      "date": "17/03/2021",
+      "park": false
+     },
+     {
+      "id": "21V286000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:CALIPER",
+      "date": "22/04/2021",
+      "park": false
+     },
+     {
+      "id": "21V474000",
+      "component": "SEATS:MID/REAR ASSEMBLY",
+      "date": "24/06/2021",
+      "park": false
+     },
+     {
+      "id": "21V957000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "09/12/2021",
+      "park": false
+     },
+     {
+      "id": "22V527000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "21/07/2022",
+      "park": false
+     },
+     {
+      "id": "22V666000",
+      "component": "SEAT BELTS: REAR/OTHER:BUCKLE ASSEMBLY",
+      "date": "01/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V772000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "13/10/2022",
+      "park": false
+     },
+     {
+      "id": "23V791000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:CALIPER",
+      "date": "22/11/2023",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2021",
+    "count": 298,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      80
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      62
+     ],
+     [
+      "ENGINE",
+      55
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      34
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      29
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ALTIMA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ALTIMA&modelYear=2018",
+    "count": 2,
+    "items": [
+     {
+      "id": "19V654000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "12/09/2019",
+      "park": false
+     },
+     {
+      "id": "20V315000",
+      "component": "LATCHES/LOCKS/LINKAGES:HOOD:LATCH",
+      "date": "28/05/2020",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ALTIMA&modelYear=2018",
+    "count": 226,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      60
+     ],
+     [
+      "SERVICE BRAKES",
+      49
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      37
+     ],
+     [
+      "AIR BAGS",
+      36
+     ],
+     [
+      "POWER TRAIN",
+      24
+     ]
+    ]
+   }
+  }
+ ]
+}

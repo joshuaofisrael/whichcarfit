@@ -1,0 +1,40 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ALTIMA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ALTIMA&modelYear=2022",
+    "error": "400",
+    "items": []
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ALTIMA&modelYear=2022",
+    "count": 20,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      7
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      6
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      5
+     ],
+     [
+      "ENGINE",
+      5
+     ],
+     [
+      "SERVICE BRAKES",
+      4
+     ]
+    ]
+   }
+  }
+ ]
+}

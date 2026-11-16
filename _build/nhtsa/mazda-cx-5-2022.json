@@ -1,0 +1,40 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "mazda",
+   "model": "CX-5",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=mazda&model=CX-5&modelYear=2022",
+    "error": "400",
+    "items": []
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=mazda&model=CX-5&modelYear=2022",
+    "count": 65,
+    "top": [
+     [
+      "EXTERIOR LIGHTING",
+      23
+     ],
+     [
+      "ENGINE",
+      13
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      9
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      6
+     ],
+     [
+      "POWER TRAIN",
+      5
+     ]
+    ]
+   }
+  }
+ ]
+}

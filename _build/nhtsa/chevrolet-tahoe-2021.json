@@ -1,0 +1,137 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "TAHOE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=TAHOE&modelYear=2021",
+    "count": 16,
+    "items": [
+     {
+      "id": "20V735000",
+      "component": "SEATS",
+      "date": "25/11/2020",
+      "park": false
+     },
+     {
+      "id": "20V792000",
+      "component": "SEAT BELTS",
+      "date": "17/12/2020",
+      "park": false
+     },
+     {
+      "id": "20V811000",
+      "component": "SEAT BELTS",
+      "date": "23/12/2020",
+      "park": false
+     },
+     {
+      "id": "21V064000",
+      "component": "FUEL SYSTEM, GASOLINE:STORAGE:TANK ASSEMBLY",
+      "date": "11/02/2021",
+      "park": false
+     },
+     {
+      "id": "21V190000",
+      "component": "SEAT BELTS",
+      "date": "18/03/2021",
+      "park": false
+     },
+     {
+      "id": "21V210000",
+      "component": "SEAT BELTS:REAR/OTHER",
+      "date": "25/03/2021",
+      "park": false
+     },
+     {
+      "id": "21V421000",
+      "component": "AIR BAGS:SRS MALFUNCTION WARNING LAMP/LIGHT",
+      "date": "10/06/2021",
+      "park": false
+     },
+     {
+      "id": "21V455000",
+      "component": "STEERING:STEERING CONTROL MODULE",
+      "date": "17/06/2021",
+      "park": false
+     },
+     {
+      "id": "21V579000",
+      "component": "SERVICE BRAKES, HYDRAULIC:POWER ASSIST:ELECTRIC:CONTROL MODULE:SOFTWARE",
+      "date": "29/07/2021",
+      "park": false
+     },
+     {
+      "id": "21V739000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP:CONTROL/DRIVE MODULE",
+      "date": "23/09/2021",
+      "park": false
+     },
+     {
+      "id": "22V036000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "27/01/2022",
+      "park": false
+     },
+     {
+      "id": "22V617000",
+      "component": "SEAT BELTS:CRITICAL FASTENERS",
+      "date": "11/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V827000",
+      "component": "EXTERIOR LIGHTING:LIGHTING CONTROL MODULE:SOFTWARE",
+      "date": "03/11/2022",
+      "park": false
+     },
+     {
+      "id": "24V797000",
+      "component": "POWER TRAIN:AUTOMATIC TRANSMISSION:CONTROL MODULE:SOFTWARE",
+      "date": "24/10/2024",
+      "park": false
+     },
+     {
+      "id": "25V274000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "24/04/2025",
+      "park": false
+     },
+     {
+      "id": "25V619000",
+      "component": "FUEL SYSTEM, DIESEL:STORAGE:TANK ASSEMBLY",
+      "date": "18/09/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=TAHOE&modelYear=2021",
+    "count": 469,
+    "top": [
+     [
+      "ENGINE",
+      174
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      96
+     ],
+     [
+      "POWER TRAIN",
+      92
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      58
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      42
+     ]
+    ]
+   }
+  }
+ ]
+}

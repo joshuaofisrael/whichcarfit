@@ -1,0 +1,65 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2024",
+    "count": 4,
+    "items": [
+     {
+      "id": "24V748000",
+      "component": "BACK OVER PREVENTION",
+      "date": "03/10/2024",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     },
+     {
+      "id": "26V080000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "12/02/2026",
+      "park": false
+     },
+     {
+      "id": "26V081000",
+      "component": "FUEL SYSTEM, GASOLINE:FUEL INJECTION SYSTEM:THROTTLEBODY/MANIFOLD",
+      "date": "12/02/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2024",
+    "count": 239,
+    "top": [
+     [
+      "ENGINE",
+      72
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      71
+     ],
+     [
+      "POWER TRAIN",
+      44
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      29
+     ],
+     [
+      "VISIBILITY",
+      29
+     ]
+    ]
+   }
+  }
+ ]
+}

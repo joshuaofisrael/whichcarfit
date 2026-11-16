@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2019",
+    "count": 3,
+    "items": [
+     {
+      "id": "19V654000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "12/09/2019",
+      "park": false
+     },
+     {
+      "id": "21V839000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:ENGINE CONTROL MODULE (ECU/ECM)",
+      "date": "26/10/2021",
+      "park": false
+     },
+     {
+      "id": "23V093000",
+      "component": "ELECTRICAL SYSTEM:IGNITION:ANTI-THEFT:IMMOBILIZER/PROXIMITY:KEY/SENDER",
+      "date": "16/02/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2019",
+    "count": 340,
+    "top": [
+     [
+      "SERVICE BRAKES",
+      126
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      101
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      61
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      57
+     ],
+     [
+      "POWER TRAIN",
+      23
+     ]
+    ]
+   }
+  }
+ ]
+}

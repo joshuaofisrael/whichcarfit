@@ -1,0 +1,71 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "chevrolet",
+   "model": "EQUINOX",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=chevrolet&model=EQUINOX&modelYear=2022",
+    "count": 5,
+    "items": [
+     {
+      "id": "21V612000",
+      "component": "TIRES",
+      "date": "05/08/2021",
+      "park": false
+     },
+     {
+      "id": "22V359000",
+      "component": "SEATS",
+      "date": "19/05/2022",
+      "park": false
+     },
+     {
+      "id": "22V724000",
+      "component": "SEATS",
+      "date": "29/09/2022",
+      "park": false
+     },
+     {
+      "id": "23V013000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP:CONTROL/DRIVE MODULE",
+      "date": "19/01/2023",
+      "park": false
+     },
+     {
+      "id": "23V339000",
+      "component": "CHILD SEAT:VEHICLE LATCH ANCHOR",
+      "date": "11/05/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=EQUINOX&modelYear=2022",
+    "count": 184,
+    "top": [
+     [
+      "FUEL/PROPULSION SYSTEM",
+      80
+     ],
+     [
+      "FUEL SYSTEM",
+      36
+     ],
+     [
+      "GASOLINE",
+      36
+     ],
+     [
+      "ENGINE",
+      28
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      20
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "hyundai",
+   "model": "ELANTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=hyundai&model=ELANTRA&modelYear=2022",
+    "count": 5,
+    "items": [
+     {
+      "id": "22V123000",
+      "component": "SEAT BELTS:FRONT",
+      "date": "03/03/2022",
+      "park": false
+     },
+     {
+      "id": "22V218000",
+      "component": "SEAT BELTS:FRONT",
+      "date": "01/04/2022",
+      "park": false
+     },
+     {
+      "id": "22V354000",
+      "component": "SEAT BELTS:FRONT",
+      "date": "19/05/2022",
+      "park": false
+     },
+     {
+      "id": "22V632000",
+      "component": "AIR BAGS:FRONTAL",
+      "date": "18/08/2022",
+      "park": false
+     },
+     {
+      "id": "24V879000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "21/11/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=hyundai&model=ELANTRA&modelYear=2022",
+    "count": 102,
+    "top": [
+     [
+      "SEAT BELTS",
+      23
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      21
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      19
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      17
+     ],
+     [
+      "ENGINE",
+      11
+     ]
+    ]
+   }
+  }
+ ]
+}

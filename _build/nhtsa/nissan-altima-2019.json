@@ -1,0 +1,83 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ALTIMA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ALTIMA&modelYear=2019",
+    "count": 7,
+    "items": [
+     {
+      "id": "18V922000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "20/12/2018",
+      "park": false
+     },
+     {
+      "id": "19V235000",
+      "component": "EXTERIOR LIGHTING:BRAKE LIGHTS:SWITCH",
+      "date": "25/03/2019",
+      "park": false
+     },
+     {
+      "id": "19V316000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "18/04/2019",
+      "park": false
+     },
+     {
+      "id": "19V654000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "12/09/2019",
+      "park": false
+     },
+     {
+      "id": "21V169000",
+      "component": "TIRES",
+      "date": "11/03/2021",
+      "park": false
+     },
+     {
+      "id": "23V628000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "08/09/2023",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ALTIMA&modelYear=2019",
+    "count": 235,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      58
+     ],
+     [
+      "ENGINE",
+      49
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      49
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      41
+     ],
+     [
+      "SERVICE BRAKES",
+      29
+     ]
+    ]
+   }
+  }
+ ]
+}

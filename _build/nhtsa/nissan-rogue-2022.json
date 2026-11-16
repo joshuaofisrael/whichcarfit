@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "ROGUE",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=ROGUE&modelYear=2022",
+    "count": 6,
+    "items": [
+     {
+      "id": "22V259000",
+      "component": "FUEL SYSTEM, GASOLINE:STORAGE:TANK ASSEMBLY",
+      "date": "14/04/2022",
+      "park": false
+     },
+     {
+      "id": "22V527000",
+      "component": "BACK OVER PREVENTION: SENSING SYSTEM: CAMERA",
+      "date": "21/07/2022",
+      "park": false
+     },
+     {
+      "id": "22V660000",
+      "component": "FUEL SYSTEM, GASOLINE:STORAGE:TANK ASSEMBLY",
+      "date": "31/08/2022",
+      "park": false
+     },
+     {
+      "id": "22V666000",
+      "component": "SEAT BELTS: REAR/OTHER:BUCKLE ASSEMBLY",
+      "date": "01/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V772000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "13/10/2022",
+      "park": false
+     },
+     {
+      "id": "25V437000",
+      "component": "ENGINE AND ENGINE COOLING:ENGINE:HARD PARTS INTERNAL/MECHANICAL",
+      "date": "27/06/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=ROGUE&modelYear=2022",
+    "count": 274,
+    "top": [
+     [
+      "ENGINE",
+      151
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      47
+     ],
+     [
+      "ENGINE AND ENGINE COOLING",
+      44
+     ],
+     [
+      "POWER TRAIN",
+      42
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      37
+     ]
+    ]
+   }
+  }
+ ]
+}

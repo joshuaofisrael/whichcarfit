@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "nissan",
+   "model": "SENTRA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=nissan&model=SENTRA&modelYear=2024",
+    "count": 3,
+    "items": [
+     {
+      "id": "24V154000",
+      "component": "AIR BAGS:FRONTAL:DRIVER SIDE:INFLATOR MODULE",
+      "date": "27/02/2024",
+      "park": false
+     },
+     {
+      "id": "24V304000",
+      "component": "POWER TRAIN:DRIVELINE:DRIVESHAFT",
+      "date": "29/04/2024",
+      "park": false
+     },
+     {
+      "id": "24V498000",
+      "component": "VISIBILITY:WINDSHIELD",
+      "date": "01/07/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=nissan&model=SENTRA&modelYear=2024",
+    "count": 41,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      10
+     ],
+     [
+      "STEERING",
+      10
+     ],
+     [
+      "POWER TRAIN",
+      9
+     ],
+     [
+      "SUSPENSION",
+      8
+     ],
+     [
+      "SERVICE BRAKES",
+      6
+     ]
+    ]
+   }
+  }
+ ]
+}

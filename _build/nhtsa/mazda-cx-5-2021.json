@@ -1,0 +1,40 @@
+{
+ "retrieved": "2026-11-16",
+ "groups": [
+  {
+   "make": "mazda",
+   "model": "CX-5",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=mazda&model=CX-5&modelYear=2021",
+    "error": "400",
+    "items": []
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=mazda&model=CX-5&modelYear=2021",
+    "count": 150,
+    "top": [
+     [
+      "ENGINE",
+      81
+     ],
+     [
+      "POWER TRAIN",
+      17
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      17
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      14
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      12
+     ]
+    ]
+   }
+  }
+ ]
+}
