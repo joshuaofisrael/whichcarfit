@@ -1,0 +1,51 @@
+{
+ "retrieved": "2026-11-18",
+ "groups": [
+  {
+   "make": "honda",
+   "model": "ACCORD",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=honda&model=ACCORD&modelYear=2023",
+    "count": 5,
+    "items": [
+     {
+      "id": "23V782000",
+      "component": "SEAT BELTS:FRONT",
+      "date": "21/11/2023",
+      "park": false
+     },
+     {
+      "id": "23V858000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "19/12/2023",
+      "park": false
+     },
+     {
+      "id": "24V763000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "15/10/2024",
+      "park": false
+     },
+     {
+      "id": "24V859000",
+      "component": "SEATS:CRITICAL FASTENERS",
+      "date": "15/11/2024",
+      "park": false
+     },
+     {
+      "id": "26V054000",
+      "component": "SEATS:CRITICAL FASTENERS",
+      "date": "30/01/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=ACCORD&modelYear=2023",
+    "error": "400",
+    "count": null,
+    "top": []
+   }
+  }
+ ]
+}

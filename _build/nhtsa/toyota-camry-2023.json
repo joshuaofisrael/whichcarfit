@@ -1,0 +1,53 @@
+{
+ "retrieved": "2026-11-18",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "CAMRY",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=CAMRY&modelYear=2023",
+    "count": 2,
+    "items": [
+     {
+      "id": "23V432000",
+      "component": "WHEELS:LUGS/NUTS/BOLTS/STUDS",
+      "date": "15/06/2023",
+      "park": true
+     },
+     {
+      "id": "24V128000",
+      "component": "SEATS",
+      "date": "22/02/2024",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=CAMRY&modelYear=2023",
+    "count": 68,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      18
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      9
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      7
+     ],
+     [
+      "POWER TRAIN",
+      7
+     ],
+     [
+      "VEHICLE SPEED CONTROL",
+      7
+     ]
+    ]
+   }
+  }
+ ]
+}

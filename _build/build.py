@@ -92,6 +92,13 @@ def part_anchors():
         f'<a href="{u("/fitment/" + slug + "/")}">{E(label)}</a>'
         for _, slug, label, _ in PARTS)
 
+def latest(vs):
+    # A hub page's lastmod should reflect the newest vehicle it lists,
+    # since adding a vehicle changes that hub's own list, not just the new
+    # vehicle's own page. Falls back to PUBLISHED when the list is empty.
+    dates = [v["modified"] for v in vs]
+    return max(dates) if dates else PUBLISHED
+
 def load_nhtsa(v):
     fp = os.path.join(NHTSA_DIR, vkey(v) + ".json")
     if not os.path.exists(fp):
@@ -185,6 +192,9 @@ def fit_map(v):
 
 def vehicle_page(v, by_model):
     path = vpath(v)
+    # Most vehicles were checked in the 16 Nov 2026 launch batch; a few added
+    # later carry their own real checked date in v["checked_h"].
+    checked = v.get("checked_h", PUBLISHED_H)
     name = f"{v['year']} {v['make']} {v['model']}"
     title = f"Which parts fit a {name}?"
     desc = f"Which key fob battery, wiper, and bulb fit a {name}? Figures are from that year's owner's manual, plus NHTSA recalls."
@@ -201,7 +211,7 @@ def vehicle_page(v, by_model):
         if key in fm:
             lead.append(f"<li><strong>{E(fm[key][0])}:</strong> {E(fm[key][1])}</li>")
     nhtsa = load_nhtsa(v)
-    problem_html, faqs_extra = problems_block(v, nhtsa)
+    problem_html, faqs_extra = problems_block(v, nhtsa, checked)
     faqs = [
         (f"What battery does the {name} key fob take?",
          fm["key"][1] + " Match the remote you hold to the description, because some model years print two different cells."),
@@ -210,7 +220,7 @@ def vehicle_page(v, by_model):
         (f"Where do I find the tire size and the bulb chart for a {name}?",
          "Tire size and cold pressure are on the driver's door jamb label. The bulb types in the table on this page are taken from the owner's manual cited below, not from that label. If the manual lists more than one lamp package, match the row to the lamps on your vehicle."),
         (f"Where do I look up recalls on a {name}?",
-         "Go to https://www.nhtsa.gov/recalls and enter the VIN from the driver's door jamb. The campaigns listed on this page are what NHTSA's public recalls API returned for this model year on " + PUBLISHED_H + "."),
+         "Go to https://www.nhtsa.gov/recalls and enter the VIN from the driver's door jamb. The campaigns listed on this page are what NHTSA's public recalls API returned for this model year on " + checked + "."),
     ]
     sibs = [o for o in by_model.get((v["make"], v["model"]), []) if o["year"] != v["year"]]
     sib_html = ""
@@ -233,14 +243,14 @@ def vehicle_page(v, by_model):
     srcs += f'<li>{ext_link("NHTSA recalls lookup by VIN", "https://www.nhtsa.gov/recalls")} (National Highway Traffic Safety Administration).</li>'
     if nhtsa:
         for g in nhtsa["groups"]:
-            srcs += f'<li>{ext_link("NHTSA recalls API: " + g["model"] + " " + v["year"], g["recalls"]["url"])} retrieved {PUBLISHED_H}.</li>'
+            srcs += f'<li>{ext_link("NHTSA recalls API: " + g["model"] + " " + v["year"], g["recalls"]["url"])} retrieved {checked}.</li>'
             if g["complaints"].get("url"):
-                srcs += f'<li>{ext_link("NHTSA complaints API: " + g["model"] + " " + v["year"], g["complaints"]["url"])} retrieved {PUBLISHED_H}.</li>'
+                srcs += f'<li>{ext_link("NHTSA complaints API: " + g["model"] + " " + v["year"], g["complaints"]["url"])} retrieved {checked}.</li>'
     note = f'<p class="note">{E(v["note"])}</p>' if v.get("note") else ""
     make_href = f"/cars/{slugify(v['make'])}/"
     model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
     body = f'''<article class="prose wide"><p class="byline">By {BRAND}</p><h1>{E(title)}</h1>
-<p class="sub">Owner's manual checked {PUBLISHED_H}</p>
+<p class="sub">Owner's manual checked {checked}</p>
 <div class="answer"><p><strong>Direct answer</strong></p><ul>{"".join(lead)}</ul></div>
 {note}
 <p>Confirm every part against the owner's manual and the vehicle itself. This is a guide, not a repair instruction. Lamp packages change by trim, and a later book can change a chart.</p>
@@ -251,7 +261,7 @@ def vehicle_page(v, by_model):
 {sib_html}
 <p>Related: <a href="{u(model_href)}">All {E(v["make"])} {E(v["model"])} years</a> · <a href="{u(make_href)}">All {E(v["make"])} models</a> · <a href="{u('/fitment/')}">How to read a fitment chart</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p>
 <section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>{srcs}</ul>
-<p class="note">Retrieved {PUBLISHED_H}. {BRAND} is not affiliated with {E(v["make"])}. Names are used only to identify the vehicle.</p></section>
+<p class="note">Retrieved {checked}. {BRAND} is not affiliated with {E(v["make"])}. Names are used only to identify the vehicle.</p></section>
 </article>'''
     article = article_ld(title, path, v["published"], v["modified"])
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -259,7 +269,7 @@ def vehicle_page(v, by_model):
     crumbs = [("/", "Home"), ("/cars/", "Cars"), (make_href, v["make"]), (model_href, v["model"]), (path, v["year"])]
     write(path, page(path, title, desc, body, [article, faqld], crumbs, modified=v["modified"]))
 
-def problems_block(v, nhtsa):
+def problems_block(v, nhtsa, checked=PUBLISHED_H):
     if not v["nhtsa"]:
         return ('''<h2>Common problems on record</h2>
 <p>NHTSA's recalls API does not accept this model name, so this page does not invent a recall list and does not borrow another model's campaigns. Look up the VIN at <a href="https://www.nhtsa.gov/recalls" rel="nofollow noopener" target="_blank">nhtsa.gov/recalls</a>.</p>''', "")
@@ -298,7 +308,7 @@ def problems_block(v, nhtsa):
             n = comp["count"]
             noun = "complaint" if n == 1 else "complaints"
             chunks.append(
-                f"<p>NHTSA's complaint API returned {n} {noun} for this model year, retrieved {PUBLISHED_H}. "
+                f"<p>NHTSA's complaint API returned {n} {noun} for this model year, retrieved {checked}. "
                 f"The components named most often were {top_s}. These are reports owners filed, not a confirmed defect list.</p>")
     return ("".join(chunks), "")
 
@@ -331,7 +341,7 @@ def hubs():
     write("/cars/", page("/cars/", car_title,
                          "Which car should I look up? Open the make and model, then the year whose owner's manual we checked.",
                          body, [article_ld(car_title, "/cars/"), car_faq_ld],
-                         [("/", "Home"), ("/cars/", "Cars")]))
+                         [("/", "Home"), ("/cars/", "Cars")], modified=latest(VEHICLES)))
     for make in makes:
         vs = [v for v in VEHICLES if v["make"] == make]
         models = []
@@ -364,7 +374,7 @@ def hubs():
         write(path, page(path, make_title,
                          f"Which {make} model should I open? Each year page quotes that year's owner's manual for the key fob, wipers, bulbs, and NHTSA recalls.",
                          body, [article_ld(make_title, path), make_faq_ld],
-                         [("/", "Home"), ("/cars/", "Cars"), (path, make)]))
+                         [("/", "Home"), ("/cars/", "Cars"), (path, make)], modified=latest(vs)))
         for model in models:
             years = [v for v in vs if v["model"] == model]
             items = "".join(
@@ -402,7 +412,8 @@ def hubs():
             write(path, page(path, model_title,
                              f"Which {make} {model} year should I open? The table quotes each checked year's owner's manual.",
                              body, [article_ld(model_title, path), faqld],
-                             [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)]))
+                             [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)],
+                             modified=latest(years)))
 
 def fitment_pages():
     intro = f'''<h1>Which part fits my car?</h1>
@@ -445,6 +456,7 @@ def fitment_pages():
     }
     for key, slug, label, blurb in PARTS:
         lis = []
+        listed = []
         for v in VEHICLES:
             fm = fit_map(v)
             bits = []
@@ -457,6 +469,7 @@ def fitment_pages():
             if len(text) > 220:
                 text = text[:217].rsplit(" ", 1)[0] + "..."
             lis.append(f'<li><a href="{u(vpath(v))}">{E(v["year"])} {E(v["make"])} {E(v["model"])}</a>: {E(text)}</li>')
+            listed.append(v)
         path = f"/fitment/{slug}/"
         part_title = f"Which {label.lower()} should I pick?"
         q = f"Which {label.lower()} fits my car?"
@@ -477,7 +490,7 @@ def fitment_pages():
         write(path, page(path, part_title,
                          f"Which {label.lower()} fits your car? Every line here is copied from that model year's owner's manual.",
                          body, [article_ld(part_title, path), faqld],
-                         [("/", "Home"), ("/fitment/", "Part fit"), (path, label)]))
+                         [("/", "Home"), ("/fitment/", "Part fit"), (path, label)], modified=latest(listed)))
 
 def home(catalog):
     makes = []
@@ -521,7 +534,7 @@ def home(catalog):
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in home_faqs]}
     write("/", page("/", "Which battery, wiper, or bulb fits?",
                     "Which key fob battery, wiper, or bulb fits your car? Pick the year. Figures come from that owner's manual, plus NHTSA recalls.",
-                    body, home_faq))
+                    body, home_faq, modified=latest(VEHICLES)))
 
 def privacy_analytics():
     if NOINDEX:

@@ -514,3 +514,38 @@ WAVE2 = [
     ],
     note="Mazda hosts this PDF in the 2023 CX-5 folder. The manual's own edition code uses 22, so this page is filed as model year 2022."),
 ]
+
+# Added 18 Nov 2026 (priority SEO move). Published and modified are set to
+# that day, not the 16 Nov launch batch date, because these two pages were
+# not live until today.
+CAMRY_2023 = V("Toyota", "Camry", 2023, [('toyota', 'CAMRY')], [
+    ("key", "Key fob battery", "The electronic key chapter says to use a CR2032 lithium battery."),
+    ("wiper", "Front wiper", "An inch length is not printed in the pages we read."),
+    ("rear", "Rear wiper", "This sedan manual does not print a rear wiper length in the pages we read."),
+    ("head", "Headlight", "A headlight trade number is not in the exterior light bulb table. The table's own footnote says a light not listed there is an LED bulb."),
+    ("brake", "Brake light", "Brake and tail lamps are not in the exterior light bulb table either, so the same LED footnote applies. No trade number is printed for them."),
+    ("turn", "Turn signal", "Front turn signal and parking lights, bulb type: 7444NA, 28/8 W, wedge base amber. Rear turn signal lights, bulb type: WY21W, 21 W, wedge base amber. Front side marker lights, bulb type: W5W, 5 W, wedge base clear. Rear side marker lights, bulb type: W5W, 5 W. Back-up lights, bulb type: 921, 16 W."),
+], [
+    ("2023 Toyota Camry Owner's Manual, publication OM06259U", "https://assets.sia.toyota.com/publications/en/om-s/OM06259U/pdf/OM06259U.pdf", "Toyota Motor Corporation", "2023", "Light bulbs table in the Vehicle specifications chapter (page 589), footnote 1: bulbs not listed in the table are LED. Electronic key battery: use a CR2032 lithium battery."),
+],
+note="The light bulb table lists only the bulb-type lamps (turn signals, side markers, back-up lights). Every lamp missing from that table is LED on this model, per the table's own footnote, not a gap in what we read.")
+CAMRY_2023["published"] = "2026-11-18"
+CAMRY_2023["modified"] = "2026-11-18"
+CAMRY_2023["checked_h"] = "18 Nov 2026"
+
+ACCORD_2023 = V("Honda", "Accord", 2023, [('honda', 'ACCORD')], [
+    ("key", "Key fob battery", "Remote Transmitter Care, Replacing the Remote Battery: battery type CR2032."),
+    ("wiper", "Front wiper", "Checking and Maintaining Wiper Blades gives the rubber-replacement steps. It does not print a driver or passenger inch length."),
+    ("rear", "Rear wiper", "This sedan manual does not print a rear wiper length."),
+    ("head", "Headlight", "Headlights are LED type. The manual says to have an authorized Honda dealer inspect and replace the light assembly."),
+    ("brake", "Brake light", "Brake lights, rear side marker and taillights, and rear turn signal lights are LED type, replaced as an assembly by a dealer."),
+    ("turn", "Turn signal", "Front turn signal lights and front side marker lights are LED type. Rear turn signal lights are LED type, grouped with the brake and taillight assembly. The specifications table lists every exterior light bulb position as LED, with no bulb trade number on this model."),
+], [
+    ("2023 Honda Accord Owner's Manual", "https://cdn.dealereprocess.org/cdn/servicemanuals/honda/2023-accord.pdf", "American Honda Motor Co., Inc.", "2023", "Replacing Light Bulbs (page 446) and Remote Transmitter Care, Replacing the Remote Battery (page 462): CR2032. Specifications table lists every light bulb position as LED."),
+],
+note="Every exterior lamp on this model is LED and replaced at a dealer as an assembly. That is what the manual's own specifications table says, not a fact we could not find.")
+ACCORD_2023["published"] = "2026-11-18"
+ACCORD_2023["modified"] = "2026-11-18"
+ACCORD_2023["checked_h"] = "18 Nov 2026"
+
+WAVE2.extend([CAMRY_2023, ACCORD_2023])
