@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2021",
+    "count": 1,
+    "items": [
+     {
+      "id": "23V865000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION",
+      "date": "20/12/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2021",
+    "count": 392,
+    "top": [
+     [
+      "AIR BAGS",
+      125
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      76
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      47
+     ],
+     [
+      "ENGINE",
+      41
+     ],
+     [
+      "POWER TRAIN",
+      23
+     ]
+    ]
+   }
+  }
+ ]
+}

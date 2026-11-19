@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2025",
+    "count": 3,
+    "items": [
+     {
+      "id": "25V595000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "11/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V744000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "30/10/2025",
+      "park": false
+     },
+     {
+      "id": "26V256000",
+      "component": "SEATS:CRITICAL FASTENERS",
+      "date": "22/04/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2025",
+    "count": 98,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      26
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      17
+     ],
+     [
+      "ENGINE",
+      14
+     ],
+     [
+      "SERVICE BRAKES",
+      9
+     ],
+     [
+      "VEHICLE SPEED CONTROL",
+      9
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2024",
+    "count": 3,
+    "items": [
+     {
+      "id": "24V911000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:CALIPER",
+      "date": "05/12/2024",
+      "park": false
+     },
+     {
+      "id": "25V595000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "11/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V744000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "30/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2024",
+    "count": 177,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      49
+     ],
+     [
+      "ENGINE",
+      39
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      33
+     ],
+     [
+      "STEERING",
+      27
+     ],
+     [
+      "SERVICE BRAKES",
+      18
+     ]
+    ]
+   }
+  }
+ ]
+}

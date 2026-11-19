@@ -17,6 +17,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NHTSA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "nhtsa")
 E = html.escape
 PAGES = []  # (path, lastmod) for the sitemap. 404 is excluded.
+# Google AdSense publisher id (sitewide head tag only; no ad units yet).
+ADSENSE_CLIENT = "ca-pub-5681559774142917"
+# Optional news-photo thumbnails for model hubs. Path is root-relative.
+MODEL_THUMBS = {
+    ("Toyota", "RAV4"): {
+        "src": "/assets/images/rav4-coastal-drive.png",
+        "alt": "Unbadged SUV on a coastal road in natural daylight",
+        "caption": "AI-generated image. Atmospheric photo for the RAV4 hub, not a factory shot of a specific year.",
+    },
+}
 
 def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
@@ -50,18 +60,107 @@ def seo_title(text):
         raise SystemExit(f"title >= 60 ({len(text)}): {text}")
     return text
 
-def article_ld(headline, path, published=None, modified=None):
+def article_ld(headline, path, published=None, modified=None, image=None):
     published = published or PUBLISHED
     modified = modified or published
     return {
         "@context": "https://schema.org", "@type": "Article",
         "headline": headline, "datePublished": published, "dateModified": modified,
-        "image": url("/og.png"),
+        "image": url(image or "/og.png"),
         "author": {"@type": "Organization", "name": BRAND, "url": BASE_URL},
         "publisher": {"@type": "Organization", "name": BRAND, "url": BASE_URL,
                       "logo": {"@type": "ImageObject", "url": url("/logo.png")}},
         "mainEntityOfPage": url(path),
     }
+
+def thumb_figure(thumb):
+    """News-photo figure labelled AI-generated and linked to the image policy."""
+    return (
+        f'<figure class="thumb">'
+        f'<a href="{u("/image-policy/")}" class="thumb-link">'
+        f'<img src="{u(thumb["src"])}" alt="{E(thumb["alt"])}" width="1280" height="720" loading="lazy">'
+        f"</a>"
+        f'<figcaption><a href="{u("/image-policy/")}">{E(thumb["caption"])}</a></figcaption>'
+        f"</figure>"
+    )
+
+def related_reads(items, heading="Related lookups"):
+    """Next-read cards with thumbnails when the target has a known photo."""
+    cards = []
+    for href, label, blurb, thumb in items:
+        img = ""
+        if thumb:
+            # Image-policy link must sit just before the <img> for check.py.
+            img = (f'<a class="img-policy-ref" href="{u("/image-policy/")}">AI-generated image policy</a>'
+                   f'<a class="next-thumb" href="{u(href)}">'
+                   f'<img src="{u(thumb["src"])}" alt="" width="320" height="180" loading="lazy"></a>')
+        cards.append(
+            f'<li class="next-card">{img}'
+            f'<div><a href="{u(href)}">{E(label)}</a>'
+            f'<p>{E(blurb)}</p></div></li>')
+    return (f'<section class="next-reads" aria-labelledby="next-h">'
+            f'<h2 id="next-h">{E(heading)}</h2>'
+            f'<ul class="next-list">{"".join(cards)}</ul></section>')
+
+def compare_box(v, by_model):
+    """Check-another box for lookup pages: sibling years and other models."""
+    make_href = f"/cars/{slugify(v['make'])}/"
+    model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
+    sibs = [o for o in by_model.get((v["make"], v["model"]), []) if o["year"] != v["year"]]
+    year_links = " · ".join(
+        f'<a href="{u(vpath(o))}">{E(o["year"])}</a>' for o in sibs) or "none checked yet"
+    other = []
+    seen = set()
+    for o in VEHICLES:
+        if o["make"] == v["make"] and o["model"] != v["model"] and o["model"] not in seen:
+            seen.add(o["model"])
+            other.append(o)
+        if len(other) >= 4:
+            break
+    other_links = " · ".join(
+        f'<a href="{u("/cars/" + slugify(o["make"]) + "/" + slugify(o["model"]) + "/")}">{E(o["model"])}</a>'
+        for o in other) or f'<a href="{u(make_href)}">All {E(v["make"])} models</a>'
+    return (
+        f'<aside class="compare" aria-label="Check another vehicle">'
+        f"<h2>Check another year or model</h2>"
+        f'<p>Same {E(v["make"])} {E(v["model"])} year: {year_links}. '
+        f'Or open the <a href="{u(model_href)}">year comparison table</a>.</p>'
+        f"<p>Other {E(v['make'])} models: {other_links}. "
+        f'Part hubs: {part_anchors()}.</p>'
+        f'<p><a href="{u("/")}">Use the year picker</a> if you want a different make.</p>'
+        f"</aside>"
+    )
+
+def vehicle_related(v, by_model):
+    """3-4 closely related next reads for a year page."""
+    items = []
+    model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
+    thumb = MODEL_THUMBS.get((v["make"], v["model"]))
+    items.append((model_href,
+                  f"All {v['make']} {v['model']} years",
+                  "Year table for key fob, wiper, and headlight lines from each checked book.",
+                  thumb))
+    sibs = [o for o in by_model.get((v["make"], v["model"]), []) if o["year"] != v["year"]]
+    if sibs:
+        # Prefer a nearby year
+        sibs_sorted = sorted(sibs, key=lambda o: abs(int(o["year"]) - int(v["year"])))
+        o = sibs_sorted[0]
+        items.append((vpath(o),
+                      f"{o['year']} {o['make']} {o['model']} parts",
+                      "Same model, different year. Charts are not copied across years.",
+                      None))
+    for o in VEHICLES:
+        if o["make"] == v["make"] and o["model"] != v["model"]:
+            items.append((f"/cars/{slugify(o['make'])}/{slugify(o['model'])}/",
+                          f"{o['make']} {o['model']} hub",
+                          "Another model whose owner's manual we have opened.",
+                          MODEL_THUMBS.get((o["make"], o["model"]))))
+            break
+    items.append(("/fitment/key-fob-battery/",
+                  "Key fob battery hub",
+                  "Every key fob cell we copied from an owner's manual.",
+                  None))
+    return items[:4]
 
 def write(path, content):
     fp = os.path.join(ROOT, path.lstrip("/"))
@@ -150,6 +249,9 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
         # type=text/plain so it does not fetch until consent.js copies it
         # after Accept. GA4_ID may be empty; the launch check rejects that.
         head_extra = (
+            f'<meta name="google-adsense-account" content="{E(ADSENSE_CLIENT)}">'
+            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+            f'?client={E(ADSENSE_CLIENT)}" crossorigin="anonymous"></script>'
             "<script>window.dataLayer=window.dataLayer||[];"
             "function gtag(){dataLayer.push(arguments);}"
             "gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied',"
@@ -174,7 +276,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
 <meta property="og:type" content="{og_type}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{url('/og.png')}"><meta property="og:image:alt" content="Which Car Fit key mark"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{url('/og.png')}">
-<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=2">{head_extra}{ldh}
+<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=3">{head_extra}{ldh}
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap"><a class="brand" href="{u('/')}">{LOGO}<span>{BRAND}</span></a><nav class="main" aria-label="Main">{nav}</nav></div></header>
 <main id="main" class="wrap">{bc}{body}<!-- ad-slot: below-content (reserved; no ad code) --></main>
@@ -249,16 +351,24 @@ def vehicle_page(v, by_model):
     note = f'<p class="note">{E(v["note"])}</p>' if v.get("note") else ""
     make_href = f"/cars/{slugify(v['make'])}/"
     model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
-    body = f'''<article class="prose wide"><p class="byline">By {BRAND}</p><h1>{E(title)}</h1>
+    mid_related = related_reads(vehicle_related(v, by_model), "Next reads while you are here")
+    end_related = related_reads(vehicle_related(v, by_model), "More part lookups")
+    compare = compare_box(v, by_model)
+    # Bank photos are assigned to model hubs only. Year pages that still need
+    # their own news-photo ship in a separate [needs image] PR.
+    body = f'''<article class="prose wide"><p class="byline">By {BRAND} editorial team</p><h1>{E(title)}</h1>
 <p class="sub">Owner's manual checked {checked}</p>
 <div class="answer"><p><strong>Direct answer</strong></p><ul>{"".join(lead)}</ul></div>
 {note}
-<p>Confirm every part against the owner's manual and the vehicle itself. This is a guide, not a repair instruction. Lamp packages change by trim, and a later book can change a chart.</p>
+<p>Confirm every part against the owner's manual and the vehicle itself. This is a guide, not a repair instruction. Lamp packages change by trim, and a later book can change a chart. See the <a href="{u('/fitment/')}">fitment guide</a> for how we read a chart, and the <a href="{u('/fitment/key-fob-battery/')}">key fob battery</a> hub if you only need the cell.</p>
 <h2>Part fit</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th scope="col">Part</th><th scope="col">What the manual prints</th><th scope="col">Source</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>
+{mid_related}
 {problem_html}
+{compare}
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Frequently asked questions</h2>{"".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in faqs)}</section>
 {sib_html}
+{end_related}
 <p>Related: <a href="{u(model_href)}">All {E(v["make"])} {E(v["model"])} years</a> · <a href="{u(make_href)}">All {E(v["make"])} models</a> · <a href="{u('/fitment/')}">How to read a fitment chart</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p>
 <section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>{srcs}</ul>
 <p class="note">Retrieved {checked}. {BRAND} is not affiliated with {E(v["make"])}. Names are used only to identify the vehicle.</p></section>
@@ -403,17 +513,56 @@ def hubs():
             faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
             model_title = f"Which {make} {model} year should I pick?"
-            body = f'''<h1>{E(model_title)}</h1>
+            thumb = MODEL_THUMBS.get((make, model))
+            hero = thumb_figure(thumb) if thumb else ""
+            # Related reads for the hub: year pages, sibling models, part hubs.
+            next_items = []
+            for v in years[:2]:
+                next_items.append((vpath(v),
+                                   f"{v['year']} {make} {model} parts",
+                                   "Full chart and NHTSA campaigns for that model year.",
+                                   None))
+            for o in VEHICLES:
+                if o["make"] == make and o["model"] != model:
+                    next_items.append((f"/cars/{slugify(make)}/{slugify(o['model'])}/",
+                                       f"{make} {o['model']} hub",
+                                       "Another model with a checked owner's manual.",
+                                       MODEL_THUMBS.get((make, o["model"]))))
+                    break
+            next_items.append(("/fitment/wiper-blades/",
+                               "Wiper blade hub",
+                               "Front and rear wiper lines copied from owner's manuals.",
+                               None))
+            next_items.append(("/fitment/headlight-bulbs/",
+                               "Headlight bulb hub",
+                               "Low beam, high beam, and LED notes from the books we opened.",
+                               None))
+            next_html = related_reads(next_items[:4], "Next reads")
+            compare = (
+                f'<aside class="compare" aria-label="Check another vehicle">'
+                f"<h2>Check another model or part</h2>"
+                f'<p>Open a year in the table, or browse <a href="{u("/cars/" + slugify(make) + "/")}">all {E(make)} models</a>. '
+                f'Part hubs: {part_anchors()}.</p>'
+                f'<p><a href="{u("/")}">Use the year picker</a> for a different make.</p>'
+                f"</aside>"
+            )
+            body = f'''<article class="prose wide"><p class="byline">By {BRAND} editorial team</p><h1>{E(model_title)}</h1>
+{hero}
 <p class="answer">Each row is one model year whose owner's manual we opened. The cells are shortened. The year page has the full chart and the manual link.</p>
 <div class="tablewrap"><table class="list"><thead><tr><th scope="col">Year</th><th scope="col">Key fob battery</th><th scope="col">Front wiper</th><th scope="col">Headlight</th></tr></thead><tbody>{comp}</tbody></table></div>
 <ul>{items}</ul>
+{compare}
+{next_html}
 <section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">Which part fits this {E(model)}?</h2>{faq_html}</section>
-<p>Related: <a href="{u('/cars/' + slugify(make) + '/')}">All {E(make)} models</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p>'''
+<p>Related: <a href="{u('/cars/' + slugify(make) + '/')}">All {E(make)} models</a> · {part_anchors()} · <a href="{u('/cars/')}">All cars</a></p></article>'''
+            hub_mod = latest(years)
+            hub_pub = min(v.get("published", PUBLISHED) for v in years)
             write(path, page(path, model_title,
                              f"Which {make} {model} year should I open? The table quotes each checked year's owner's manual.",
-                             body, [article_ld(model_title, path), faqld],
+                             body, [article_ld(model_title, path, published=hub_pub, modified=hub_mod,
+                                               image=thumb["src"] if thumb else None), faqld],
                              [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)],
-                             modified=latest(years)))
+                             modified=hub_mod))
 
 def fitment_pages():
     intro = f'''<h1>Which part fits my car?</h1>
@@ -562,12 +711,14 @@ def privacy_cookies():
         f"{BRAND} does not sell personal information.</p>"
     )
 
-def simple(path, title, desc, h1, inner, crumb=None, legal=False):
+def simple(path, title, desc, h1, inner, crumb=None, legal=False, modified=None, published=None):
     body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}</article>'
     if legal:
         body = f'<article class="prose"><h1>{E(h1)}</h1>{inner}<p class="legal-line">{LEGAL_LINE}</p></article>'
-    write(path, page(path, title, desc, body, article_ld(title, path),
-                     crumbs=[("/", "Home"), (path, crumb or h1)], legal=legal))
+    mod = modified or PUBLISHED
+    write(path, page(path, title, desc, body,
+                     article_ld(title, path, published=published or PUBLISHED, modified=mod),
+                     crumbs=[("/", "Home"), (path, crumb or h1)], legal=legal, modified=mod))
 
 def static_pages():
     simple("/about/", f"About {BRAND}", "What Which Car Fit is and how the vehicle pages are checked.",
@@ -586,11 +737,12 @@ def static_pages():
 <h2>Dates</h2><p>The published date is the day the page was first written. It does not change on a rebuild. The modified date changes when a fact on the page changes.</p>''', "Sources and methods")
     simple("/image-policy/", f"Image policy | {BRAND}", "How Which Car Fit uses images, diagrams, and car maker marks.",
            "Image policy", f'''
-<p>Last updated {PUBLISHED_H}.</p>
+<p>Last updated 19 Nov 2026.</p>
 <h2>Graphics</h2><p>The mark in the header and the sharing image are original drawings of a key. They are not photos of a vehicle and they are not a car maker's logo.</p>
-<h2>Photos</h2><p>The site does not use photos of cars, owners, or parts. Any photograph that is shown links to this page.</p>
+<h2>Photos</h2><p>Some hub pages show one realistic, news style photograph. Those images are AI generated. They are atmospheric and unbadged. They are not factory photos, owner photos, or a claim about a specific trim. Every photograph on the site links back to this page and is labelled as AI generated in its caption.</p>
 <h2>Names</h2><p>Make and model names appear in plain text so you can tell which vehicle a page describes. We do not display car maker logos, and the names do not imply affiliation.</p>
-<h2>Questions</h2><p>If you believe an image uses your work, see the <a href="{u('/copyright/')}">copyright policy</a> or <a href="{u('/contact/')}">contact us</a>.</p>''', "Image policy")
+<h2>Questions</h2><p>If you believe an image uses your work, see the <a href="{u('/copyright/')}">copyright policy</a> or <a href="{u('/contact/')}">contact us</a>.</p>''',
+           "Image policy", modified="2026-11-19")
     simple("/contact/", f"Contact {BRAND}", "Email Which Car Fit a correction or a question.",
            "Contact us", f'''
 <p>Questions and corrections go to <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>
@@ -608,10 +760,10 @@ def static_pages():
 <h2>Indemnity</h2><p>You agree to indemnify Joshua Israel Ventures LLC against claims arising from your misuse of the site or your breach of these terms.</p>
 <h2>Governing law</h2><p>These terms are governed by the laws of the State of Florida, United States, without regard to conflict of law rules.</p>
 <h2>Changes</h2><p>We may update these terms. The date above is the latest version. Questions: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>'''),
-        "/privacy/": ("Privacy Policy", f'''<p>Last updated {D}. This policy explains how {BRAND} (whichcarfit.com), a trade name of Joshua Israel Ventures LLC, a Florida limited liability company, handles information.</p>
+        "/privacy/": ("Privacy Policy", f'''<p>Last updated 19 Nov 2026. This policy explains how {BRAND} (whichcarfit.com), a trade name of Joshua Israel Ventures LLC, a Florida limited liability company, handles information.</p>
 <h2>Analytics</h2>{privacy_analytics()}
 <h2>Email</h2><p>If you email {CONTACT_EMAIL}, we receive your address and your message so we can reply. We keep them only as long as needed for that reply and for a correction log.</p>
-<h2>Advertising</h2><p>The site shows no ads today. If we add ads later, we will update this policy first. You would be able to opt out of personalized advertising at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>.</p>
+<h2>Advertising</h2><p>To keep {BRAND} free, pages may load Google AdSense. The AdSense account meta and script are present sitewide. Ad units are not placed on pages yet. Google and its partners may use cookies or similar technologies to serve and measure ads once units are enabled. See <a href="https://policies.google.com/technologies/ads" rel="nofollow noopener" target="_blank">how Google uses cookies in advertising</a>. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>. Consent Mode on this site keeps ad storage denied until you accept.</p>
 <h2>Cookies</h2>{privacy_cookies()}
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages, which may log IP addresses for security and operations.</p>
 <h2>Your rights</h2><p>You can ask us to access, correct, or delete personal information we hold. Email {CONTACT_EMAIL}. Residents of some states may have additional rights, which we will honor.</p>
@@ -627,12 +779,17 @@ def static_pages():
 <h2>Reporting infringement</h2><p>If you believe material on this site infringes your copyright, email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> with: your name and contact details; a description of the work; the URL on our site; a statement that you have a good faith belief the use is not authorized; a statement, under penalty of perjury, that the notice is accurate and that you are the owner or are authorized to act; and your physical or electronic signature. We will review notices and remove or disable material where appropriate.</p>
 <h2>Counter notice</h2><p>If your material was removed and you believe that was a mistake, you may send a counter notice with the details required by 17 U.S.C. § 512(g).</p>
 <h2>Repeat infringers</h2><p>We will act against repeat infringement where appropriate.</p>'''),
-        "/ad-disclosure/": ("Advertising and Affiliate Disclosure", f'''<p>Last updated {D}. {BRAND} is free to use. The site shows no ads and no affiliate links today.</p>
-<p>Later, the site may show ads or may link to a seller for the exact part type the manual names, such as a CR2032 when the manual says CR2032. We will not invent a compatibility claim to earn a fee. Any paid link will be labeled. We will not apply to an ad network until the domain and the network's other requirements are checked, and we will not spend money without approval.</p>
+        "/ad-disclosure/": ("Advertising and Affiliate Disclosure", f'''<p>Last updated 19 Nov 2026. {BRAND} is free to use. Pages include the Google AdSense head script and publisher meta ({ADSENSE_CLIENT}) so the site can be reviewed. Ad units are not placed on pages yet, and there are no affiliate links today.</p>
+<p>When ad units go live, Google may show ads on a page. The site may also link to a seller for the exact part type the manual names, such as a CR2032 when the manual says CR2032. We will not invent a compatibility claim to earn a fee. Any paid link will be labeled.</p>
 <h2>Editorial independence</h2><p>No car maker pays for a change to a chart. Questions: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>.</p>'''),
     }
+    legal_mod = {
+        "/privacy/": "2026-11-19",
+        "/ad-disclosure/": "2026-11-19",
+    }
     for path, (title, inner) in legal.items():
-        simple(path, f"{title} | {BRAND}", f"{title} for {BRAND} (whichcarfit.com).", title, inner, title, legal=True)
+        simple(path, f"{title} | {BRAND}", f"{title} for {BRAND} (whichcarfit.com).", title, inner,
+               title, legal=True, modified=legal_mod.get(path))
 
 def not_found():
     body = f'<h1>Page not found</h1><p>That page is not on this site. Try the <a href="{u("/cars/")}">car lookup</a> or the <a href="{u("/fitment/")}">part fit guide</a>.</p>'
@@ -681,6 +838,10 @@ def extras(catalog):
         f.write(DOMAIN + "\n")
     with open(os.path.join(ROOT, f"{INDEXNOW_KEY}.txt"), "w") as f:
         f.write(INDEXNOW_KEY)
+    # AdSense ads.txt (publisher id without the ca- prefix).
+    pub = ADSENSE_CLIENT.replace("ca-", "", 1)
+    with open(os.path.join(ROOT, "ads.txt"), "w") as f:
+        f.write(f"google.com, {pub}, DIRECT, f08c47fec0942fa0\n")
     bots = ["*", "Googlebot", "Bingbot", "Mediapartners-Google", "OAI-SearchBot", "ChatGPT-User",
             "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
             "Google-Extended", "Applebot", "Applebot-Extended", "DuckAssistBot", "Amazonbot", "CCBot", "Bytespider"]
