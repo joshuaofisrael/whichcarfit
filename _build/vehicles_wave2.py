@@ -530,8 +530,8 @@ CAMRY_2023 = V("Toyota", "Camry", 2023, [('toyota', 'CAMRY')], [
 ],
 note="The light bulb table lists only the bulb-type lamps (turn signals, side markers, back-up lights). Every lamp missing from that table is LED on this model, per the table's own footnote, not a gap in what we read.")
 CAMRY_2023["published"] = "2026-11-18"
-CAMRY_2023["modified"] = "2026-11-18"
-CAMRY_2023["checked_h"] = "18 Nov 2026"
+CAMRY_2023["modified"] = "2026-11-19"  # NHTSA refresh 19 Nov 2026
+CAMRY_2023["checked_h"] = "19 Nov 2026"
 
 ACCORD_2023 = V("Honda", "Accord", 2023, [('honda', 'ACCORD')], [
     ("key", "Key fob battery", "Remote Transmitter Care, Replacing the Remote Battery: battery type CR2032."),
@@ -548,4 +548,83 @@ ACCORD_2023["published"] = "2026-11-18"
 ACCORD_2023["modified"] = "2026-11-18"
 ACCORD_2023["checked_h"] = "18 Nov 2026"
 
-WAVE2.extend([CAMRY_2023, ACCORD_2023])
+# Added 19 Nov 2026 (batched SEO). Fifth-generation RAV4 gas books only.
+# Early years (2019 to 2021) still print a 19 W H16 fog bulb in the chart.
+# Later years (2022 to 2025) move fog lamps to the dealer LED list.
+def _rav4(year, pub, pdf_note, fog_in_chart):
+    if fog_in_chart:
+        head = ("Headlights, daytime running lights, tail lights, stop lights, "
+                "rear side marker lights, the high mounted stoplight, and license "
+                "plate lights are listed among the lamps your Toyota dealer replaces. "
+                "No headlight trade number is printed in the light bulb table.")
+        brake = ("Stop lights, tail lights, rear side marker lights, and the high "
+                 "mounted stoplight are listed among the lamps your Toyota dealer replaces. "
+                 "No stop lamp trade number is printed in the light bulb table.")
+        turn = ("Front side marker lights: W5W, 5 W, wedge base clear. "
+                "Fog lights (if equipped): 19 W, H16 halogen. "
+                "Front turn signal and parking lights (bulb type): 7444NA, 28/8 W, wedge base amber. "
+                "Rear turn signal lights: WY21W, 21 W, wedge base amber. "
+                "Back-up lights: W16W, 16 W, wedge base clear.")
+        note = ("Gas RAV4 book only, not Hybrid or Prime. Fog lamps still have a "
+                "19 W H16 row in this year's light bulb table. Match bulb type rows "
+                "to the lamps on your vehicle when a trim uses LED instead.")
+    else:
+        head = ("Headlights, daytime running lights, LED type front turn signals, "
+                "LED type parking lights, LED type front side marker lights, fog lights "
+                "(if equipped), tail lights, stop lights, rear side marker lights, "
+                "the high mounted stoplight, and license plate lights are listed among "
+                "the lamps your Toyota dealer replaces. No headlight trade number is "
+                "printed in the light bulb table.")
+        brake = ("Stop lights, tail lights, rear side marker lights, and the high "
+                 "mounted stoplight are listed among the lamps your Toyota dealer replaces. "
+                 "No stop lamp trade number is printed in the light bulb table.")
+        turn = ("Front side marker lights (bulb type): W5W, 5 W, wedge base clear. "
+                "Front turn signal and parking lights (type A): 7444NA, 28/8 W, wedge base amber. "
+                "Front turn signal (type B and C, bulb type): 7444NA, 28/8 W (only the 28 W filament illuminates). "
+                "Rear turn signal lights: WY21W, 21 W, wedge base amber. "
+                "Back-up lights: W16W, 16 W, wedge base clear. "
+                "Fog lights (if equipped) are on the dealer replacement list, not in the DIY bulb table.")
+        note = ("Gas RAV4 book only, not Hybrid or Prime. From this year the fog lamp "
+                "row leaves the DIY light bulb table and joins the dealer LED list. "
+                "Match type A, B, or C front lamp packages to the vehicle.")
+    v = V("Toyota", "RAV4", year, [("toyota", "RAV4")], [
+        ("key", "Key fob battery", "Lithium battery CR2032 for the wireless remote control or electronic key."),
+        ("wiper", "Front wiper", "The manual has a wiper insert replacement section. It does not print an inch length in the pages we read."),
+        ("rear", "Rear wiper", "An inch length is not printed in the pages we read."),
+        ("head", "Headlight", head),
+        ("brake", "Brake light", brake),
+        ("turn", "Turn signal", turn),
+    ], [
+        (f"{year} Toyota RAV4 Owner's Manual, publication {pub}",
+         f"https://assets.sia.toyota.com/publications/en/om-s/{pub}/pdf/{pub}.pdf",
+         "Toyota Motor Corporation", str(year), pdf_note),
+    ], note=note)
+    v["published"] = "2026-11-19"
+    v["modified"] = "2026-11-19"
+    v["checked_h"] = "19 Nov 2026"
+    return v
+
+RAV4_2019 = _rav4(2019, "OM0R009U",
+    "Light bulbs table: W5W front side marker, 19 W H16 fog, 7444NA front turn, WY21W rear turn, W16W back-up. CR2032 in the wireless remote control or electronic key battery section. Headlights and stop lights are on the dealer replacement list.",
+    fog_in_chart=True)
+RAV4_2020 = _rav4(2020, "OM0R024U",
+    "Light bulbs table: W5W front side marker, 19 W H16 fog, 7444NA front turn, WY21W rear turn, W16W back-up. CR2032 in the wireless remote control or electronic key battery section. Headlights and stop lights are on the dealer replacement list.",
+    fog_in_chart=True)
+RAV4_2021 = _rav4(2021, "OM0R028U",
+    "Light bulbs table: W5W front side marker, 19 W H16 fog, 7444NA front turn, WY21W rear turn, W16W back-up. CR2032 in the wireless remote control or electronic key battery section. Headlights and stop lights are on the dealer replacement list.",
+    fog_in_chart=True)
+RAV4_2022 = _rav4(2022, "OM0R059U",
+    "Light bulbs table: W5W front side marker (bulb type), 7444NA front turn (types A/B/C), WY21W rear turn, W16W back-up. Fog lights move to the dealer list. CR2032 in the wireless remote control or electronic key battery section.",
+    fog_in_chart=False)
+RAV4_2023 = _rav4(2023, "OM0R100U",
+    "Light bulbs table: W5W front side marker (bulb type), 7444NA front turn (types A/B/C), WY21W rear turn, W16W back-up. Fog lights on the dealer list. CR2032 in the wireless remote control or electronic key battery section.",
+    fog_in_chart=False)
+RAV4_2024 = _rav4(2024, "OM0R147U",
+    "Light bulbs table: W5W front side marker (bulb type), 7444NA front turn (types A/B/C), WY21W rear turn, W16W back-up. Fog lights on the dealer list. CR2032 in the wireless remote control or electronic key battery section. Canada production book for USA and Canada.",
+    fog_in_chart=False)
+RAV4_2025 = _rav4(2025, "OM0R063U",
+    "Light bulbs table: W5W front side marker (bulb type), 7444NA front turn (types A/B/C), WY21W rear turn, W16W back-up. Fog lights on the dealer list. CR2032 in the wireless remote control or electronic key battery section.",
+    fog_in_chart=False)
+
+WAVE2.extend([CAMRY_2023, ACCORD_2023,
+              RAV4_2019, RAV4_2020, RAV4_2021, RAV4_2022, RAV4_2023, RAV4_2024, RAV4_2025])

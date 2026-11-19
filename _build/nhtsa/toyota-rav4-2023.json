@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2023",
+    "count": 3,
+    "items": [
+     {
+      "id": "23V485000",
+      "component": "TIRES:VALVE",
+      "date": "11/07/2023",
+      "park": false
+     },
+     {
+      "id": "25V595000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "11/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V744000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "30/10/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2023",
+    "count": 170,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      49
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      42
+     ],
+     [
+      "STEERING",
+      27
+     ],
+     [
+      "ENGINE",
+      25
+     ],
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      20
+     ]
+    ]
+   }
+  }
+ ]
+}

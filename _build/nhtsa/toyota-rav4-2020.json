@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2020",
+    "count": 6,
+    "items": [
+     {
+      "id": "20V064000",
+      "component": "ENGINE AND ENGINE COOLING",
+      "date": "06/02/2020",
+      "park": false
+     },
+     {
+      "id": "20V286000",
+      "component": "SUSPENSION:FRONT:CONTROL ARM:LOWER ARM",
+      "date": "20/05/2020",
+      "park": false
+     },
+     {
+      "id": "20V373000",
+      "component": "STEERING:ELECTRIC POWER ASSIST SYSTEM",
+      "date": "24/06/2020",
+      "park": false
+     },
+     {
+      "id": "20V682000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "04/11/2020",
+      "park": false
+     },
+     {
+      "id": "20V734000",
+      "component": "AIR BAGS:FRONTAL",
+      "date": "25/11/2020",
+      "park": false
+     },
+     {
+      "id": "23V865000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION",
+      "date": "20/12/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2020",
+    "count": 644,
+    "top": [
+     [
+      "ENGINE",
+      181
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      123
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      120
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      91
+     ],
+     [
+      "STRUCTURE",
+      62
+     ]
+    ]
+   }
+  }
+ ]
+}

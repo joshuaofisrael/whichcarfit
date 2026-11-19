@@ -209,5 +209,22 @@ llms = os.path.join(ROOT, "llms.txt")
 if not os.path.isfile(llms) or DOMAIN not in open(llms, encoding="utf-8").read():
     print("llms")
     bad += 1
+ads = os.path.join(ROOT, "ads.txt")
+if not os.path.isfile(ads):
+    print("ads-txt-missing")
+    bad += 1
+else:
+    ads_body = open(ads, encoding="utf-8").read().strip()
+    if "google.com, pub-5681559774142917, DIRECT, f08c47fec0942fa0" not in ads_body:
+        print("ads-txt-bad", ads_body[:120])
+        bad += 1
+if not NOINDEX:
+    sample = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
+    if 'name="google-adsense-account" content="ca-pub-5681559774142917"' not in sample:
+        print("adsense-meta")
+        bad += 1
+    if "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5681559774142917" not in sample:
+        print("adsense-script")
+        bad += 1
 print("files", len(files), "issues", bad)
 sys.exit(1 if bad else 0)

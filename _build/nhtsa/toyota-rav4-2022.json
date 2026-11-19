@@ -1,0 +1,47 @@
+{
+ "retrieved": "2026-11-19",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "RAV4",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=RAV4&modelYear=2022",
+    "count": 1,
+    "items": [
+     {
+      "id": "22V519000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION:FRONT PASSENGER",
+      "date": "21/07/2022",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=RAV4&modelYear=2022",
+    "count": 152,
+    "top": [
+     [
+      "ELECTRICAL SYSTEM",
+      41
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      38
+     ],
+     [
+      "ENGINE",
+      28
+     ],
+     [
+      "STEERING",
+      20
+     ],
+     [
+      "STRUCTURE",
+      19
+     ]
+    ]
+   }
+  }
+ ]
+}
