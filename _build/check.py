@@ -12,6 +12,24 @@ import glob, html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import NOINDEX, DOMAIN, BASE_URL, GA4_ID, CF_BEACON_TOKEN, INDEXNOW_KEY
 
+# Paths in _build/thin-noindex.txt are intentionally noindex (AdSense low-value-content fix, 20 Nov 2026).
+import os as _os
+_THIN = set()
+try:
+    with open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "thin-noindex.txt"), encoding="utf-8") as _fh:
+        _THIN = {l.strip().strip("/") for l in _fh if l.strip() and not l.startswith("#")}
+except FileNotFoundError:
+    pass
+
+
+def _thin_rel(rel):
+    r = str(rel).replace("\\", "/")
+    if r.endswith("index.html"):
+        r = r[: -len("index.html")]
+    return r.strip("/") in _THIN
+
+
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LEGAL = {"terms", "privacy", "disclaimer", "copyright", "ad-disclosure"}
 FOOTER = ("/about/", "/contact/", "/privacy/", "/terms/", "/disclaimer/",
@@ -60,7 +78,7 @@ for f in files:
         if "noindex" not in h:
             print("missing-noindex", rel)
             bad += 1
-    elif "noindex" in h and rel != "404.html":
+    elif "noindex" in h and rel != "404.html" and not _thin_rel(rel):
         print("noindex", rel)
         bad += 1
     if rel == "404.html" and "noindex" not in h:
