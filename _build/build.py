@@ -205,7 +205,24 @@ def load_nhtsa(v):
     with open(fp) as f:
         return json.load(f)
 
+# AdSense low-value-content fix (20 Nov 2026): paths listed in _build/thin-noindex.txt
+# get noindex,follow and stay out of the sitemap until they have real unique substance.
+_THIN_NOINDEX = set()
+try:
+    import os as _os
+    with open(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "thin-noindex.txt"), encoding="utf-8") as _fh:
+        _THIN_NOINDEX = {l.strip().strip("/") for l in _fh if l.strip() and not l.startswith("#")}
+except FileNotFoundError:
+    pass
+
+
+def _is_thin(path):
+    return str(path).strip("/") in _THIN_NOINDEX
+
+
 def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal=False, modified=PUBLISHED):
+    if _is_thin(path):
+        noindex = True
     title = seo_title(title)
     desc = clip(desc)
     canon = url(path if path != "/404.html" else "/404.html")
@@ -695,7 +712,7 @@ def privacy_analytics():
     return (
         "<p>We use Cloudflare Web Analytics on every page to count visits. It does not use cookies and does not track you across sites. "
         "We use Google Analytics 4 only after you accept the cookie banner. Consent Mode v2 keeps ad storage, ad user data, ad personalization, and analytics storage denied until then, and the Google Analytics script does not load. "
-        "If you accept, analytics storage is granted and Google Analytics 4 may set a cookie to measure visits. Ad storage stays denied because the site shows no ads. "
+        "If you accept, analytics storage is granted and Google Analytics 4 may set a cookie to measure visits. Accepting this banner does not grant ad storage. "
         "Use Cookie settings in the footer to change your choice. Choosing reject after an accept sets analytics storage back to denied. A hit may already have been sent.</p>"
     )
 
@@ -764,6 +781,7 @@ def static_pages():
 <h2>Analytics</h2>{privacy_analytics()}
 <h2>Email</h2><p>If you email {CONTACT_EMAIL}, we receive your address and your message so we can reply. We keep them only as long as needed for that reply and for a correction log.</p>
 <h2>Advertising</h2><p>To keep {BRAND} free, pages may load Google AdSense. The AdSense account meta and script are present sitewide. Ad units are not placed on pages yet. Google and its partners may use cookies or similar technologies to serve and measure ads once units are enabled. See <a href="https://policies.google.com/technologies/ads" rel="nofollow noopener" target="_blank">how Google uses cookies in advertising</a>. You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" rel="nofollow noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info/choices/" rel="nofollow noopener" target="_blank">aboutads.info</a>. Consent Mode on this site keeps ad storage denied until you accept.</p>
+<h2>Google advertising cookies and your choices</h2><p>Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet. You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com/" rel="nofollow noopener">Google Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising at <a href="https://www.aboutads.info/choices/" rel="nofollow noopener">aboutads.info/choices</a>. For more information, see <a href="https://policies.google.com/technologies/partner-sites" rel="nofollow noopener">how Google uses information from sites or apps that use its services</a>.</p>
 <h2>Cookies</h2>{privacy_cookies()}
 <h2>Hosting</h2><p>The site is hosted on GitHub Pages, which may log IP addresses for security and operations.</p>
 <h2>Your rights</h2><p>You can ask us to access, correct, or delete personal information we hold. Email {CONTACT_EMAIL}. Residents of some states may have additional rights, which we will honor.</p>
