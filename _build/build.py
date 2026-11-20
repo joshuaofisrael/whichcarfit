@@ -26,6 +26,26 @@ MODEL_THUMBS = {
         "alt": "Unbadged SUV on a coastal road in natural daylight",
         "caption": "AI-generated image. Atmospheric photo for the RAV4 hub, not a factory shot of a specific year.",
     },
+    ("Toyota", "Camry"): {
+        "src": "/assets/images/rav4-coastal-drive.png",
+        "alt": "Unbadged car on a coastal road in natural daylight",
+        "caption": "AI-generated image. Atmospheric photo reused from the site photo bank, not a factory shot of a Camry.",
+    },
+    ("Tesla", "Model Y"): {
+        "src": "/assets/images/model-y-charge-port.png",
+        "alt": "Hand holding a charge plug at an unbadged electric car port",
+        "caption": "AI-generated image. Atmospheric photo for the Model Y hub, not a factory shot of a specific year.",
+    },
+}
+# Hubs that get a real comparison, not just the year table.
+HUB_EXTRA = {
+    ("Tesla", "Model Y"): '''<p>Tesla does not print a separate owner's manual for each Model Y year. The <a href="https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-197C481B-B4D4-4973-9772-2AF488442CE1.html" rel="nofollow noopener" target="_blank">2020 to 2024 Model Y owner's manual</a> is one book. The <a href="https://www.tesla.com/ownersmanual/modely/en_us/Owners_Manual.pdf" rel="nofollow noopener" target="_blank">2025+ North America PDF</a> (cover software 2026.2.8) is a second book. Checked 20 Nov 2026. Both books print the same windshield blades and the same key fob cell. They do not describe the exterior lights the same way, so 2021, 2022, 2023, and 2024 are not separate pages here.</p>
+<p>Windshield blades, in both books: driver side 26 inches (650 mm), passenger side 20 inches (500 mm). The connector has to match the blade already on the arm. Neither windshield chapter prints a rear blade length. The accessory key fob takes a CR2032, positive side up. The key card section does not print a coin cell. A phone key uses the phone, not a cell you buy for the car.</p>
+<p>Lights: the 2020 to 2024 book says Model Y has LED signature lights along the headlight rim, and it does not print a bulb trade number. The 2025+ book describes a front lightbar and a tail lightbar (the front lightbar line says if equipped) that work as daytime running lights, parking lights, and tail lights. That book also does not print a bulb number. Do not copy the 2020 recall list onto a later car. NHTSA's recalls API, retrieved 20 Nov 2026, returned 24 campaigns for 2020, 23 for 2021, 20 for 2022, 17 for 2023, 5 for 2024, and 3 for 2025. Use the VIN lookup.</p>''',
+    ("Toyota", "Camry"): '''<p>The 2019 through 2024 Camry books we opened on 20 Nov 2026 print one shared exterior bulb chart and a CR2032 key. Publishing six copies of that chart would be the same page with the year changed, so those years live on the <a href="/cars/toyota/camry/2023/">2023 Camry page</a>. The 2025 book is a different car and has its own page.</p>
+<p>Books that match the 2023 chart: 2019 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06142U/pdf/OM06142U.pdf" rel="nofollow noopener" target="_blank">OM06142U</a> (light bulb table page 550), 2020 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06158U/pdf/OM06158U.pdf" rel="nofollow noopener" target="_blank">OM06158U</a> (page 558), 2021 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06242U/pdf/OM06242U.pdf" rel="nofollow noopener" target="_blank">OM06242U</a> (page 599), 2022 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06244U/pdf/OM06244U.pdf" rel="nofollow noopener" target="_blank">OM06244U</a> (page 589), 2023 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06259U/pdf/OM06259U.pdf" rel="nofollow noopener" target="_blank">OM06259U</a> (page 589), and 2024 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06291U/pdf/OM06291U.pdf" rel="nofollow noopener" target="_blank">OM06291U</a> (page 589). Each table lists front side marker W5W 5 W, front turn and parking 7444NA 28/8 W, rear turn WY21W 21 W, rear side marker W5W 5 W, and back-up 921 16 W. The footnote says bulbs not listed are LED. Each key chapter says lithium battery CR2032. None of these books prints a wiper inch length.</p>
+<p>Two lines next to that chart do move, and neither one is a lamp you buy from the bulb table. The 2019 and 2020 specifications chapter lists a 19 x 8 J wheel. From 2021 the same line reads 19 x 8 1/2 J. The 2019, 2020, and 2021 tables still include a vanity light row. The 2022, 2023, and 2024 tables do not.</p>
+<p>The 2025 file is the Camry Hybrid owner's manual, publication <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06266U/pdf/OM06266U.pdf" rel="nofollow noopener" target="_blank">OM06266U</a>, software identifier camry.2025.2403.hev.vh. The key is a CR2450, not a CR2032. The light bulb table on page 492 lists front turn and parking 7444NA 28/8 W, rear turn WY21W 21 W, and back-up W16W 16 W. There is no W5W row and no 921 row. The maintenance chapter says lamps other than those three bulb-type positions are LEDs, and a Toyota dealer replaces those. NHTSA files this year as CAMRY HYBRID, not as CAMRY.</p>''',
 }
 
 def slugify(s):
@@ -132,7 +152,7 @@ def compare_box(v, by_model):
     )
 
 def vehicle_related(v, by_model):
-    """3-4 closely related next reads for a year page."""
+    """3-4 closely related next reads. Photo cards use that model's hub image."""
     items = []
     model_href = f"/cars/{slugify(v['make'])}/{slugify(v['model'])}/"
     thumb = MODEL_THUMBS.get((v["make"], v["model"]))
@@ -141,25 +161,33 @@ def vehicle_related(v, by_model):
                   "Year table for key fob, wiper, and headlight lines from each checked book.",
                   thumb))
     sibs = [o for o in by_model.get((v["make"], v["model"]), []) if o["year"] != v["year"]]
-    if sibs:
-        # Prefer a nearby year
+    # A sibling card can use the model photo. A model with no photo keeps the
+    # sibling link in the compare box instead, so the next-read row can show
+    # three hubs that do have a photo.
+    if thumb and sibs:
         sibs_sorted = sorted(sibs, key=lambda o: abs(int(o["year"]) - int(v["year"])))
         o = sibs_sorted[0]
         items.append((vpath(o),
                       f"{o['year']} {o['make']} {o['model']} parts",
                       "Same model, different year. Charts are not copied across years.",
-                      None))
-    for o in VEHICLES:
-        if o["make"] == v["make"] and o["model"] != v["model"]:
-            items.append((f"/cars/{slugify(o['make'])}/{slugify(o['model'])}/",
-                          f"{o['make']} {o['model']} hub",
-                          "Another model whose owner's manual we have opened.",
-                          MODEL_THUMBS.get((o["make"], o["model"]))))
+                      thumb))
+    for make, model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4")):
+        if (make, model) == (v["make"], v["model"]):
+            continue
+        photo = MODEL_THUMBS.get((make, model))
+        if not photo:
+            continue
+        items.append((f"/cars/{slugify(make)}/{slugify(model)}/",
+                      f"{make} {model} parts",
+                      "Key, wiper, and bulb lines from that model's owner's manual.",
+                      photo))
+        if len(items) >= 4:
             break
-    items.append(("/fitment/key-fob-battery/",
-                  "Key fob battery hub",
-                  "Every key fob cell we copied from an owner's manual.",
-                  None))
+    if len(items) < 3:
+        items.append(("/fitment/key-fob-battery/",
+                      "Key fob battery hub",
+                      "Every key fob cell we copied from an owner's manual.",
+                      None))
     return items[:4]
 
 def write(path, content):
@@ -315,7 +343,7 @@ def vehicle_page(v, by_model):
     # later carry their own real checked date in v["checked_h"].
     checked = v.get("checked_h", PUBLISHED_H)
     name = f"{v['year']} {v['make']} {v['model']}"
-    title = f"Which parts fit a {name}?"
+    title = v.get("seo_title") or f"Which parts fit a {name}?"
     desc = f"Which key fob battery, wiper, and bulb fit a {name}? Figures are from that year's owner's manual, plus NHTSA recalls."
     rows = []
     for key, label, value in v["fitment"]:
@@ -371,10 +399,13 @@ def vehicle_page(v, by_model):
     mid_related = related_reads(vehicle_related(v, by_model), "Next reads while you are here")
     end_related = related_reads(vehicle_related(v, by_model), "More part lookups")
     compare = compare_box(v, by_model)
-    # Bank photos are assigned to model hubs only. Year pages that still need
-    # their own news-photo ship in a separate [needs image] PR.
+    # Year pages reuse the model hub photo when one is assigned. A model with
+    # no bank photo stays text-only rather than borrowing another car's picture.
+    thumb = MODEL_THUMBS.get((v["make"], v["model"]))
+    hero = thumb_figure(thumb) if thumb else ""
     body = f'''<article class="prose wide"><p class="byline">By {BRAND} editorial team</p><h1>{E(title)}</h1>
 <p class="sub">Owner's manual checked {checked}</p>
+{hero}
 <div class="answer"><p><strong>Direct answer</strong></p><ul>{"".join(lead)}</ul></div>
 {note}
 <p>Confirm every part against the owner's manual and the vehicle itself. This is a guide, not a repair instruction. Lamp packages change by trim, and a later book can change a chart. See the <a href="{u('/fitment/')}">fitment guide</a> for how we read a chart, and the <a href="{u('/fitment/key-fob-battery/')}">key fob battery</a> hub if you only need the cell.</p>
@@ -390,7 +421,8 @@ def vehicle_page(v, by_model):
 <section class="sources" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>{srcs}</ul>
 <p class="note">Retrieved {checked}. {BRAND} is not affiliated with {E(v["make"])}. Names are used only to identify the vehicle.</p></section>
 </article>'''
-    article = article_ld(title, path, v["published"], v["modified"])
+    article = article_ld(title, path, v["published"], v["modified"],
+                         image=thumb["src"] if thumb else None)
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
     crumbs = [("/", "Home"), ("/cars/", "Cars"), (make_href, v["make"]), (model_href, v["model"]), (path, v["year"])]
@@ -534,26 +566,29 @@ def hubs():
             hero = thumb_figure(thumb) if thumb else ""
             # Related reads for the hub: year pages, sibling models, part hubs.
             next_items = []
+            model_thumb = MODEL_THUMBS.get((make, model))
             for v in years[:2]:
                 next_items.append((vpath(v),
                                    f"{v['year']} {make} {model} parts",
                                    "Full chart and NHTSA campaigns for that model year.",
-                                   None))
-            for o in VEHICLES:
-                if o["make"] == make and o["model"] != model:
-                    next_items.append((f"/cars/{slugify(make)}/{slugify(o['model'])}/",
-                                       f"{make} {o['model']} hub",
-                                       "Another model with a checked owner's manual.",
-                                       MODEL_THUMBS.get((make, o["model"]))))
+                                   model_thumb))
+            for photo_make, photo_model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4")):
+                if (photo_make, photo_model) == (make, model):
+                    continue
+                photo = MODEL_THUMBS.get((photo_make, photo_model))
+                if not photo:
+                    continue
+                next_items.append((f"/cars/{slugify(photo_make)}/{slugify(photo_model)}/",
+                                   f"{photo_make} {photo_model} parts",
+                                   "Key, wiper, and bulb lines from that model's owner's manual.",
+                                   photo))
+                if len(next_items) >= 4:
                     break
-            next_items.append(("/fitment/wiper-blades/",
-                               "Wiper blade hub",
-                               "Front and rear wiper lines copied from owner's manuals.",
-                               None))
-            next_items.append(("/fitment/headlight-bulbs/",
-                               "Headlight bulb hub",
-                               "Low beam, high beam, and LED notes from the books we opened.",
-                               None))
+            if len(next_items) < 4:
+                next_items.append(("/fitment/wiper-blades/",
+                                   "Wiper blade hub",
+                                   "Front and rear wiper lines copied from owner's manuals.",
+                                   None))
             next_html = related_reads(next_items[:4], "Next reads")
             compare = (
                 f'<aside class="compare" aria-label="Check another vehicle">'
@@ -563,8 +598,10 @@ def hubs():
                 f'<p><a href="{u("/")}">Use the year picker</a> for a different make.</p>'
                 f"</aside>"
             )
+            extra = HUB_EXTRA.get((make, model), "")
             body = f'''<article class="prose wide"><p class="byline">By {BRAND} editorial team</p><h1>{E(model_title)}</h1>
 {hero}
+{extra}
 <p class="answer">Each row is one model year whose owner's manual we opened. The cells are shortened. The year page has the full chart and the manual link.</p>
 <div class="tablewrap"><table class="list"><thead><tr><th scope="col">Year</th><th scope="col">Key fob battery</th><th scope="col">Front wiper</th><th scope="col">Headlight</th></tr></thead><tbody>{comp}</tbody></table></div>
 <ul>{items}</ul>

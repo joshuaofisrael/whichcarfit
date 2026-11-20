@@ -1,0 +1,77 @@
+{
+ "retrieved": "2026-11-20",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "CAMRY HYBRID",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=CAMRY+HYBRID&modelYear=2025",
+    "count": 6,
+    "items": [
+     {
+      "id": "24V548000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "23/07/2024",
+      "park": false
+     },
+     {
+      "id": "25V059000",
+      "component": "SEAT BELTS:REAR/OTHER:WEBBING",
+      "date": "06/02/2025",
+      "park": false
+     },
+     {
+      "id": "25V595000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "11/09/2025",
+      "park": false
+     },
+     {
+      "id": "25V744000",
+      "component": "BACK OVER PREVENTION:DISPLAY FUNCTION",
+      "date": "30/10/2025",
+      "park": false
+     },
+     {
+      "id": "25V869000",
+      "component": "HYBRID PROPULSION SYSTEM: INVERTER",
+      "date": "16/12/2025",
+      "park": false
+     },
+     {
+      "id": "26V511000",
+      "component": "EXTERIOR LIGHTING:HAZARD FLASHING WARNING LIGHTS:SWITCH",
+      "date": "06/08/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=CAMRY+HYBRID&modelYear=2025",
+    "count": 181,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      34
+     ],
+     [
+      "STRUCTURE",
+      33
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      28
+     ],
+     [
+      "VISIBILITY/WIPER",
+      21
+     ],
+     [
+      "SEATS",
+      20
+     ]
+    ]
+   }
+  }
+ ]
+}
