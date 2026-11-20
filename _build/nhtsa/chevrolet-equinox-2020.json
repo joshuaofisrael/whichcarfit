@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-11-16",
+ "retrieved": "2026-11-20",
  "groups": [
   {
    "make": "chevrolet",
@@ -36,7 +36,7 @@
    },
    "complaints": {
     "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=chevrolet&model=EQUINOX&modelYear=2020",
-    "count": 321,
+    "count": 322,
     "top": [
      [
       "SERVICE BRAKES",
@@ -48,7 +48,7 @@
      ],
      [
       "FUEL/PROPULSION SYSTEM",
-      51
+      52
      ],
      [
       "ELECTRICAL SYSTEM",

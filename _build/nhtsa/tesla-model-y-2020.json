@@ -1,0 +1,185 @@
+{
+ "retrieved": "2026-11-20",
+ "groups": [
+  {
+   "make": "tesla",
+   "model": "Model Y",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=tesla&model=Model+Y&modelYear=2020",
+    "count": 24,
+    "items": [
+     {
+      "id": "20V609000",
+      "component": "EXTERIOR LIGHTING",
+      "date": "30/09/2020",
+      "park": false
+     },
+     {
+      "id": "20V709000",
+      "component": "SUSPENSION:FRONT:CONTROL ARM",
+      "date": "17/11/2020",
+      "park": false
+     },
+     {
+      "id": "21V387000",
+      "component": "SERVICE BRAKES, HYDRAULIC:FOUNDATION COMPONENTS:DISC:CALIPER",
+      "date": "25/05/2021",
+      "park": false
+     },
+     {
+      "id": "21V388000",
+      "component": "SEAT BELTS:REAR/OTHER:RETRACTOR",
+      "date": "25/05/2021",
+      "park": false
+     },
+     {
+      "id": "21V389000",
+      "component": "SEAT BELTS",
+      "date": "25/05/2021",
+      "park": false
+     },
+     {
+      "id": "21V835000",
+      "component": "SUSPENSION:CRITICAL FASTENERS",
+      "date": "25/10/2021",
+      "park": false
+     },
+     {
+      "id": "21V846000",
+      "component": "FORWARD COLLISION AVOIDANCE: SENSING SYSTEM: CAMERA",
+      "date": "29/10/2021",
+      "park": false
+     },
+     {
+      "id": "21V912000",
+      "component": "SUSPENSION",
+      "date": "21/11/2021",
+      "park": false
+     },
+     {
+      "id": "22V037000",
+      "component": "ELECTRICAL SYSTEM:ADAS:AUTONOMOUS/SELF DRIVING:SOFTWARE",
+      "date": "27/01/2022",
+      "park": false
+     },
+     {
+      "id": "22V045000",
+      "component": "ELECTRICAL SYSTEM:SOFTWARE",
+      "date": "01/02/2022",
+      "park": false
+     },
+     {
+      "id": "22V050000",
+      "component": "ELECTRICAL SYSTEM:SOFTWARE",
+      "date": "02/02/2022",
+      "park": false
+     },
+     {
+      "id": "22V063000",
+      "component": "ELECTRICAL SYSTEM:SOFTWARE",
+      "date": "04/02/2022",
+      "park": false
+     },
+     {
+      "id": "22V235000",
+      "component": "ELECTRICAL SYSTEM:SOFTWARE",
+      "date": "12/04/2022",
+      "park": false
+     },
+     {
+      "id": "22V702000",
+      "component": "VISIBILITY:POWER WINDOW DEVICES AND CONTROLS",
+      "date": "19/09/2022",
+      "park": false
+     },
+     {
+      "id": "22V844000",
+      "component": "EXTERIOR LIGHTING:TAIL LIGHTS",
+      "date": "15/11/2022",
+      "park": false
+     },
+     {
+      "id": "23V085000",
+      "component": "STEERING:AUTOMATED/ADAPTIVE STEERING",
+      "date": "15/02/2023",
+      "park": false
+     },
+     {
+      "id": "23V838000",
+      "component": "ELECTRICAL SYSTEM:ADAS:AUTONOMOUS/SELF DRIVING:SOFTWARE",
+      "date": "12/12/2023",
+      "park": false
+     },
+     {
+      "id": "24V051000",
+      "component": "ELECTRICAL SYSTEM: INSTRUMENT CLUSTER/PANEL",
+      "date": "30/01/2024",
+      "park": false
+     },
+     {
+      "id": "24V153000",
+      "component": "FORWARD COLLISION AVOIDANCE: WARNINGS:EXTERNAL/PEDESTRIAN ALERT",
+      "date": "27/02/2024",
+      "park": false
+     },
+     {
+      "id": "24V376000",
+      "component": "SEAT BELTS:FRONT:WARNING LIGHT/DEVICES",
+      "date": "28/05/2024",
+      "park": false
+     },
+     {
+      "id": "24V554000",
+      "component": "LATCHES/LOCKS/LINKAGES:HOOD:LATCH",
+      "date": "24/07/2024",
+      "park": false
+     },
+     {
+      "id": "24V935000",
+      "component": "TIRES:PRESSURE MONITORING AND REGULATING SYSTEMS",
+      "date": "17/12/2024",
+      "park": false
+     },
+     {
+      "id": "26V283000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "05/05/2026",
+      "park": false
+     },
+     {
+      "id": "26V507000",
+      "component": "EXTERIOR LIGHTING:HEADLIGHTS",
+      "date": "05/08/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=tesla&model=Model+Y&modelYear=2020",
+    "count": 285,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      108
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      57
+     ],
+     [
+      "SERVICE BRAKES",
+      37
+     ],
+     [
+      "VEHICLE SPEED CONTROL",
+      37
+     ],
+     [
+      "LANE DEPARTURE",
+      32
+     ]
+    ]
+   }
+  }
+ ]
+}

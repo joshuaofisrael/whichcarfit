@@ -20,15 +20,15 @@ WAVE2 = [
     note=""),
     V("Chevrolet", "Equinox", 2020, [('chevrolet', 'EQUINOX')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
-        ("wiper", "Front wiper", "Driver side: 23.6 in. Passenger side: 17.7 in. Lengths are from the maintenance parts table."),
-        ("rear", "Rear wiper", "Rear: 11.8 in. Length is from the maintenance parts table."),
-        ("head", "Headlight", "The bulb replacement chapter says this vehicle has several LED lamps and to contact a dealer for an LED assembly. The procedure we read does not print a halogen trade number."),
+        ("wiper", "Front wiper", "Driver side: 60 cm (23.6 in), GM part 84574893. Passenger side: 45.0 cm (17.7 in), GM part 84574892. Lengths and part numbers are from the maintenance replacement parts table."),
+        ("rear", "Rear wiper", "Rear: 30.0 cm (11.8 in), GM part 84215609. Length and part number are from the maintenance replacement parts table."),
+        ("head", "Headlight", "The LED Lighting section says this vehicle has several LED lamps and to contact your dealer for replacement of any LED lighting assembly. The section we read does not print a halogen trade number."),
         ("brake", "Brake light", "A brake lamp trade number is not printed in the section we read."),
         ("turn", "Turn signal", "A turn signal trade number is not printed in the section we read."),
     ], [
-        ("2020 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2020/chevrolet/equinox/2020-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2020", "Remote battery CR2032. Maintenance parts table for wiper length. Bulb replacement chapter."),
+        ("2020 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2020/chevrolet/equinox/2020-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2020", "Document 13555863, CRC 8/2/19. Remote battery CR2032. Maintenance replacement parts table for wiper length and GM part number. LED Lighting section."),
     ],
-    note=""),
+    note="The 2021 book prints the same GM part numbers and the same centimeter lengths. It prints the inch side as 24, 18, and 12 rather than 23.6, 17.7, and 11.8. Re-read 20 Nov 2026."),
     V("Chevrolet", "Malibu", 2020, [('chevrolet', 'MALIBU')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
         ("wiper", "Front wiper", "Driver side: 25.6 in. Passenger side: 17.7 in. Lengths are from the maintenance parts table."),
@@ -64,15 +64,15 @@ WAVE2 = [
     note=""),
     V("Chevrolet", "Equinox", 2021, [('chevrolet', 'EQUINOX')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
-        ("wiper", "Front wiper", "Driver side: 24 in. Passenger side: 18 in. Lengths are from the maintenance parts table."),
-        ("rear", "Rear wiper", "Rear: 12 in. Length is from the maintenance parts table."),
-        ("head", "Headlight", "The bulb replacement chapter says this vehicle has several LED lamps and to contact a dealer for an LED assembly. The procedure we read does not print a halogen trade number."),
+        ("wiper", "Front wiper", "Driver side: 60 cm (24 in), GM part 84574893. Passenger side: 45.0 cm (18 in), GM part 84574892. The maintenance replacement parts table prints these inch figures beside the centimeter lengths."),
+        ("rear", "Rear wiper", "Rear: 30.0 cm (12 in), GM part 84215609. The centimeter length matches the 2020 table. This edition prints the inch side as 12 rather than 11.8."),
+        ("head", "Headlight", "The LED Lighting section says this vehicle has several LED lamps and to contact your dealer for replacement of any LED lighting assembly. The section we read does not print a halogen trade number."),
         ("brake", "Brake light", "A brake lamp trade number is not printed in the section we read."),
         ("turn", "Turn signal", "A turn signal trade number is not printed in the section we read."),
     ], [
-        ("2021 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/equinox/2021-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2021", "Remote battery CR2032. Maintenance parts table for wiper length. Bulb replacement chapter."),
+        ("2021 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/equinox/2021-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2021", "Document 14420010. Remote battery CR2032. Maintenance replacement parts table prints 60 cm (24 in), 45.0 cm (18 in), and 30.0 cm (12 in) with GM parts 84574893, 84574892, and 84215609."),
     ],
-    note=""),
+    note="Same GM part numbers as the 2020 table. The centimeter lengths match. This edition rounds the inch side to 24, 18, and 12. Re-read 20 Nov 2026."),
     V("Chevrolet", "Malibu", 2021, [('chevrolet', 'MALIBU')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
         ("wiper", "Front wiper", "Driver side: 25.6 in. Passenger side: 17.7 in. Lengths are from the maintenance parts table."),
@@ -248,7 +248,7 @@ WAVE2 = [
     ], [
         ("2021 Nissan Sentra Owner's Manual", "https://www.nissanusa.com/content/dam/Nissan/us/manuals-and-guides/sentra/2021/2021-nissan-sentra-owner-manual.pdf", "Nissan North America, Inc.", "2021", "Remote battery CR2032. Exterior light chart in the do it yourself chapter."),
     ],
-    note=""),
+    note="The 2022, 2023, 2024, and 2025 Sentra transcriptions on this site repeat this chart: CR2032, low beam H11, high beam H9 on the Canada daytime running row, tail W5W, turn and park 3457NAK, and turn WY21W. Those four URLs were removed from the sitemap on 20 Nov 2026 so the chart is not published five times. The 2020 Sentra page is a different chart and stays separate."),
     V("Nissan", "Rogue", 2022, [('nissan', 'ROGUE')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
         ("wiper", "Front wiper", "An inch length is not printed in the wiper section we read."),
@@ -528,10 +528,11 @@ CAMRY_2023 = V("Toyota", "Camry", 2023, [('toyota', 'CAMRY')], [
 ], [
     ("2023 Toyota Camry Owner's Manual, publication OM06259U", "https://assets.sia.toyota.com/publications/en/om-s/OM06259U/pdf/OM06259U.pdf", "Toyota Motor Corporation", "2023", "Light bulbs table in the Vehicle specifications chapter (page 589), footnote 1: bulbs not listed in the table are LED. Electronic key battery: use a CR2032 lithium battery."),
 ],
-note="The light bulb table lists only the bulb-type lamps (turn signals, side markers, back-up lights). Every lamp missing from that table is LED on this model, per the table's own footnote, not a gap in what we read.")
+note="Re-read 20 Nov 2026 against the 2019 (OM06142U), 2020 (OM06158U), 2021 (OM06242U), 2022 (OM06244U), and 2024 (OM06291U) Camry books. Those five print this same exterior bulb table and the same CR2032 key, so they are not separate pages. The 2025 Camry Hybrid book does not match. Bulbs missing from this table are LED, per the table footnote.")
 CAMRY_2023["published"] = "2026-11-18"
-CAMRY_2023["modified"] = "2026-11-19"  # NHTSA refresh 19 Nov 2026
-CAMRY_2023["checked_h"] = "19 Nov 2026"
+CAMRY_2023["modified"] = "2026-11-20"
+CAMRY_2023["checked_h"] = "20 Nov 2026"
+CAMRY_2023["seo_title"] = "2023 Camry key is CR2032, backup is 921"
 
 ACCORD_2023 = V("Honda", "Accord", 2023, [('honda', 'ACCORD')], [
     ("key", "Key fob battery", "Remote Transmitter Care, Replacing the Remote Battery: battery type CR2032."),
@@ -626,5 +627,88 @@ RAV4_2025 = _rav4(2025, "OM0R063U",
     "Light bulbs table: W5W front side marker (bulb type), 7444NA front turn (types A/B/C), WY21W rear turn, W16W back-up. Fog lights on the dealer list. CR2032 in the wireless remote control or electronic key battery section.",
     fog_in_chart=False)
 
+# Added 20 Nov 2026. Tesla publishes one Model Y manual for 2020 to 2024
+# and a separate 2025+ manual. Wiper lengths and the key fob cell match.
+# The light description does not, so only those two books get pages.
+MODEL_Y_2020 = V(
+    "Tesla", "Model Y", 2020, [("tesla", "Model Y")], [
+        ("key", "Key fob battery", "Accessory key fob: one CR2032, positive side facing up. The key card section does not print a coin cell. A phone key uses the phone."),
+        ("wiper", "Front wiper", "Driver side 26 inches (650 mm). Passenger side 20 inches (500 mm). The replacement blade connector has to match the original blade."),
+        ("rear", "Rear wiper", "The windshield wiper chapter does not print a rear blade length."),
+        ("head", "Headlight", "The lights chapter describes LED signature lights along the headlight rim. It does not print a bulb trade number."),
+        ("brake", "Brake light", "A brake lamp trade number is not printed in the lights chapter we read."),
+        ("turn", "Turn signal", "A turn signal trade number is not printed in the lights chapter we read."),
+    ], [
+        ("2020 to 2024 Tesla Model Y Owner's Manual, Windshield Wiper Blades",
+         "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-197C481B-B4D4-4973-9772-2AF488442CE1.html",
+         "Tesla, Inc.", "2020-2024",
+         "Driver blade 26 inches (650 mm). Passenger blade 20 inches (500 mm). No rear length in this chapter."),
+        ("2020 to 2024 Tesla Model Y Owner's Manual, Keys",
+         "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-E004FAB7-1C71-448F-9492-CACF301304D2.html",
+         "Tesla, Inc.", "2020-2024",
+         "Accessory key fob battery type CR2032. The key card section does not print a coin cell."),
+        ("2020 to 2024 Tesla Model Y Owner's Manual, Lights",
+         "https://www.tesla.com/ownersmanual/2020_2024_modely/en_us/GUID-371B94E9-E74F-4BBB-9A55-5F4182894B99.html",
+         "Tesla, Inc.", "2020-2024",
+         "LED signature lights along the headlight rim. No bulb trade number in this chapter."),
+    ],
+    note="Tesla's own manual URL covers model years 2020 through 2024 in one book. This page is that book. 2021, 2022, 2023, and 2024 are not separate pages because the book does not give them a different wiper or key chart. Recalls below are model year 2020 only. The same API returned 23 campaigns for 2021, 20 for 2022, 17 for 2023, and 5 for 2024, retrieved 20 Nov 2026. Look up the VIN.")
+MODEL_Y_2020["published"] = "2026-11-20"
+MODEL_Y_2020["modified"] = "2026-11-20"
+MODEL_Y_2020["checked_h"] = "20 Nov 2026"
+MODEL_Y_2020["seo_title"] = "2020 to 2024 Model Y wiper and key fob"
+
+MODEL_Y_2025 = V(
+    "Tesla", "Model Y", 2025, [("tesla", "Model Y")], [
+        ("key", "Key fob battery", "Accessory key fob: one CR2032, positive side facing up. The key card section does not print a coin cell. A phone key uses the phone."),
+        ("wiper", "Front wiper", "Driver side 26 inches (650 mm). Passenger side 20 inches (500 mm). Same lengths as the 2020 to 2024 book. The connector has to match the original blade."),
+        ("rear", "Rear wiper", "The windshield wiper chapter does not print a rear blade length."),
+        ("head", "Headlight", "The lights chapter describes a front lightbar and a tail lightbar (front lightbar if equipped) used as daytime running lights, parking lights, and tail lights. It does not print a bulb trade number, and it does not repeat the earlier book's signature-light wording."),
+        ("brake", "Brake light", "A brake lamp trade number is not printed in the lights chapter we read."),
+        ("turn", "Turn signal", "A turn signal trade number is not printed in the lights chapter we read. Hazard flashers are the overhead button, not a bulb number."),
+    ], [
+        ("2025+ Tesla Model Y Owner's Manual, North America, software 2026.2.8",
+         "https://www.tesla.com/ownersmanual/modely/en_us/Owners_Manual.pdf",
+         "Tesla, Inc.", "2026-02",
+         "Wiper lengths on the windshield wiper blades page (driver 26 inches / 650 mm, passenger 20 inches / 500 mm). Key fob battery CR2032 in Replacing the Key Fob Battery. Lightbar description in Controlling Lights. Cover reads 2025+."),
+    ],
+    note="This is the 2025+ book, not the 2020 to 2024 book. Wiper lengths and the CR2032 key fob match the earlier book. The light description does not. Do not treat a 2020 recall campaign as a 2025 campaign.")
+MODEL_Y_2025["published"] = "2026-11-20"
+MODEL_Y_2025["modified"] = "2026-11-20"
+MODEL_Y_2025["checked_h"] = "20 Nov 2026"
+MODEL_Y_2025["seo_title"] = "2025 Model Y wiper size and key fob"
+
+CAMRY_2025 = V(
+    "Toyota", "Camry", 2025, [("toyota", "CAMRY HYBRID")], [
+        ("key", "Key fob battery", "Lithium battery CR2450. The 2019 to 2024 Camry books print CR2032 instead."),
+        ("wiper", "Front wiper", "The manual discusses wiper service position and wiper inserts. It does not print an inch length."),
+        ("rear", "Rear wiper", "This sedan manual does not print a rear wiper length."),
+        ("head", "Headlight", "Headlights are not in the light bulb table. The maintenance chapter says lamps other than the three bulb-type positions below are LEDs, replaced by a Toyota dealer."),
+        ("brake", "Brake light", "Stop lights are in the LED list, not in the bulb table. No stop lamp trade number is printed."),
+        ("turn", "Turn signal", "Front turn signal and parking lights, bulb type: 7444NA, 28/8 W, wedge base amber. Rear turn signal lights, bulb type: WY21W, 21 W, wedge base amber. Back-up lights, bulb type: W16W, 16 W, wedge base clear. There is no W5W side marker row and no 921 row, unlike the 2019 to 2024 table."),
+    ], [
+        ("2025 Toyota Camry Hybrid Owner's Manual, publication OM06266U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM06266U/pdf/OM06266U.pdf",
+         "Toyota Motor Corporation", "2025",
+         "Software identifier camry.2025.2403.hev.vh. Light bulb table page 492: 7444NA, WY21W, W16W. CR2450 in the electronic key battery section. LED sentence in Do-it-yourself maintenance."),
+    ],
+    note="NHTSA files this year under CAMRY HYBRID, and that is the model name used for the recall list. We did not find a separate 2025 gas Camry owner's manual on Toyota's manual host. The 2019 to 2024 gas books are the CR2032 and 921 chart on the 2023 page.")
+CAMRY_2025["published"] = "2026-11-20"
+CAMRY_2025["modified"] = "2026-11-20"
+CAMRY_2025["checked_h"] = "20 Nov 2026"
+CAMRY_2025["seo_title"] = "2025 Camry key fob battery is CR2450"
+
 WAVE2.extend([CAMRY_2023, ACCORD_2023,
-              RAV4_2019, RAV4_2020, RAV4_2021, RAV4_2022, RAV4_2023, RAV4_2024, RAV4_2025])
+              RAV4_2019, RAV4_2020, RAV4_2021, RAV4_2022, RAV4_2023, RAV4_2024, RAV4_2025,
+              MODEL_Y_2020, MODEL_Y_2025, CAMRY_2025])
+
+for _v in WAVE2:
+    if _v["make"] == "Chevrolet" and _v["model"] == "Equinox" and _v["year"] in ("2020", "2021"):
+        _v["modified"] = "2026-11-20"
+        _v["checked_h"] = "20 Nov 2026"
+        if _v["year"] == "2020":
+            _v["seo_title"] = "2020 Equinox wipers: 23.6, 17.7, 11.8 in"
+        else:
+            _v["seo_title"] = "2021 Equinox wipers print 24, 18, and 12"
+    if _v["make"] == "Nissan" and _v["model"] == "Sentra" and _v["year"] == "2021":
+        _v["modified"] = "2026-11-20"

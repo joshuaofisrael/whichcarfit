@@ -97,3 +97,6 @@ Independent. Not affiliated with any car maker. Confirm parts on the vehicle and
 - [2023 Toyota RAV4](https://whichcarfit.com/cars/toyota/rav4/2023/)
 - [2024 Toyota RAV4](https://whichcarfit.com/cars/toyota/rav4/2024/)
 - [2025 Toyota RAV4](https://whichcarfit.com/cars/toyota/rav4/2025/)
+- [2020 Tesla Model Y](https://whichcarfit.com/cars/tesla/model-y/2020/)
+- [2025 Tesla Model Y](https://whichcarfit.com/cars/tesla/model-y/2025/)
+- [2025 Toyota Camry](https://whichcarfit.com/cars/toyota/camry/2025/)

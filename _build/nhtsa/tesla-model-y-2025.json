@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-20",
+ "groups": [
+  {
+   "make": "tesla",
+   "model": "Model Y",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=tesla&model=Model+Y&modelYear=2025",
+    "count": 3,
+    "items": [
+     {
+      "id": "24V935000",
+      "component": "TIRES:PRESSURE MONITORING AND REGULATING SYSTEMS",
+      "date": "17/12/2024",
+      "park": false
+     },
+     {
+      "id": "25V002000",
+      "component": "BACK OVER PREVENTION:SOFTWARE",
+      "date": "07/01/2025",
+      "park": false
+     },
+     {
+      "id": "26V315000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "19/05/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=tesla&model=Model+Y&modelYear=2025",
+    "count": 118,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      50
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      30
+     ],
+     [
+      "LANE DEPARTURE",
+      24
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      22
+     ],
+     [
+      "SERVICE BRAKES",
+      16
+     ]
+    ]
+   }
+  }
+ ]
+}

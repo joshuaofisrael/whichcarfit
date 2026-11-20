@@ -38,8 +38,12 @@ cars/nissan
 cars/nissan/sentra
 cars/ram
 cars/ram/1500
+cars/nissan/sentra/2022
+cars/nissan/sentra/2023
+cars/nissan/sentra/2024
+cars/nissan/sentra/2025
+cars/tesla
 cars/toyota
-cars/toyota/camry
 cars/toyota/corolla-cross-hybrid
 cars/toyota/corolla-hybrid
 cars/toyota/grand-highlander
