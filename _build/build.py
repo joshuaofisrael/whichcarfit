@@ -294,9 +294,6 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
         # type=text/plain so it does not fetch until consent.js copies it
         # after Accept. GA4_ID may be empty; the launch check rejects that.
         head_extra = (
-            f'<meta name="google-adsense-account" content="{E(ADSENSE_CLIENT)}">'
-            f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-            f'?client={E(ADSENSE_CLIENT)}" crossorigin="anonymous"></script>'
             "<script>window.dataLayer=window.dataLayer||[];"
             "function gtag(){dataLayer.push(arguments);}"
             "gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied',"
@@ -896,7 +893,7 @@ def extras(catalog):
     # AdSense ads.txt (publisher id without the ca- prefix).
     pub = ADSENSE_CLIENT.replace("ca-", "", 1)
     with open(os.path.join(ROOT, "ads.txt"), "w") as f:
-        f.write(f"google.com, {pub}, DIRECT, f08c47fec0942fa0\n")
+        f.write("")  # AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add.
     bots = ["*", "Googlebot", "Bingbot", "Mediapartners-Google", "OAI-SearchBot", "ChatGPT-User",
             "GPTBot", "PerplexityBot", "Perplexity-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
             "Google-Extended", "Applebot", "Applebot-Extended", "DuckAssistBot", "Amazonbot", "CCBot", "Bytespider"]
