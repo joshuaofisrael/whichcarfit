@@ -36,6 +36,11 @@ MODEL_THUMBS = {
         "alt": "Hand holding a charge plug at an unbadged electric car port",
         "caption": "AI-generated image. Atmospheric photo for the Model Y hub, not a factory shot of a specific year.",
     },
+    ("Toyota", "Corolla"): {
+        "src": "/assets/images/sedan-wiper-rain.png",
+        "alt": "Unbadged sedan windshield wipers on a wet windshield in daylight",
+        "caption": "AI-generated image. Atmospheric photo for the gas Corolla hub, not a factory shot of a specific year.",
+    },
 }
 # Hubs that get a real comparison, not just the year table.
 HUB_EXTRA = {
@@ -55,6 +60,10 @@ HUB_EXTRA = {
 <p>All three books say to replace the remote battery with a CR2032. The 2022 headlamp chapter shows a bi-halogen bulb procedure and does not print a trade number. The same chapter says LED assemblies go to the dealer. Open the <a href="/cars/chevrolet/equinox/2020/">2020</a>, <a href="/cars/chevrolet/equinox/2021/">2021</a>, or <a href="/cars/chevrolet/equinox/2022/">2022</a> page for the full line and that year's recalls. The <a href="/fitment/wiper-blades/">wiper hub</a> lists every length we have copied.</p>''',
     ("Chevrolet", "Malibu"): '''<p>The 2020 Malibu book was opened again on 21 Nov 2026. Document 13555849, CRC 8/16/19. The maintenance replacement parts table on page 314 prints a driver blade of 650 mm (25.6 in), GM part 23353586, and a passenger blade of 450 mm (17.7 in), GM part 23353587. There is no rear wiper line in that table. The remote battery line is still CR2032. The LED Lighting section says the vehicle has several LED lamps and to contact the dealer for an LED assembly. It does not print a halogen trade number.</p>
 <p>The <a href="/cars/chevrolet/malibu/2021/">2021</a> and <a href="/cars/chevrolet/malibu/2022/">2022</a> pages already quote 25.6 in and 17.7 in from those years' books. Those two PDFs were not opened again today, so this paragraph does not add part numbers for them. The refreshed chart is on the <a href="/cars/chevrolet/malibu/2020/">2020 Malibu page</a>.</p>''',
+    ("Toyota", "Corolla"): '''<p>This hub is the gas Corolla sedan. It is not the <a href="/cars/toyota/corolla-hybrid/">Corolla Hybrid</a> and not the <a href="/cars/toyota/corolla-cross-hybrid/">Corolla Cross Hybrid</a>. Checked 21 Nov 2026.</p>
+<p>Three gas books print one key and one exterior table, so they are one page. <a href="https://assets.sia.toyota.com/publications/en/om-s/OM02580U/pdf/OM02580U.pdf" rel="nofollow noopener" target="_blank">2020, OM02580U</a>, <a href="https://assets.sia.toyota.com/publications/en/om-s/OM02582U/pdf/OM02582U.pdf" rel="nofollow noopener" target="_blank">2021, OM02582U</a>, and <a href="https://assets.sia.toyota.com/publications/en/om-s/OM02617U/pdf/OM02617U.pdf" rel="nofollow noopener" target="_blank">2022, OM02617U</a>. Helm sells OM02617U as the 2022 Corolla owner's manual. The key is a CR2032. The light bulb table prints front side marker 5 W with no trade number, front turn and parking 7444NA at 28/8 W on cars without side turn signals, rear side marker (bulb type) 5 W, rear turn 21 W, and back-up 16 W. Headlights, daytime running lights, stop lights, and tail lights are on the dealer list. None of the three books prints a wiper inch length. That chart is on the <a href="/cars/toyota/corolla/2020/">2020 Corolla page</a>.</p>
+<p>The 2023 book <a href="https://assets.sia.toyota.com/publications/en/om-s/OM02568U/pdf/OM02568U.pdf" rel="nofollow noopener" target="_blank">OM02568U</a> (software identifier corolla.2023.2304.cv.vh) and the 2024 book <a href="https://assets.sia.toyota.com/publications/en/om-s/OM02684U/pdf/OM02684U.pdf" rel="nofollow noopener" target="_blank">OM02684U</a> (corolla.2024.2309.cv.vh) split the key: CR2032 without a smart key system, CR2450 with one. The wattage numbers match the earlier table. The dealer list adds front side marker lights (LED type). An earlier 2023 printing, OM02525U, prints the same split and the same table. That chart is on the <a href="/cars/toyota/corolla/2023/">2023 Corolla page</a>.</p>
+<p>A 2025 gas Corolla owner's manual was not in the publication set we opened. Do not use the <a href="/cars/toyota/corolla-hybrid/2025/">2025 Corolla Hybrid</a> book for a gas sedan. That hybrid book prints CR2032 and does not print the 7444NA row. NHTSA's recalls API, retrieved 21 Nov 2026, returned 3 campaigns for 2020, 1 for 2021, none for 2022, 3 for 2023, 2 for 2024, and none for 2025. The 2022 and 2025 responses were HTTP 400 with Count 0 and an empty results list.</p>''',
 }
 
 # Optional hub title, description, and visible FAQs. Titles stay under 60 characters.
@@ -93,6 +102,18 @@ HUB_META = {
              "The 2020 book says to replace the remote battery with a CR2032, or equivalent. The 2021 and 2022 pages quote the same cell from those years' books."),
             ("Which bulb fits a Chevrolet Malibu?",
              "The 2020 LED Lighting section says the vehicle has several LED lamps and to contact the dealer for an LED assembly. It does not print a halogen trade number."),
+        ],
+    },
+    ("Toyota", "Corolla"): {
+        "title": "Which Corolla key and bulb fits?",
+        "desc": "2020 to 2022 Corolla key is a CR2032. From 2023 the smart key is a CR2450. Front turn bulb is 7444NA.",
+        "faqs": [
+            ("Which key fob battery fits a gas Toyota Corolla?",
+             "2020, 2021, and 2022 gas books print CR2032 only. The 2023 and 2024 gas books print CR2032 without a smart key system and CR2450 with one. The 2025 Corolla Hybrid book is a different car and prints CR2032."),
+            ("Which wiper blade fits a gas Toyota Corolla?",
+             "The 2020 through 2024 gas books we opened do not print a driver or passenger inch length. Do not borrow a length from a parts listing."),
+            ("Which bulb fits a gas Toyota Corolla?",
+             "The exterior table prints front turn and parking 7444NA at 28/8 W, rear turn 21 W with no trade number, and back-up 16 W with no trade number. Headlights and stop lights are on the dealer list. From 2023 the dealer list also names LED front side marker lights."),
         ],
     },
 }
@@ -221,7 +242,7 @@ def vehicle_related(v, by_model):
                       f"{o['year']} {o['make']} {o['model']} parts",
                       "Same model, different year. Charts are not copied across years.",
                       thumb))
-    for make, model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4")):
+    for make, model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4"), ("Toyota", "Corolla")):
         if (make, model) == (v["make"], v["model"]):
             continue
         photo = MODEL_THUMBS.get((make, model))
@@ -620,7 +641,7 @@ def hubs():
                                    f"{v['year']} {make} {model} parts",
                                    "Full chart and NHTSA campaigns for that model year.",
                                    model_thumb))
-            for photo_make, photo_model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4")):
+            for photo_make, photo_model in (("Tesla", "Model Y"), ("Toyota", "Camry"), ("Toyota", "RAV4"), ("Toyota", "Corolla")):
                 if (photo_make, photo_model) == (make, model):
                     continue
                 photo = MODEL_THUMBS.get((photo_make, photo_model))

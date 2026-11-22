@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-21",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "COROLLA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=COROLLA&modelYear=2020",
+    "count": 3,
+    "items": [
+     {
+      "id": "19V877000",
+      "component": "SEAT BELTS: REAR/OTHER:BUCKLE ASSEMBLY",
+      "date": "11/12/2019",
+      "park": false
+     },
+     {
+      "id": "20V682000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "04/11/2020",
+      "park": false
+     },
+     {
+      "id": "23V865000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION",
+      "date": "20/12/2023",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=COROLLA&modelYear=2020",
+    "count": 319,
+    "top": [
+     [
+      "ENGINE",
+      111
+     ],
+     [
+      "UNKNOWN OR OTHER",
+      80
+     ],
+     [
+      "POWER TRAIN",
+      44
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      35
+     ],
+     [
+      "SERVICE BRAKES",
+      25
+     ]
+    ]
+   }
+  }
+ ]
+}

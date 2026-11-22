@@ -1,0 +1,59 @@
+{
+ "retrieved": "2026-11-21",
+ "groups": [
+  {
+   "make": "toyota",
+   "model": "COROLLA",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=toyota&model=COROLLA&modelYear=2023",
+    "count": 3,
+    "items": [
+     {
+      "id": "23V480000",
+      "component": "STEERING:COLUMN",
+      "date": "12/07/2023",
+      "park": false
+     },
+     {
+      "id": "24V878000",
+      "component": "STEERING",
+      "date": "21/11/2024",
+      "park": false
+     },
+     {
+      "id": "25V040000",
+      "component": "STEERING:COLUMN",
+      "date": "29/01/2025",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=toyota&model=COROLLA&modelYear=2023",
+    "count": 74,
+    "top": [
+     [
+      "UNKNOWN OR OTHER",
+      18
+     ],
+     [
+      "STEERING",
+      16
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      14
+     ],
+     [
+      "ENGINE",
+      13
+     ],
+     [
+      "EXTERIOR LIGHTING",
+      11
+     ]
+    ]
+   }
+  }
+ ]
+}
