@@ -46,6 +46,55 @@ HUB_EXTRA = {
 <p>Books that match the 2023 chart: 2019 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06142U/pdf/OM06142U.pdf" rel="nofollow noopener" target="_blank">OM06142U</a> (light bulb table page 550), 2020 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06158U/pdf/OM06158U.pdf" rel="nofollow noopener" target="_blank">OM06158U</a> (page 558), 2021 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06242U/pdf/OM06242U.pdf" rel="nofollow noopener" target="_blank">OM06242U</a> (page 599), 2022 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06244U/pdf/OM06244U.pdf" rel="nofollow noopener" target="_blank">OM06244U</a> (page 589), 2023 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06259U/pdf/OM06259U.pdf" rel="nofollow noopener" target="_blank">OM06259U</a> (page 589), and 2024 <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06291U/pdf/OM06291U.pdf" rel="nofollow noopener" target="_blank">OM06291U</a> (page 589). Each table lists front side marker W5W 5 W, front turn and parking 7444NA 28/8 W, rear turn WY21W 21 W, rear side marker W5W 5 W, and back-up 921 16 W. The footnote says bulbs not listed are LED. Each key chapter says lithium battery CR2032. None of these books prints a wiper inch length.</p>
 <p>Two lines next to that chart do move, and neither one is a lamp you buy from the bulb table. The 2019 and 2020 specifications chapter lists a 19 x 8 J wheel. From 2021 the same line reads 19 x 8 1/2 J. The 2019, 2020, and 2021 tables still include a vanity light row. The 2022, 2023, and 2024 tables do not.</p>
 <p>The 2025 file is the Camry Hybrid owner's manual, publication <a href="https://assets.sia.toyota.com/publications/en/om-s/OM06266U/pdf/OM06266U.pdf" rel="nofollow noopener" target="_blank">OM06266U</a>, software identifier camry.2025.2403.hev.vh. The key is a CR2450, not a CR2032. The light bulb table on page 492 lists front turn and parking 7444NA 28/8 W, rear turn WY21W 21 W, and back-up W16W 16 W. There is no W5W row and no 921 row. The maintenance chapter says lamps other than those three bulb-type positions are LEDs, and a Toyota dealer replaces those. NHTSA files this year as CAMRY HYBRID, not as CAMRY.</p>''',
+    ("Honda", "CR-V"): '''<p>Two CR-V charts are on this site, and they are not the same car. Checked 21 Nov 2026.</p>
+<p>The 2020 book (<a href="https://techinfo.honda.com/rjanisis/pubs/OM/AH/ATLA2020OM/enu/ATLA2020OM.PDF" rel="nofollow noopener" target="_blank">ATLA2020OM</a>) and the 2022 book print a halogen low beam of 55 W (H11) and a halogen high beam of 60 W (HB3), and they also list LED headlights that a dealer replaces as an assembly. Front turn signals are LED. Brake, taillight, rear turn, and rear side marker lights are LED. The back-up light is 16 W. Remote Transmitter Care prints CR1620 for a master key with a remote, and CR2032 for the keyless remote. Neither wiper chapter prints an inch length. Those two years live on the <a href="/cars/honda/cr-v/2020/">2020 CR-V page</a>. A 2021 CR-V owner's manual was not opened, so 2021 is not given either chart.</p>
+<p>The 2023, 2024, and 2025 books drop the H11 and HB3 rows. Headlights are LED. Back-up lights are LED. The rear turn signal is 21 W amber. The keyless remote is a CR2032, and those books do not print a CR1620 cell. The 2023 and 2025 wiper chapters still do not print an inch length. The 2024 specifications page and the 2024 remote-battery page match this chart. The 2024 wiper chapter was not the page we opened. That chart is on the <a href="/cars/honda/cr-v/2025/">2025 CR-V page</a>.</p>
+<p>NHTSA's recalls API, retrieved 21 Nov 2026, returned 7 campaigns for 2020, 4 for 2021, 3 for 2022, 3 for 2023, 2 for 2024, and 1 for 2025. A campaign count is not a reason to buy a bulb. Use the VIN lookup. Nearby charts: <a href="/cars/honda/accord/">Accord</a>, <a href="/cars/honda/civic/">Civic</a>, and the <a href="/cars/toyota/rav4/">RAV4</a>.</p>''',
+    ("Chevrolet", "Equinox"): '''<p>The three Equinox books already on this site do not print one wiper table. Re-read of the 2022 book on 21 Nov 2026, with the 2020 and 2021 tables left as they were checked on 20 Nov 2026.</p>
+<p>The <a href="https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2020/chevrolet/equinox/2020-chevrolet-equinox-owners-manual.pdf" rel="nofollow noopener" target="_blank">2020 book</a> (document 13555863) prints 60 cm (23.6 in), 45.0 cm (17.7 in), and 30.0 cm (11.8 in), GM parts 84574893, 84574892, and 84215609. The <a href="https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2021/chevrolet/equinox/2021-chevrolet-equinox-owners-manual.pdf" rel="nofollow noopener" target="_blank">2021 book</a> (document 14420010) keeps those centimeter lengths and those part numbers, and prints the inch side as 24, 18, and 12. The <a href="https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/equinox/2022-chevrolet-equinox-owners-manual.pdf" rel="nofollow noopener" target="_blank">2022 book</a> (document 15230998, CRC 8/10/21) still prints 24, 18, and 12 inches. The driver part is now 84566977, not 84574893. The rear part is now 85118765, not 84215609. The passenger part stays 84574892.</p>
+<p>All three books say to replace the remote battery with a CR2032. The 2022 headlamp chapter shows a bi-halogen bulb procedure and does not print a trade number. The same chapter says LED assemblies go to the dealer. Open the <a href="/cars/chevrolet/equinox/2020/">2020</a>, <a href="/cars/chevrolet/equinox/2021/">2021</a>, or <a href="/cars/chevrolet/equinox/2022/">2022</a> page for the full line and that year's recalls. The <a href="/fitment/wiper-blades/">wiper hub</a> lists every length we have copied.</p>''',
+    ("Chevrolet", "Malibu"): '''<p>The 2020 Malibu book was opened again on 21 Nov 2026. Document 13555849, CRC 8/16/19. The maintenance replacement parts table on page 314 prints a driver blade of 650 mm (25.6 in), GM part 23353586, and a passenger blade of 450 mm (17.7 in), GM part 23353587. There is no rear wiper line in that table. The remote battery line is still CR2032. The LED Lighting section says the vehicle has several LED lamps and to contact the dealer for an LED assembly. It does not print a halogen trade number.</p>
+<p>The <a href="/cars/chevrolet/malibu/2021/">2021</a> and <a href="/cars/chevrolet/malibu/2022/">2022</a> pages already quote 25.6 in and 17.7 in from those years' books. Those two PDFs were not opened again today, so this paragraph does not add part numbers for them. The refreshed chart is on the <a href="/cars/chevrolet/malibu/2020/">2020 Malibu page</a>.</p>''',
+}
+
+# Optional hub title, description, and visible FAQs. Titles stay under 60 characters.
+HUB_META = {
+    ("Honda", "CR-V"): {
+        "title": "Which CR-V bulb and key fob fits?",
+        "desc": "2020 and 2022 CR-V low beam is H11 or LED. 2023 to 2025 headlights are LED, and the rear turn is 21 W amber.",
+        "faqs": [
+            ("Which key fob battery fits a Honda CR-V?",
+             "The 2020 and 2022 books print CR1620 for a master key with a remote transmitter and CR2032 for the keyless remote. The 2023, 2024, and 2025 books print CR2032 only. A 2021 book was not opened."),
+            ("Which wiper blade fits a Honda CR-V?",
+             "None of the CR-V books we opened prints a driver, passenger, or rear inch length. The 2024 wiper chapter was not the page we opened. Do not borrow a length from another year."),
+            ("Which bulb fits a Honda CR-V?",
+             "2020 and 2022: halogen low beam H11 55 W or LED, halogen high beam HB3 60 W or LED, back-up light 16 W, rear turn LED. 2023 to 2025: headlights LED, back-up lights LED, rear turn 21 W amber."),
+        ],
+    },
+    ("Chevrolet", "Equinox"): {
+        "title": "Which Equinox wiper length fits?",
+        "desc": "2020 Equinox wipers are 23.6, 17.7, and 11.8 in. 2021 and 2022 print 24, 18, and 12. The 2022 driver part changed.",
+        "faqs": [
+            ("Which wiper blade fits a Chevrolet Equinox?",
+             "2020 prints 23.6, 17.7, and 11.8 inches with GM parts 84574893, 84574892, and 84215609. 2021 prints 24, 18, and 12 inches with the same part numbers. 2022 keeps 24, 18, and 12, changes the driver part to 84566977, and changes the rear part to 85118765."),
+            ("Which key fob battery fits a Chevrolet Equinox?",
+             "The 2020, 2021, and 2022 books each say to replace the remote battery with a CR2032, or equivalent."),
+            ("Which headlight bulb fits a Chevrolet Equinox?",
+             "The 2022 book shows a bi-halogen headlamp procedure and does not print a trade number. It also says LED assemblies are replaced at the dealer. Do not guess an H11 from a parts counter."),
+        ],
+    },
+    ("Chevrolet", "Malibu"): {
+        "title": "Which Malibu wiper length fits?",
+        "desc": "2020 Malibu wipers are 25.6 in and 17.7 in, GM parts 23353586 and 23353587. The key fob battery is a CR2032.",
+        "faqs": [
+            ("Which wiper blade fits a 2020 Chevrolet Malibu?",
+             "Driver side 650 mm (25.6 in), GM part 23353586. Passenger side 450 mm (17.7 in), GM part 23353587. The 2020 maintenance table does not print a rear wiper."),
+            ("Which key fob battery fits a Chevrolet Malibu?",
+             "The 2020 book says to replace the remote battery with a CR2032, or equivalent. The 2021 and 2022 pages quote the same cell from those years' books."),
+            ("Which bulb fits a Chevrolet Malibu?",
+             "The 2020 LED Lighting section says the vehicle has several LED lamps and to contact the dealer for an LED assembly. It does not print a halogen trade number."),
+        ],
+    },
 }
 
 def slugify(s):
@@ -113,7 +162,8 @@ def related_reads(items, heading="Related lookups"):
             # Image-policy link must sit just before the <img> for check.py.
             img = (f'<a class="img-policy-ref" href="{u("/image-policy/")}">AI-generated image policy</a>'
                    f'<a class="next-thumb" href="{u(href)}">'
-                   f'<img src="{u(thumb["src"])}" alt="" width="320" height="180" loading="lazy"></a>')
+                   f'<img src="{u(thumb["src"])}" alt="" width="320" height="180" loading="lazy"></a>'
+                   f'<p class="next-cap"><a href="{u("/image-policy/")}">AI-generated image. Image policy.</a></p>')
         cards.append(
             f'<li class="next-card">{img}'
             f'<div><a href="{u(href)}">{E(label)}</a>'
@@ -318,7 +368,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, noindex=False, legal
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
 <meta property="og:type" content="{og_type}"><meta property="og:site_name" content="{BRAND}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:image" content="{url('/og.png')}"><meta property="og:image:alt" content="Which Car Fit key mark"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(title)}"><meta name="twitter:description" content="{E(desc)}"><meta name="twitter:image" content="{url('/og.png')}">
-<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=3">{head_extra}{ldh}
+<link rel="icon" href="{u('/favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{u('/assets/style.css')}?v=4">{head_extra}{ldh}
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap"><a class="brand" href="{u('/')}">{LOGO}<span>{BRAND}</span></a><nav class="main" aria-label="Main">{nav}</nav></div></header>
 <main id="main" class="wrap">{bc}{body}<!-- ad-slot: below-content (reserved; no ad code) --></main>
@@ -506,7 +556,7 @@ def hubs():
                 models.append(v["model"])
         blocks = []
         for model in models:
-            years = [v for v in vs if v["model"] == model]
+            years = sorted((v for v in vs if v["model"] == model), key=lambda v: v["year"])
             year_links = ", ".join(f'<a href="{u(vpath(v))}">{E(v["year"])}</a>' for v in years)
             blocks.append(f'<li class="card"><h2><a href="{u("/cars/" + slugify(make) + "/" + slugify(model) + "/")}">{E(model)}</a></h2><p>Years with a manual checked: {year_links}</p></li>')
         path = f"/cars/{slugify(make)}/"
@@ -532,7 +582,7 @@ def hubs():
                          body, [article_ld(make_title, path), make_faq_ld],
                          [("/", "Home"), ("/cars/", "Cars"), (path, make)], modified=latest(vs)))
         for model in models:
-            years = [v for v in vs if v["model"] == model]
+            years = sorted((v for v in vs if v["model"] == model), key=lambda v: v["year"])
             items = "".join(
                 f'<li><a href="{u(vpath(v))}">{E(v["year"])} {E(make)} {E(model)}</a>: {E(fit_map(v)["key"][1][:180])}</li>'
                 for v in years)
@@ -547,7 +597,8 @@ def hubs():
                     E(short(fit_map(v)["wiper"][1])),
                     E(short(fit_map(v)["head"][1])),
                 ) for v in years)
-            faqs = [
+            meta = HUB_META.get((make, model), {})
+            faqs = meta.get("faqs") or [
                 (f"Which key fob battery fits a {make} {model}?",
                  "It depends on the year, and sometimes on which remote is in the car. Open the year page. The short battery line for each year we have checked is in the table on this page."),
                 (f"Which wiper blade fits a {make} {model}?",
@@ -558,7 +609,7 @@ def hubs():
             faq_html = "".join(f"<details><summary>{E(q)}</summary><p>{E(a)}</p></details>" for q, a in faqs)
             faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
-            model_title = f"Which {make} {model} year should I pick?"
+            model_title = meta.get("title") or f"Which {make} {model} year should I pick?"
             thumb = MODEL_THUMBS.get((make, model))
             hero = thumb_figure(thumb) if thumb else ""
             # Related reads for the hub: year pages, sibling models, part hubs.
@@ -609,7 +660,7 @@ def hubs():
             hub_mod = latest(years)
             hub_pub = min(v.get("published", PUBLISHED) for v in years)
             write(path, page(path, model_title,
-                             f"Which {make} {model} year should I open? The table quotes each checked year's owner's manual.",
+                             meta.get("desc") or f"Which {make} {model} year should I open? The table quotes each checked year's owner's manual.",
                              body, [article_ld(model_title, path, published=hub_pub, modified=hub_mod,
                                                image=thumb["src"] if thumb else None), faqld],
                              [("/", "Home"), ("/cars/", "Cars"), (f"/cars/{slugify(make)}/", make), (path, model)],

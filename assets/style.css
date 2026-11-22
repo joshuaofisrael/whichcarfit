@@ -41,4 +41,6 @@ footer.site{background:var(--navy);color:#eef3f6;padding:1.5rem 0;margin-top:2re
 .next-thumb{display:block;border-radius:8px;overflow:hidden;aspect-ratio:16/9;background:var(--tint)}
 .next-thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .img-policy-ref{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.next-cap{margin:.15rem 0 0;font-size:.78rem;line-height:1.35;color:var(--muted)}
+.next-cap a{color:inherit;text-decoration:underline}
 .next-card{position:relative}

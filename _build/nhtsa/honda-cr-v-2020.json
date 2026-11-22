@@ -1,0 +1,83 @@
+{
+ "retrieved": "2026-11-21",
+ "groups": [
+  {
+   "make": "honda",
+   "model": "CR-V",
+   "recalls": {
+    "url": "https://api.nhtsa.gov/recalls/recallsByVehicle?make=honda&model=CR-V&modelYear=2020",
+    "count": 7,
+    "items": [
+     {
+      "id": "19V865000",
+      "component": "STRUCTURE:FRAME AND MEMBERS",
+      "date": "05/12/2019",
+      "park": false
+     },
+     {
+      "id": "22V380000",
+      "component": "FUEL SYSTEM, GASOLINE:STORAGE:TANK ASSEMBLY",
+      "date": "26/05/2022",
+      "park": false
+     },
+     {
+      "id": "23V158000",
+      "component": "SEAT BELTS:FRONT:BUCKLE ASSEMBLY",
+      "date": "09/03/2023",
+      "park": false
+     },
+     {
+      "id": "23V524000",
+      "component": "EQUIPMENT:OTHER:LABELS",
+      "date": "27/07/2023",
+      "park": false
+     },
+     {
+      "id": "23V858000",
+      "component": "FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP",
+      "date": "19/12/2023",
+      "park": false
+     },
+     {
+      "id": "24V064000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION:FRONT PASSENGER",
+      "date": "01/02/2024",
+      "park": false
+     },
+     {
+      "id": "26V332000",
+      "component": "AIR BAGS:SENSOR:OCCUPANT CLASSIFICATION:FRONT PASSENGER",
+      "date": "22/05/2026",
+      "park": false
+     }
+    ]
+   },
+   "complaints": {
+    "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=CR-V&modelYear=2020",
+    "count": 365,
+    "top": [
+     [
+      "FORWARD COLLISION AVOIDANCE",
+      74
+     ],
+     [
+      "AIR BAGS",
+      47
+     ],
+     [
+      "STEERING",
+      45
+     ],
+     [
+      "ELECTRICAL SYSTEM",
+      44
+     ],
+     [
+      "FUEL/PROPULSION SYSTEM",
+      41
+     ]
+    ]
+   }
+  }
+ ]
+}
