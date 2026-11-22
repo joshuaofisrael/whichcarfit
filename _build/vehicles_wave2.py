@@ -725,7 +725,66 @@ CRV_2020["modified"] = "2026-11-21"
 CRV_2020["checked_h"] = "21 Nov 2026"
 CRV_2020["seo_title"] = "2020 and 2022 CR-V: H11 or LED"
 
-WAVE2.extend([CAMRY_2023, ACCORD_2023, CRV_2020,
+# Added 21 Nov 2026. Gas Corolla sedan only. 2020, 2021, and 2022 print
+# one CR2032 key and the same exterior bulb table, so they are one page.
+# 2023 and 2024 split the key and add an LED front side marker row.
+COROLLA_2020 = V(
+    "Toyota", "Corolla", 2020, [("toyota", "COROLLA")], [
+        ("key", "Key fob battery", "Lithium battery CR2032. The 2020, 2021, and 2022 gas books print that cell for the wireless remote and the electronic key. They do not print a CR2450."),
+        ("wiper", "Front wiper", "The maintenance chapter has a wiper insert procedure. None of the 2020, 2021, or 2022 books prints an inch length."),
+        ("rear", "Rear wiper", "This sedan manual does not print a rear wiper length."),
+        ("head", "Headlight", "A headlight trade number is not in the light bulb table. Headlights and daytime running lights are on the list of bulbs your Toyota dealer replaces."),
+        ("brake", "Brake light", "Stop lights, tail lights, and the high mounted stoplight are on the dealer list. No stop lamp trade number is printed."),
+        ("turn", "Turn signal", "Front side marker lights: 5 W, wedge base clear, no trade number. Front turn signal and parking lights, vehicles without side turn signal lights: 7444NA, 28/8 W, wedge base amber. Rear side marker lights, bulb type: 5 W, wedge base clear, no trade number. Rear turn signal lights: 21 W, wedge base amber, no trade number. Back-up lights: 16 W, wedge base clear, no trade number. Vehicles with side turn signal lights move the front turn and parking lights onto the dealer list."),
+    ], [
+        ("2020 Toyota Corolla Owner's Manual, publication OM02580U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02580U/pdf/OM02580U.pdf",
+         "Toyota Motor Corporation", "2020-01",
+         "Helm lists OM02580U as the 2020 Corolla owner's manual. Opened 21 Nov 2026. Light bulb table: front side marker 5 W, 7444NA front turn, rear side marker 5 W, rear turn 21 W, back-up 16 W. CR2032 in the electronic key battery section. Headlights and stop lights are on the dealer list."),
+        ("2021 Toyota Corolla Owner's Manual, publication OM02582U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02582U/pdf/OM02582U.pdf",
+         "Toyota Motor Corporation", "2020-07",
+         "Helm lists OM02582U as the 2021 Corolla owner's manual. Opened 21 Nov 2026. Same CR2032 line and the same exterior bulb table and dealer list as OM02580U."),
+        ("2022 Toyota Corolla Owner's Manual, publication OM02617U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02617U/pdf/OM02617U.pdf",
+         "Toyota Motor Corporation", "2021-07",
+         "Helm lists OM02617U as the 2022 Corolla owner's manual, English paper. PDF created 15 July 2021. Opened 21 Nov 2026. Light bulb table on printed page 560 matches the 2020 and 2021 tables. CR2032 only."),
+    ],
+    note="Gas sedan books only. Not the Corolla Hybrid, not the hatchback, and not the Corolla Cross. This page is the 2020, 2021, and 2022 chart. The 2023 and 2024 books split the key and are on the 2023 page. Recalls below are model year 2020 only. NHTSA's recalls API, retrieved 21 Nov 2026, returned 1 campaign for 2021 and no campaign list for 2022 (HTTP 400 with Count 0). Look up the VIN.")
+COROLLA_2020["published"] = "2026-11-21"
+COROLLA_2020["modified"] = "2026-11-21"
+COROLLA_2020["checked_h"] = "21 Nov 2026"
+COROLLA_2020["seo_title"] = "2020 to 2022 Corolla key is CR2032"
+
+COROLLA_2023 = V(
+    "Toyota", "Corolla", 2023, [("toyota", "COROLLA")], [
+        ("key", "Key fob battery", "CR2032 on vehicles without a smart key system, or CR2450 on vehicles with a smart key system. The 2020 to 2022 gas books print CR2032 only."),
+        ("wiper", "Front wiper", "The maintenance chapter has a wiper insert procedure. The 2023 and 2024 books do not print an inch length."),
+        ("rear", "Rear wiper", "This sedan manual does not print a rear wiper length."),
+        ("head", "Headlight", "A headlight trade number is not in the light bulb table. Headlights and daytime running lights are on the list of bulbs your Toyota dealer replaces."),
+        ("brake", "Brake light", "Stop lights, tail lights, and the high mounted stoplight are on the dealer list. No stop lamp trade number is printed."),
+        ("turn", "Turn signal", "Front side marker lights, bulb type: 5 W, wedge base clear, no trade number. Front turn signal and parking lights, vehicles without side turn signal lights: 7444NA, 28/8 W, wedge base amber. Rear side marker lights, bulb type: 5 W, wedge base clear, no trade number. Rear turn signal lights: 21 W, wedge base amber, no trade number. Back-up lights: 16 W, wedge base clear, no trade number. The dealer list adds front side marker lights (LED type), which the 2020 to 2022 dealer list does not."),
+    ], [
+        ("2023 Toyota Corolla Owner's Manual, publication OM02568U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02568U/pdf/OM02568U.pdf",
+         "Toyota Motor Corporation", "2023-04",
+         "Software identifier om02568u.corolla.2023.2304.cv.vh. Opened 21 Nov 2026. Light bulb table on printed page 398. CR2032 or CR2450 in the electronic key battery section. Dealer list includes front side marker lights (LED type)."),
+        ("2023 Toyota Corolla Owner's Manual, earlier printing OM02525U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02525U/pdf/OM02525U.pdf",
+         "Toyota Motor Corporation", "2022-11",
+         "Software identifier om02525u.corolla.2023.2211.cv.vh. Opened 21 Nov 2026. Same key line, same exterior wattage table, and the same LED front side marker line as OM02568U."),
+        ("2024 Toyota Corolla Owner's Manual, publication OM02684U",
+         "https://assets.sia.toyota.com/publications/en/om-s/OM02684U/pdf/OM02684U.pdf",
+         "Toyota Motor Corporation", "2023-09",
+         "Software identifier om02684u.corolla.2024.2309.cv.vh. Opened 21 Nov 2026. Same CR2032 or CR2450 line and the same exterior table. Dealer list includes front side marker lights (LED type)."),
+    ],
+    note="Gas sedan books only. The software identifiers say corolla.2023 and corolla.2024, not the hybrid file. This page is the 2023 chart and the 2024 chart. Recalls below are model year 2023 only. NHTSA's recalls API, retrieved 21 Nov 2026, returned 2 campaigns for 2024. A 2025 gas Corolla owner's manual was not on the publication list we opened. The Corolla Hybrid 2025 book is a different car.")
+COROLLA_2023["published"] = "2026-11-21"
+COROLLA_2023["modified"] = "2026-11-21"
+COROLLA_2023["checked_h"] = "21 Nov 2026"
+COROLLA_2023["seo_title"] = "2023 Corolla key is CR2032 or CR2450"
+
+WAVE2.extend([CAMRY_2023, ACCORD_2023, CRV_2020, COROLLA_2020, COROLLA_2023,
               RAV4_2019, RAV4_2020, RAV4_2021, RAV4_2022, RAV4_2023, RAV4_2024, RAV4_2025,
               MODEL_Y_2020, MODEL_Y_2025, CAMRY_2025])
 
