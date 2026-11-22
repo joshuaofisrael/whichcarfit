@@ -233,15 +233,15 @@ if not os.path.isfile(ads):
     bad += 1
 else:
     ads_body = open(ads, encoding="utf-8").read().strip()
-    if "google.com, pub-5681559774142917, DIRECT, f08c47fec0942fa0" not in ads_body:
+    if "pub-5681559774142917" in ads_body:  # AdSense detached 21 Nov 2026 until the account is approved (see seo-central/site-seo-rules.md). Do not re-add.
         print("ads-txt-bad", ads_body[:120])
         bad += 1
 if not NOINDEX:
     sample = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
-    if 'name="google-adsense-account" content="ca-pub-5681559774142917"' not in sample:
+    if 'name="google-adsense-account"' in sample:
         print("adsense-meta")
         bad += 1
-    if "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5681559774142917" not in sample:
+    if "adsbygoogle.js" in sample:
         print("adsense-script")
         bad += 1
 print("files", len(files), "issues", bad)
