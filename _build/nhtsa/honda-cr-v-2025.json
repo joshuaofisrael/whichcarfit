@@ -1,5 +1,5 @@
 {
- "retrieved": "2026-11-16",
+ "retrieved": "2026-11-21",
  "groups": [
   {
    "make": "honda",
@@ -18,11 +18,11 @@
    },
    "complaints": {
     "url": "https://api.nhtsa.gov/complaints/complaintsByVehicle?make=honda&model=CR-V&modelYear=2025",
-    "count": 271,
+    "count": 278,
     "top": [
      [
       "STEERING",
-      60
+      61
      ],
      [
       "UNKNOWN OR OTHER",
@@ -30,15 +30,15 @@
      ],
      [
       "FORWARD COLLISION AVOIDANCE",
-      42
+      44
      ],
      [
       "VISIBILITY/WIPER",
-      36
+      38
      ],
      [
       "SERVICE BRAKES",
-      31
+      32
      ]
     ]
    }

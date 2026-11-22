@@ -31,15 +31,15 @@ WAVE2 = [
     note="The 2021 book prints the same GM part numbers and the same centimeter lengths. It prints the inch side as 24, 18, and 12 rather than 23.6, 17.7, and 11.8. Re-read 20 Nov 2026."),
     V("Chevrolet", "Malibu", 2020, [('chevrolet', 'MALIBU')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
-        ("wiper", "Front wiper", "Driver side: 25.6 in. Passenger side: 17.7 in. Lengths are from the maintenance parts table."),
-        ("rear", "Rear wiper", "No rear wiper length is printed in the maintenance parts table."),
-        ("head", "Headlight", "The bulb replacement chapter says this vehicle has several LED lamps and to contact a dealer for an LED assembly. The procedure we read does not print a halogen trade number."),
+        ("wiper", "Front wiper", "Driver side: 650 mm (25.6 in), GM part 23353586. Passenger side: 450 mm (17.7 in), GM part 23353587. Lengths and part numbers are from the maintenance replacement parts table."),
+        ("rear", "Rear wiper", "No rear wiper length is printed in the maintenance replacement parts table."),
+        ("head", "Headlight", "The LED Lighting section says this vehicle has several LED lamps and to contact your dealer for replacement of any LED lighting assembly. The section we read does not print a halogen trade number."),
         ("brake", "Brake light", "A brake lamp trade number is not printed in the section we read."),
         ("turn", "Turn signal", "A turn signal trade number is not printed in the section we read."),
     ], [
-        ("2020 Chevrolet Malibu Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2020/chevrolet/malibu/2020-chevrolet-malibu-owners-manual.pdf", "General Motors LLC", "2020", "Remote battery CR2032. Maintenance parts table for wiper length. Bulb replacement chapter."),
+        ("2020 Chevrolet Malibu Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2020/chevrolet/malibu/2020-chevrolet-malibu-owners-manual.pdf", "General Motors LLC", "2019-08", "Document 13555849, CRC 8/16/19. Re-read 21 Nov 2026. Remote battery CR2032. Maintenance replacement parts table, page 314, for wiper length and GM part number. LED Lighting section."),
     ],
-    note=""),
+    note="Re-read 21 Nov 2026. The inch lengths were already on this page. The GM part numbers were not. The table does not print a rear wiper."),
     V("Chevrolet", "Tahoe", 2020, [('chevrolet', 'TAHOE')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
         ("wiper", "Front wiper", "Driver side: 21.7 in. Passenger side: 21.7 in. Lengths are from the maintenance parts table."),
@@ -97,15 +97,15 @@ WAVE2 = [
     note="This General Motors book covers Tahoe and Suburban together. The parts table does not split the two nameplates. Recalls below are the campaigns NHTSA files under Tahoe."),
     V("Chevrolet", "Equinox", 2022, [('chevrolet', 'EQUINOX')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
-        ("wiper", "Front wiper", "Driver side: 24 in. Passenger side: 18 in. Lengths are from the maintenance parts table."),
-        ("rear", "Rear wiper", "Rear: 12 in. Length is from the maintenance parts table."),
-        ("head", "Headlight", "The bulb replacement chapter says this vehicle has several LED lamps and to contact a dealer for an LED assembly. The procedure we read does not print a halogen trade number."),
-        ("brake", "Brake light", "A brake lamp trade number is not printed in the section we read."),
-        ("turn", "Turn signal", "A turn signal trade number is not printed in the section we read."),
+        ("wiper", "Front wiper", "Driver side: 60 cm (24 in), GM part 84566977. Passenger side: 45.0 cm (18 in), GM part 84574892. The maintenance replacement parts table prints these lengths and part numbers."),
+        ("rear", "Rear wiper", "Rear: 30.0 cm (12 in), GM part 85118765. The centimeter length matches the 2020 and 2021 tables. The GM part number does not. Those books print 84215609."),
+        ("head", "Headlight", "The LED Lighting section says this vehicle has several LED lamps and to contact your dealer for replacement of any LED lighting assembly. The headlamp section that follows shows a bi-halogen bulb procedure and does not print a trade number."),
+        ("brake", "Brake light", "The taillamp procedure describes a stop lamp, tail lamp, and rear turn socket. It does not print a trade number."),
+        ("turn", "Turn signal", "The front turn signal and fog lamp procedure describes a bulb socket. It does not print a trade number. The rear turn is included in the taillamp procedure, also without a trade number."),
     ], [
-        ("2022 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/equinox/2022-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2022", "Remote battery CR2032. Maintenance parts table for wiper length. Bulb replacement chapter."),
+        ("2022 Chevrolet Equinox Owner's Manual", "https://www.chevrolet.com/ownercenter/content/dam/gmownercenter/gmna/dynamic/manuals/2022/chevrolet/equinox/2022-chevrolet-equinox-owners-manual.pdf", "General Motors LLC", "2021-08", "Document 15230998, CRC 8/10/21. Re-read 21 Nov 2026. Remote battery CR2032 on page 13. Maintenance replacement parts table on page 336. LED Lighting and the bi-halogen headlamp procedure on page 278."),
     ],
-    note=""),
+    note="Re-read 21 Nov 2026. Inch lengths match the 2021 table (24, 18, and 12), not the 2020 table (23.6, 17.7, and 11.8). The driver part changed from 84574893 to 84566977. The rear part changed from 84215609 to 85118765. The passenger part 84574892 is unchanged."),
     V("Chevrolet", "Malibu", 2022, [('chevrolet', 'MALIBU')], [
         ("key", "Key fob battery", "The owner's manual says to replace the remote battery with a CR2032, or equivalent."),
         ("wiper", "Front wiper", "Driver side: 25.6 in. Passenger side: 17.7 in. Lengths are from the maintenance parts table."),
@@ -698,17 +698,53 @@ CAMRY_2025["modified"] = "2026-11-20"
 CAMRY_2025["checked_h"] = "20 Nov 2026"
 CAMRY_2025["seo_title"] = "2025 Camry key fob battery is CR2450"
 
-WAVE2.extend([CAMRY_2023, ACCORD_2023,
+# Added 21 Nov 2026. Fifth-generation CR-V books (2020 and 2022) share
+# the halogen-or-LED headlight chart, the 16 W back-up bulb, and both
+# remote cells. 2021 was not opened, so it is not copied onto this page.
+CRV_2020 = V(
+    "Honda", "CR-V", 2020, [("honda", "CR-V")], [
+        ("key", "Key fob battery", "Master keys with a remote transmitter: CR1620. Keyless remote: CR2032. The 2022 book prints the same two cells. The 2023 to 2025 books print only the CR2032."),
+        ("wiper", "Front wiper", "Checking and Maintaining Wiper Blades describes replacing the rubber. The 2020 book and the 2022 book do not print a driver or passenger inch length."),
+        ("rear", "Rear wiper", "The rear-wiper section describes changing the rubber. Neither the 2020 book nor the 2022 book prints an inch length."),
+        ("head", "Headlight", "Low beam: 55 W (H11) on halogen bulb type models, or LED. High beam: 60 W (HB3) on halogen bulb type models, or LED. The book says LED headlights are replaced as an assembly by a dealer."),
+        ("brake", "Brake light", "Brake, taillight, rear turn signal, and rear side marker lights are LED. High-mount brake light is LED. Have a dealer replace those assemblies. Back-up light: 16 W."),
+        ("turn", "Turn signal", "Front turn signal and front side marker lights: LED. Parking and daytime running lights: LED. Rear turn signal is LED, in the brake and taillight assembly, not a separate 21 W bulb. Side turn signals on the door mirrors: LED."),
+    ], [
+        ("2020 Honda CR-V Owner's Manual",
+         "https://techinfo.honda.com/rjanisis/pubs/OM/AH/ATLA2020OM/enu/ATLA2020OM.PDF",
+         "American Honda Motor Co., Inc.", "2019-10",
+         "Official Honda PDF, file ATLA2020OM, created 3 Oct 2019. Opened 21 Nov 2026. Specifications light-bulb table and Remote Transmitter Care: CR1620 and CR2032. Back-up light 16 W. No wiper inch length."),
+        ("2022 Honda CR-V Owner's Manual",
+         "https://cdn.dealereprocess.org/cdn/servicemanuals/honda/2022-crv.pdf",
+         "American Honda Motor Co., Inc.", "2022",
+         "Dealer-hosted copy of the Honda book. Opened 21 Nov 2026. Same two remote cells, same H11 and HB3 halogen rows, same LED rows, and the same 16 W back-up light. No wiper inch length."),
+    ],
+    note="This page is the 2020 book and the 2022 book. They print the same chart, so 2022 is not a second page. A 2021 CR-V owner's manual was not opened on 21 Nov 2026, and this chart is not copied onto 2021. The 2023 to 2025 chart is different and lives on the 2025 page. Recalls below are model year 2020 only. NHTSA's recalls API, retrieved 21 Nov 2026, returned 4 campaigns for 2021 and 3 for 2022. Look up the VIN.")
+CRV_2020["published"] = "2026-11-21"
+CRV_2020["modified"] = "2026-11-21"
+CRV_2020["checked_h"] = "21 Nov 2026"
+CRV_2020["seo_title"] = "2020 and 2022 CR-V: H11 or LED"
+
+WAVE2.extend([CAMRY_2023, ACCORD_2023, CRV_2020,
               RAV4_2019, RAV4_2020, RAV4_2021, RAV4_2022, RAV4_2023, RAV4_2024, RAV4_2025,
               MODEL_Y_2020, MODEL_Y_2025, CAMRY_2025])
 
 for _v in WAVE2:
-    if _v["make"] == "Chevrolet" and _v["model"] == "Equinox" and _v["year"] in ("2020", "2021"):
-        _v["modified"] = "2026-11-20"
-        _v["checked_h"] = "20 Nov 2026"
-        if _v["year"] == "2020":
-            _v["seo_title"] = "2020 Equinox wipers: 23.6, 17.7, 11.8 in"
+    if _v["make"] == "Chevrolet" and _v["model"] == "Equinox" and _v["year"] in ("2020", "2021", "2022"):
+        if _v["year"] == "2022":
+            _v["modified"] = "2026-11-21"
+            _v["checked_h"] = "21 Nov 2026"
+            _v["seo_title"] = "2022 Equinox driver wiper is 84566977"
         else:
-            _v["seo_title"] = "2021 Equinox wipers print 24, 18, and 12"
+            _v["modified"] = "2026-11-20"
+            _v["checked_h"] = "20 Nov 2026"
+            if _v["year"] == "2020":
+                _v["seo_title"] = "2020 Equinox wipers: 23.6, 17.7, 11.8 in"
+            else:
+                _v["seo_title"] = "2021 Equinox wipers print 24, 18, and 12"
+    if _v["make"] == "Chevrolet" and _v["model"] == "Malibu" and _v["year"] == "2020":
+        _v["modified"] = "2026-11-21"
+        _v["checked_h"] = "21 Nov 2026"
+        _v["seo_title"] = "2020 Malibu wipers are 25.6 and 17.7"
     if _v["make"] == "Nissan" and _v["model"] == "Sentra" and _v["year"] == "2021":
         _v["modified"] = "2026-11-20"

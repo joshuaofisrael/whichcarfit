@@ -375,18 +375,32 @@ CIVIC_2018 = V(
 CRV_2025 = V(
     "Honda", "CR-V", 2025, [("honda", "CR-V")],
     [
-        ("key", "Key fob battery", "CR2032, in Remote Transmitter Care."),
-        ("wiper", "Front wiper", "An inch length is not printed in the sections we read."),
-        ("rear", "Rear wiper", "An inch length is not printed in the sections we read."),
-        ("head", "Headlight", "Headlights are LED. The manual says to have a dealer inspect and replace the light assembly."),
-        ("brake", "Brake light", "Brake light, taillight, and rear side marker light: LED. Have a dealer replace the assembly."),
-        ("turn", "Turn signal", "Front turn signal, parking and daytime running lights: LED. Door mirror side turn lights: LED. Rear turn signal light: 21 W amber."),
+        ("key", "Key fob battery", "CR2032, in Replacing the Remote Battery. The 2023 PDF and the 2024 owner's manual page print the same CR2032 line. Those three books do not print the CR1620 master-key cell that the 2020 and 2022 books print."),
+        ("wiper", "Front wiper", "Checking and Maintaining Wiper Blades in the 2025 PDF (about pages 601 to 604) and in the 2023 PDF describes replacing the rubber. Neither chapter prints a driver or passenger inch length. The 2024 wiper chapter was not the page we opened."),
+        ("rear", "Rear wiper", "The 2023 and 2025 rear-wiper sections describe changing the rubber. They do not print an inch length."),
+        ("head", "Headlight", "Low beam and high beam are both LED. The manual says to have a dealer inspect and replace the light assembly. There is no 55 W H11 row and no 60 W HB3 row. Those halogen rows are in the 2020 and 2022 books."),
+        ("brake", "Brake light", "Brake lights, taillights, and rear side marker lights are LED. High-mount brake light is LED. The manual says to have a dealer replace those assemblies."),
+        ("turn", "Turn signal", "Front turn signal, parking, and daytime running lights: LED. Door-mirror side turn lights: LED. Rear turn signal: 21 W amber. Back-up lights: LED. The 2020 and 2022 books instead list the rear turn as LED and the back-up light as 16 W."),
     ],
-    [("2025 Honda CR-V Owner's Manual",
-      "https://serra-honda-grandville.s3.amazonaws.com/brochures/2025/2025_cr-v_owners_manual.pdf",
-      "American Honda Motor Co., Inc.", "2025",
-      "Dealer hosted copy of the Honda owner manual. Remote battery CR2032. Replacing light bulbs: headlights, front turn signals, and the rear turn signal 21 W amber.")],
+    [
+        ("2025 Honda CR-V Owner's Manual",
+         "https://serra-honda-grandville.s3.amazonaws.com/brochures/2025/2025_cr-v_owners_manual.pdf",
+         "American Honda Motor Co., Inc.", "2024-02",
+         "Cover reads 2025 CR-V. Re-read 21 Nov 2026. Specifications light-bulb table: headlights LED, rear turn signal 21 W amber, back-up lights LED. Remote battery CR2032. Wiper chapter prints no inch length."),
+        ("2023 Honda CR-V Owner's Manual",
+         "https://cdn.dealereprocess.org/cdn/servicemanuals/honda/2023-crv.pdf",
+         "American Honda Motor Co., Inc.", "2023",
+         "Dealer-hosted copy of the Honda book. Same exterior bulb table and the same CR2032 remote. Wiper chapter prints no inch length. Official specifications page: https://techinfo.honda.com/rjanisis/pubs/om/ah/a3a02323iom/enu/details/131240047-16992.html"),
+        ("2024 Honda CR-V Owner's Manual, specifications and remote battery",
+         "https://techinfo.honda.com/rjanisis/pubs/OM/AH/A3A02424IOM/enu/details/131240047-16992.html",
+         "American Honda Motor Co., Inc.", "2024",
+         "Official Honda manual. Light-bulb table matches the 2023 and 2025 books. Remote battery CR2032: https://techinfo.honda.com/rjanisis/pubs/OM/AH/A3A02424IOM/enu/details/131240047-392820.html . The 2024 wiper chapter was not opened."),
+    ],
+    note="This page is the 2023, 2024, and 2025 chart. The three books agree on the CR2032 key, LED headlights, LED back-up lights, and the 21 W amber rear turn. Publishing three copies would change only the year. The 2020 and 2022 books do not match, and they are on the 2020 page. A 2021 CR-V owner's manual was not opened, so 2021 is not given this chart. Recalls below are model year 2025 only.",
 )
+CRV_2025["modified"] = "2026-11-21"
+CRV_2025["checked_h"] = "21 Nov 2026"
+CRV_2025["seo_title"] = "2023 to 2025 CR-V rear turn is 21 W"
 GH_2024 = V(
     "Toyota", "Grand Highlander", 2024, [("toyota", "GRAND HIGHLANDER")],
     [

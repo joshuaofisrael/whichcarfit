@@ -4,7 +4,7 @@
 Writes _build/nhtsa/<slug>.json. Complaint bodies are not stored.
 Run from the repo root: python3 _build/nhtsa_fetch.py
 """
-import json, os, sys, urllib.parse, urllib.request
+import json, os, sys, urllib.error, urllib.parse, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import PUBLISHED
 from vehicles import VEHICLES
@@ -20,8 +20,21 @@ def slugify(s):
 
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        # NHTSA returns HTTP 400 with Count 0 and an empty results list for
+        # some model years that have no rows. That is an empty result, not a
+        # failed lookup. Any other error body still raises.
+        raw = e.read().decode("utf-8", "replace")
+        try:
+            data = json.loads(raw)
+        except Exception:
+            raise
+        if e.code == 400 and data.get("Count") == 0 and not (data.get("results") or []):
+            return data
+        raise
 
 def recalls(make, model, year):
     q = urllib.parse.urlencode({"make": make, "model": model, "modelYear": year})
